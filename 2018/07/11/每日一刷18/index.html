@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&amp;apos;A&amp;apos; -&amp;gt; 1&amp;apos;B&amp;apos; -&amp;gt; 2...&amp;apos;Z&amp;apos; -">
+<meta name="description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&apos;A&apos; -&amp;gt; 1&apos;B&apos; -&amp;gt; 2...&apos;Z&apos; -&amp;gt; 26 Given a non-empty stri">
 <meta name="keywords" content="java,leetcode,Dynamic Programming">
 <meta property="og:type" content="article">
 <meta property="og:title" content="每日一刷18">
 <meta property="og:url" content="http://yoursite.com/2018/07/11/每日一刷18/index.html">
 <meta property="og:site_name" content="Citrix&#39;s Blog">
-<meta property="og:description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&amp;apos;A&amp;apos; -&amp;gt; 1&amp;apos;B&amp;apos; -&amp;gt; 2...&amp;apos;Z&amp;apos; -">
+<meta property="og:description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&apos;A&apos; -&amp;gt; 1&apos;B&apos; -&amp;gt; 2...&apos;Z&apos; -&amp;gt; 26 Given a non-empty stri">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-12T12:56:03.000Z">
+<meta property="og:updated_time" content="2018-09-24T14:03:00.145Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日一刷18">
-<meta name="twitter:description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&amp;apos;A&amp;apos; -&amp;gt; 1&amp;apos;B&amp;apos; -&amp;gt; 2...&amp;apos;Z&amp;apos; -">
+<meta name="twitter:description" content="心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。A message containing letters from A-Z is being encoded to numbers using the following mapping:1234&apos;A&apos; -&amp;gt; 1&apos;B&apos; -&amp;gt; 2...&apos;Z&apos; -&amp;gt; 26 Given a non-empty stri">
 
 
 
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-12T20:56:03+08:00">
-                2018-07-12
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-24T22:03:00+08:00">
+                2018-09-24
               </time>
             
           </span>
@@ -444,9 +444,9 @@
       
 
       
-        <p>心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。<br>A message containing letters from A-Z is being encoded to numbers using the following mapping:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&apos;A&apos; -&gt; 1</span><br><span class="line">&apos;B&apos; -&gt; 2</span><br><span class="line">...</span><br><span class="line">&apos;Z&apos; -&gt; 26</span><br></pre></td></tr></table></figure></p>
-<p>Given a non-empty string containing only digits, determine the total number of ways to decode it.<br><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;12&quot;</span><br><span class="line">Output: 2</span><br></pre></td></tr></table></figure></p>
-<p>Explanation: It could be decoded as “AB” (1 2) or “L” (12).<br><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: &quot;226&quot;</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure></p>
+        <p>心累，这道题其实用到的思想之前都有用到过，这次一结合再加一点创新就做了很久没做出来。<br>A message containing letters from A-Z is being encoded to numbers using the following mapping:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'A'</span> -&gt; <span class="number">1</span></span><br><span class="line"><span class="string">'B'</span> -&gt; <span class="number">2</span></span><br><span class="line">...</span><br><span class="line"><span class="string">'Z'</span> -&gt; <span class="number">26</span></span><br></pre></td></tr></table></figure></p>
+<p>Given a non-empty string containing only digits, determine the total number of ways to decode it.<br><strong>Example 1:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: <span class="string">"12"</span></span><br><span class="line">Output: <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>Explanation: It could be decoded as “AB” (1 2) or “L” (12).<br><strong>Example 2:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: <span class="string">"226"</span></span><br><span class="line">Output: <span class="number">3</span></span><br></pre></td></tr></table></figure></p>
 <p>Explanation: It could be decoded as “BZ” (2 26), “VF” (22 6), or “BBF” (2 2 6).<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.length();</span><br><span class="line">        <span class="keyword">int</span> pre = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> now = s.charAt(n-<span class="number">1</span>) == <span class="string">'0'</span> ? <span class="number">0</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> curr = now;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n-<span class="number">2</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s.charAt(i) == <span class="string">'0'</span>)&#123;</span><br><span class="line">                curr = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                curr = Integer.parseInt(s.substring(i,i+<span class="number">2</span>))&lt;<span class="number">27</span> ? pre+now:now;</span><br><span class="line">            &#125;</span><br><span class="line">            pre = now;</span><br><span class="line">            now = curr;<span class="comment">//这边有点不懂</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> curr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>三个要点：</p>
 <ol>

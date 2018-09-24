@@ -90,7 +90,7 @@
 <meta property="og:description" content="早期（编译期）优化概述JVM的编译器可以分为三个编译器：  前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclipse JDT中的增量式编译器（ECJ）。 JIT编译器：把字节码转变为机器码的过程，如HotSpot VM的C1、C2编译器。 AOT编译器：静态提前编译器，直接将*.java文件编译本地机器代码的过程。  本节讲述的仅限于第一类编译过程  Java即时编译">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/08/15/5b739229dc4e3.jpg">
-<meta property="og:updated_time" content="2018-08-15T03:03:22.000Z">
+<meta property="og:updated_time" content="2018-09-24T14:03:00.154Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解Java虚拟机-Chapter10">
 <meta name="twitter:description" content="早期（编译期）优化概述JVM的编译器可以分为三个编译器：  前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclipse JDT中的增量式编译器（ECJ）。 JIT编译器：把字节码转变为机器码的过程，如HotSpot VM的C1、C2编译器。 AOT编译器：静态提前编译器，直接将*.java文件编译本地机器代码的过程。  本节讲述的仅限于第一类编译过程  Java即时编译">
@@ -347,8 +347,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-08-15T11:03:22+08:00">
-                2018-08-15
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-24T22:03:00+08:00">
+                2018-09-24
               </time>
             
           </span>
@@ -493,8 +493,10 @@
 <ul>
 <li>Integer（-128~127）、Short（-128~127）、Byte（-128~127）、Character（0~127）、Long（-128~127）这几个包装类的valueOf方法的实现是类似的</li>
 <li>Double、Float的valueOf方法的实现是类似的，并没有缓存，直接返回一个新的实例化对象</li>
-<li>Boolean的valueOf方法的实现是个三目运算，形如return (b ? TRUE : FALSE); TRUE、FALSE为两个内部定义的静态成员，这里直接返回两者其一</li>
-<li>当 “==”运算符的两个操作数都是 包装器类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式（即包含算术运算或含有基本类型）则比较的是数值（即会触发自动拆箱的过程）。另外，对于包装器类型，equals方法并不会进行类型转换。</li>
+<li><p>Boolean的valueOf方法的实现是个三目运算，形如return (b ? TRUE : FALSE); TRUE、FALSE为两个内部定义的静态成员，这里直接返回两者其一</p>
+</li>
+<li><p>当 “==”运算符的两个操作数都是 包装器类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式（即包含算术运算或含有基本类型）则比较的是数值（即会触发自动拆箱的过程）。另外，对于包装器类型，equals方法并不会进行类型转换。</p>
+</li>
 </ul>
 
       

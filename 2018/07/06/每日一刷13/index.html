@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Citrix&#39;s Blog">
 <meta property="og:description" content="不管了，先做一波动态规划的题练练思路。 Jump GameGiven an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-15T07:38:46.000Z">
+<meta property="og:updated_time" content="2018-09-24T14:03:00.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="每日一刷13">
 <meta name="twitter:description" content="不管了，先做一波动态规划的题练练思路。 Jump GameGiven an array of non-negative integers, you are initially positioned at the first index of the array.Each element in the array represents your maximum jump length at that">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-07-15T15:38:46+08:00">
-                2018-07-15
+              <time title="更新于" itemprop="dateModified" datetime="2018-09-24T22:03:00+08:00">
+                2018-09-24
               </time>
             
           </span>
@@ -445,8 +445,8 @@
 
       
         <p>不管了，先做一波动态规划的题练练思路。</p>
-<h2 id="Jump-Game"><a href="#Jump-Game" class="headerlink" title="Jump Game"></a>Jump Game</h2><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.<br>Each element in the array represents your maximum jump length at that position.<br>Determine if you are able to reach the last index.<br><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [2,3,1,1,4]</span><br><span class="line">Output: true</span><br><span class="line">Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.</span><br></pre></td></tr></table></figure></p>
-<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [3,2,1,0,4]</span><br><span class="line">Output: false</span><br><span class="line">Explanation: You will always arrive at index 3 no matter what. Its maximum</span><br><span class="line">jump length is 0, which makes it impossible to reach the last index.</span><br></pre></td></tr></table></figure></p>
+<h2 id="Jump-Game"><a href="#Jump-Game" class="headerlink" title="Jump Game"></a>Jump Game</h2><p>Given an array of non-negative integers, you are initially positioned at the first index of the array.<br>Each element in the array represents your maximum jump length at that position.<br>Determine if you are able to reach the last index.<br><strong>Example 1:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Input: [<span class="number">2</span>,<span class="number">3</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">4</span>]</span><br><span class="line">Output: <span class="literal">true</span></span><br><span class="line">Explanation: Jump <span class="number">1</span> step <span class="keyword">from</span> index <span class="number">0</span> to <span class="number">1</span>, then <span class="number">3</span> steps to the last index.</span><br></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Input: [<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">4</span>]</span><br><span class="line">Output: <span class="literal">false</span></span><br><span class="line">Explanation: You will always arrive at index <span class="number">3</span> no matter what. Its maximum</span><br><span class="line">jump length is <span class="number">0</span>, which makes it impossible to reach the last index.</span><br></pre></td></tr></table></figure></p>
 <p><code>`</code>java<br>public class Solution {<br>    public boolean canJump(int[] nums) {<br>        int curr = nums.length;<br>        for (int i = curr-2; i &gt;= 0; i–) {<br>            if (nums[i] == 0){<br>                int jump = 1;<br>                while(nums[i] &lt; jump){<br>                    i–;<br>                    jump++;<br>                    if(i&lt;0){<br>                        return false;<br>                    }<br>                }<br>            }</p>
 <pre><code>    }
     return true;
