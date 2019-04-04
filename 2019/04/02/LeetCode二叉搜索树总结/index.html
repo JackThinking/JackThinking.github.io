@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Citrix&#39;s Blog">
 <meta property="og:description" content="235. Lowest Common Ancestor of a Binary Search Tree1234567891011121314public class Solution &amp;#123;    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) &amp;#123;        if (root">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-03T03:46:37.459Z">
+<meta property="og:updated_time" content="2019-04-04T06:32:40.631Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode二叉搜索树总结">
 <meta name="twitter:description" content="235. Lowest Common Ancestor of a Binary Search Tree1234567891011121314public class Solution &amp;#123;    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) &amp;#123;        if (root">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-03T11:46:37+08:00">
-                2019-04-03
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-04T14:32:40+08:00">
+                2019-04-04
               </time>
             
           </span>
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,414
+                  1,409
                 </span>
               
 
@@ -451,7 +451,7 @@
 <li>递归范围：从root节点到叶子节点</li>
 <li>中间变量：不需要</li>
 <li>结果变量：不需要，找到节点<code>return root</code>即可</li>
-<li>注意点：这道题算是手撕算法的经典题，这道是最基础的版本，即根据二叉搜索树的性质进行判断，之后还会有根据是否有父指针的进阶版本</li>
+<li>注意点：手撕算法的经典题，这道是最基础的版本，即根据二叉搜索树的性质进行判断，之后还会有根据是否有父指针的进阶版本</li>
 </ul>
 <h1 id="98-Validate-Binary-Search-Tree"><a href="#98-Validate-Binary-Search-Tree" class="headerlink" title="98. Validate Binary Search Tree"></a>98. Validate Binary Search Tree</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValidBST</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(root, Long.MAX_VALUE, Long.MIN_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(TreeNode root, <span class="keyword">long</span> minValue, <span class="keyword">long</span> maxValue)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.val &gt;= maxValue || root.val &lt;= minValue) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> helper(root.left, minValue, root.val) &amp;&amp; helper(root.right, root.val, maxValue);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
@@ -464,7 +464,7 @@
 </ul>
 <h1 id="450-Delete-Node-in-a-BST"><a href="#450-Delete-Node-in-a-BST" class="headerlink" title="450. Delete Node in a BST"></a>450. Delete Node in a BST</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">deleteNode</span><span class="params">(TreeNode root, <span class="keyword">int</span> key)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (root.val &gt; key) &#123;</span><br><span class="line">            root.left = deleteNode(root.left, key);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.val &lt; key) &#123;</span><br><span class="line">            root.right = deleteNode(root.right, key);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.left == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> root.right;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (root.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> root.left;</span><br><span class="line">            &#125;</span><br><span class="line">            TreeNode minNode = findMinNode(root.right);</span><br><span class="line">            root.val = minNode.val;</span><br><span class="line">            root.right = deleteNode(root.right, root.val);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">findMinNode</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            root = root.left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>递归截止条件：<code>root == null</code>（不对结果产生影响)，<code>root.val &gt; key</code>（找到要删除的值）</li>
+<li>递归截止条件：<code>root == null</code>（不对结果产生影响)，<code>root.val == key</code>（找到要删除的值）</li>
 <li>递归方程：左右子树<strong>遍历加上编织</strong>的方式</li>
 <li>递归范围：从root节点到叶子节点</li>
 <li>中间变量：minNode用来找到右子树中最小的节点</li>
