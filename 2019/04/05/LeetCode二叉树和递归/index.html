@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Citrix&#39;s Blog">
 <meta property="og:description" content="104. Maximum Depth of Binary Tree12345678public class Solution &amp;#123;    public int maxDepth(TreeNode root) &amp;#123;        if (root == null) &amp;#123;            return 0;        &amp;#125;        return 1 +">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-05T13:47:42.995Z">
+<meta property="og:updated_time" content="2019-04-10T14:42:25.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode二叉树和递归">
 <meta name="twitter:description" content="104. Maximum Depth of Binary Tree12345678public class Solution &amp;#123;    public int maxDepth(TreeNode root) &amp;#123;        if (root == null) &amp;#123;            return 0;        &amp;#125;        return 1 +">
@@ -345,8 +345,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-04-05T21:47:42+08:00">
-                2019-04-05
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-10T22:42:25+08:00">
+                2019-04-10
               </time>
             
           </span>
@@ -407,7 +407,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  944
+                  1,373
                 </span>
               
 
@@ -423,7 +423,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  6
                 </span>
               
             </div>
@@ -506,6 +506,24 @@
 <li>中间变量：使用了另外一个求深度的递归函数</li>
 <li>结果变量：不需要，包含在boolean里面了</li>
 <li>注意点：一个递归调用另外一个递归的题目，要注意</li>
+</ul>
+<h1 id="112-Path-Sum"><a href="#112-Path-Sum" class="headerlink" title="112. Path Sum"></a>112. Path Sum</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPathSum</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> helper(root, sum, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">helper</span><span class="params">(TreeNode root, <span class="keyword">int</span> sum, <span class="keyword">int</span> tempSum)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        tempSum += root.val;<span class="comment">//中间变量的更新放在外面会更好</span></span><br><span class="line">        <span class="keyword">if</span> (root.left == <span class="keyword">null</span> &amp;&amp; root.right == <span class="keyword">null</span> &amp;&amp; tempSum == sum) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> helper(root.left, sum, tempSum) || helper(root.right, sum, tempSum);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>递归截止条件：<code>root == null</code>（无用）；<code>root.left == null &amp;&amp; root.right == null &amp;&amp; tempSum == sum</code>（有用）</li>
+<li>递归方程：左右遍历子树，||连接，只要找到一条即可</li>
+<li>递归范围：从root节点到叶子节点（题目明确说明）</li>
+<li>中间变量：使用tempSum来保存中间的值，由于只要返回boolean变量，故不需要具体的List来保存</li>
+<li>结果变量：不需要，包含在boolean里面了</li>
+<li>注意点：中间变量的更新放在递归外面会更好</li>
+</ul>
+<h1 id="404-Sum-of-Left-Leaves"><a href="#404-Sum-of-Left-Leaves" class="headerlink" title="404. Sum of Left Leaves"></a>404. Sum of Left Leaves</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sumOfLeftLeaves</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (root == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (root.left.left == <span class="keyword">null</span> &amp;&amp; root.left.right == <span class="keyword">null</span>) &#123;</span><br><span class="line">                res += root.left.val;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                res += sumOfLeftLeaves(root.left);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res += sumOfLeftLeaves(root.right);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>递归截止条件：<code>root == null</code>（无用）；<code>root.left == null &amp;&amp; root.right == null &amp;&amp; tempSum == sum &amp;&amp; root是其父节点的左子树</code>（有用）</li>
+<li>递归方程：左右遍历子树</li>
+<li>递归范围：从root节点到叶子节点（根据题目理解）</li>
+<li>中间变量：不需要</li>
+<li>结果变量：使用res来保存中间的值</li>
+<li>注意点：如果要判断是不是左子树，按照往常的判断是不行的（只要判断是否是叶子节点），那就返回到上一层去考虑，以叶子节点的父节点去为出发点，就可以解决了，这道题很好</li>
 </ul>
 
       
@@ -720,7 +738,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">1.</span> <span class="nav-text">104. Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#111-Minimum-Depth-of-Binary-Tree"><span class="nav-number">2.</span> <span class="nav-text">111. Minimum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">3.</span> <span class="nav-text">226. Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#100-Same-Tree"><span class="nav-number">4.</span> <span class="nav-text">100. Same Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">5.</span> <span class="nav-text">101. Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#222-Count-Complete-Tree-Nodes"><span class="nav-number">6.</span> <span class="nav-text">222. Count Complete Tree Nodes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#110-Balanced-Binary-Tree"><span class="nav-number">7.</span> <span class="nav-text">110. Balanced Binary Tree</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#104-Maximum-Depth-of-Binary-Tree"><span class="nav-number">1.</span> <span class="nav-text">104. Maximum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#111-Minimum-Depth-of-Binary-Tree"><span class="nav-number">2.</span> <span class="nav-text">111. Minimum Depth of Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#226-Invert-Binary-Tree"><span class="nav-number">3.</span> <span class="nav-text">226. Invert Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#100-Same-Tree"><span class="nav-number">4.</span> <span class="nav-text">100. Same Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#101-Symmetric-Tree"><span class="nav-number">5.</span> <span class="nav-text">101. Symmetric Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#222-Count-Complete-Tree-Nodes"><span class="nav-number">6.</span> <span class="nav-text">222. Count Complete Tree Nodes</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#110-Balanced-Binary-Tree"><span class="nav-number">7.</span> <span class="nav-text">110. Balanced Binary Tree</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#112-Path-Sum"><span class="nav-number">8.</span> <span class="nav-text">112. Path Sum</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#404-Sum-of-Left-Leaves"><span class="nav-number">9.</span> <span class="nav-text">404. Sum of Left Leaves</span></a></li></ol></div>
             
 
           </div>
@@ -755,7 +773,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">84.8k</span>
+    <span title="Site words total count">85.2k</span>
   
 </div>
 
@@ -780,7 +798,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共84.8k字</span>
+  <span class="post-count">博客全站共85.2k字</span>
 </div>
 
         
