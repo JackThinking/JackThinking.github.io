@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stack on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/stack/</link>
+    <description>Recent content in Stack on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 16 Aug 2018 11:20:04 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/stack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>每日一刷47</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B747/</link>
+      <pubDate>Thu, 16 Aug 2018 11:20:04 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B747/</guid>
+      <description>682. Baseball Game ou&amp;rsquo;re now a baseball game point recorder. Given a list of strings, each string can be one of the 4 following types: Integer (one round&amp;rsquo;s score): Directly represents the number of points you get in this round. * &amp;ldquo;+&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&amp;rsquo;s points. * &amp;ldquo;D&amp;rdquo; (one round&amp;rsquo;s score): Represents</description>
+    </item>
+    
+    <item>
+      <title>每日一刷46</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B746/</link>
+      <pubDate>Thu, 16 Aug 2018 10:36:54 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B746/</guid>
+      <description>20. Valid Parentheses Given a string containing just the characters &#39;(&#39;, &#39;)&#39;, &#39;{&#39;, &#39;}&#39;, &#39;[&#39; and &#39;]&#39;, determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order. Note that an empty string is also considered valid. Example 1: 1 2 Input: &amp;#34;()&amp;#34; Output: true Example 2: 1</description>
+    </item>
+    
+    <item>
+      <title>每日一刷45</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B745/</link>
+      <pubDate>Wed, 15 Aug 2018 21:36:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B745/</guid>
+      <description>84. Largest Rectangle in Histogram Given n non-negative integers representing the histogram&amp;rsquo;s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram. Example: 1 2 Input: [2,1,5,6,2,3] Output: 10 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 class Solution { public int largestRectangleArea(int[] height) { int len = height.length; Stack&amp;lt;Integer&amp;gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java学习笔记5 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="还是要补充基础知识啊 反射 泛型 简单泛型类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Pair&amp;lt;T&amp;gt; { private T first; private T second; public Pair() { first = null; second = null; } public Pair(T first, T second) { this.first = first; this.second = second; } public T getFirst() {" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java学习笔记5" />
+<meta property="og:description" content="还是要补充基础知识啊 反射 泛型 简单泛型类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Pair&lt;T&gt; { private T first; private T second; public Pair() { first = null; second = null; } public Pair(T first, T second) { this.first = first; this.second = second; } public T getFirst() {" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/" />
+<meta property="article:published_time" content="2018-05-18T20:20:02&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-18T20:20:02&#43;00:00"/>
+
+<meta itemprop="name" content="Java学习笔记5">
+<meta itemprop="description" content="还是要补充基础知识啊 反射 泛型 简单泛型类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Pair&lt;T&gt; { private T first; private T second; public Pair() { first = null; second = null; } public Pair(T first, T second) { this.first = first; this.second = second; } public T getFirst() {">
+
+
+<meta itemprop="datePublished" content="2018-05-18T20:20:02&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-18T20:20:02&#43;00:00" />
+<meta itemprop="wordCount" content="428">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java学习笔记5"/>
+<meta name="twitter:description" content="还是要补充基础知识啊 反射 泛型 简单泛型类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Pair&lt;T&gt; { private T first; private T second; public Pair() { first = null; second = null; } public Pair(T first, T second) { this.first = first; this.second = second; } public T getFirst() {"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java学习笔记5</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-18 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> Java </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#反射">反射</a></li>
+<li><a href="#泛型">泛型</a>
+<ul>
+<li><a href="#简单泛型类">简单泛型类</a></li>
+<li><a href="#泛型方法">泛型方法</a></li>
+<li><a href="#泛型变量的限定">泛型变量的限定</a></li>
+<li><a href="#泛型代码和虚拟机">泛型代码和虚拟机</a></li>
+<li><a href="#约束和局限性">约束和局限性</a></li>
+<li><a href="#泛型类型的继承规则">泛型类型的继承规则</a></li>
+</ul></li>
+<li><a href="#多线程">多线程</a></li>
+<li><a href="#枚举">枚举</a></li>
+<li><a href="#内部类">内部类</a>
+<ul>
+<li><a href="#原因">原因</a></li>
+<li><a href="#特性">特性</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>还是要补充基础知识啊</p>
+
+<h2 id="反射">反射</h2>
+
+<h2 id="泛型">泛型</h2>
+
+<h3 id="简单泛型类">简单泛型类</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Pair</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> 
+<span class="o">{</span>
+   <span class="kd">private</span> <span class="n">T</span> <span class="n">first</span><span class="o">;</span>
+   <span class="kd">private</span> <span class="n">T</span> <span class="n">second</span><span class="o">;</span>
+
+   <span class="kd">public</span> <span class="nf">Pair</span><span class="o">()</span> <span class="o">{</span> <span class="n">first</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="n">second</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="o">}</span>
+   <span class="kd">public</span> <span class="nf">Pair</span><span class="o">(</span><span class="n">T</span> <span class="n">first</span><span class="o">,</span> <span class="n">T</span> <span class="n">second</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">first</span> <span class="o">=</span> <span class="n">first</span><span class="o">;</span>  <span class="k">this</span><span class="o">.</span><span class="na">second</span> <span class="o">=</span> <span class="n">second</span><span class="o">;</span> <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="n">T</span> <span class="nf">getFirst</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">first</span><span class="o">;</span> <span class="o">}</span>
+   <span class="kd">public</span> <span class="n">T</span> <span class="nf">getSecond</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">second</span><span class="o">;</span> <span class="o">}</span>
+
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFirst</span><span class="o">(</span><span class="n">T</span> <span class="n">newValue</span><span class="o">)</span> <span class="o">{</span> <span class="n">first</span> <span class="o">=</span> <span class="n">newValue</span><span class="o">;</span> <span class="o">}</span>
+   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setSecond</span><span class="o">(</span><span class="n">T</span> <span class="n">newValue</span><span class="o">)</span> <span class="o">{</span> <span class="n">second</span> <span class="o">=</span> <span class="n">newValue</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这样的话</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Pair</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;()</span>
+<span class="n">Pair</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;(</span><span class="n">String</span><span class="o">,</span><span class="n">String</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>泛型类可以看做是普通类的工厂</p>
+
+<h3 id="泛型方法">泛型方法</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Array</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getmid</span><span class="o">(</span><span class="n">T</span><span class="o">...</span><span class="na">a</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>1.泛型方法可以定义在普通类中，也可以在泛型类中</p>
+
+<h3 id="泛型变量的限定">泛型变量的限定</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getmid</span><span class="o">(</span><span class="n">T</span><span class="o">...</span><span class="na">a</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="泛型代码和虚拟机">泛型代码和虚拟机</h3>
+
+<h3 id="约束和局限性">约束和局限性</h3>
+
+<h3 id="泛型类型的继承规则">泛型类型的继承规则</h3>
+
+<h2 id="多线程">多线程</h2>
+
+<h2 id="枚举">枚举</h2>
+
+<h2 id="内部类">内部类</h2>
+
+<h3 id="原因">原因</h3>
+
+<p>1.内部类方法可以访问该类定义所在的作用域中的数据，包括私有数据
+2.内部类可以对同一个包中的其他类预隐藏起来
+3.定义一个回调函数且不想编写大量代码时，使用匿名内部类比较便捷</p>
+
+<h3 id="特性">特性</h3>
+
+<p>1.内部类既可以访问自己的数据域，也可以访问外围类对象的数据域
+2.outerclass.this代表正规的外部引用
+3.outerobject.new innerclass(construction parameters)
+4.局部内部类：可以在方法中定义内部类（不能用public或者private进行声明，对外部世界完全隐藏）</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-18
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E8%BD%AF%E6%8A%80%E8%83%BD/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">软技能</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">
+            <span class="next-text nav-default">Java学习笔记4</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

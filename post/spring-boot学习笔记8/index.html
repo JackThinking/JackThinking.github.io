@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring boot学习笔记8 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="小知识 1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到p" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring boot学习笔记8" />
+<meta property="og:description" content="小知识 1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到p" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/" />
+<meta property="article:published_time" content="2018-05-13T10:02:56&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-13T10:02:56&#43;00:00"/>
+
+<meta itemprop="name" content="Spring boot学习笔记8">
+<meta itemprop="description" content="小知识 1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到p">
+
+
+<meta itemprop="datePublished" content="2018-05-13T10:02:56&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-13T10:02:56&#43;00:00" />
+<meta itemprop="wordCount" content="1355">
+
+
+
+<meta itemprop="keywords" content="Spring boot," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot学习笔记8"/>
+<meta name="twitter:description" content="小知识 1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到p"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring boot学习笔记8</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-13 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring boot </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#小知识">小知识</a></li>
+<li><a href="#小技巧">小技巧</a></li>
+<li><a href="#小问题">小问题</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="小知识">小知识</h2>
+
+<p>1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到pc上的开发环境呢？可以用代理的方式，使用charles软件，手机连接到和pc同一个网段后使用代理就行。（前提是开启内网穿透，让外网可以访问到本机）
+2.在paycontroller里面返回的是网页而不是json字符串，所以使用注解@Controller而不是@RestController
+3.使用外部的资源的话，在maven的依赖里面添加即可，自动下载，还可以指明版本号
+4.微信支付有一个异步通知的设置，要设置异步通知的网址接受并处理（TODO）
+5.支付端的代码推荐写到后端，可以重复利用
+6.想要实现后端生成动态的html文本的话，需要动态输入参数，使用Freemarker,java文件返回ModelandView类就行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">create</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;orderId&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">orderId</span><span class="o">,</span>
+                       <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;returnUrl&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">returnUrl</span><span class="o">,</span>
+                               <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">map</span>
+    <span class="o">){</span>
+        <span class="c1">//1.查询订单
+</span><span class="c1"></span>        <span class="n">OrderDTO</span> <span class="n">orderDTO</span> <span class="o">=</span> <span class="n">orderService</span><span class="o">.</span><span class="na">findOne</span><span class="o">(</span><span class="n">orderId</span><span class="o">);</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">orderDTO</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">SellException</span><span class="o">(</span><span class="n">ResultEnum</span><span class="o">.</span><span class="na">ORDER_NOT_EXIST</span><span class="o">);</span>
+
+        <span class="o">}</span>
+        <span class="c1">//2.发起支付
+</span><span class="c1"></span>        <span class="n">PayResponse</span> <span class="n">payResponse</span> <span class="o">=</span> <span class="n">payService</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">orderDTO</span><span class="o">);</span>
+
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;payResponse&#34;</span><span class="o">,</span> <span class="n">payResponse</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;returnUrl&#34;</span><span class="o">,</span> <span class="n">returnUrl</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="n">ModelAndView</span><span class="o">(</span><span class="s">&#34;pay/create&#34;</span><span class="o">,</span><span class="n">map</span><span class="o">);</span>
+    <span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>相应的create.ftl文件内容为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">onBridgeReady</span><span class="p">(){</span>
+        <span class="nx">WeixinJSBridge</span><span class="p">.</span><span class="nx">invoke</span><span class="p">(</span>
+                <span class="s1">&#39;getBrandWCPayRequest&#39;</span><span class="p">,</span> <span class="p">{</span>
+                    <span class="s2">&#34;appId&#34;</span><span class="o">:</span><span class="s2">&#34;${payResponse.appId}&#34;</span><span class="p">,</span>     <span class="c1">//公众号名称，由商户传入
+</span><span class="c1"></span>                    <span class="s2">&#34;timeStamp&#34;</span><span class="o">:</span><span class="s2">&#34;${payResponse.timeStamp}&#34;</span><span class="p">,</span>         <span class="c1">//时间戳，自1970年以来的秒数
+</span><span class="c1"></span>                    <span class="s2">&#34;nonceStr&#34;</span><span class="o">:</span><span class="s2">&#34;${payResponse.nonceStr}&#34;</span><span class="p">,</span> <span class="c1">//随机串
+</span><span class="c1"></span>                    <span class="s2">&#34;package&#34;</span><span class="o">:</span><span class="s2">&#34;${payResponse.packAge}&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;signType&#34;</span><span class="o">:</span><span class="s2">&#34;MD5&#34;</span><span class="p">,</span>         <span class="c1">//微信签名方式：
+</span><span class="c1"></span>                    <span class="s2">&#34;paySign&#34;</span><span class="o">:</span><span class="s2">&#34;${payResponse.paySign}&#34;</span> <span class="c1">//微信签名
+</span><span class="c1"></span>                <span class="p">},</span>
+                <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">){</span>
+<span class="c1">//                    if(res.err_msg == &#34;get_brand_wcpay_request:ok&#34; ) {}     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回    ok，但并不保证它绝对可靠。
+</span><span class="c1"></span>                    <span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="s2">&#34;${returnUrl}&#34;</span><span class="p">;</span>
+                <span class="p">}</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">WeixinJSBridge</span> <span class="o">==</span> <span class="s2">&#34;undefined&#34;</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span> <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span> <span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;WeixinJSBridgeReady&#39;</span><span class="p">,</span> <span class="nx">onBridgeReady</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+        <span class="p">}</span><span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">){</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;WeixinJSBridgeReady&#39;</span><span class="p">,</span> <span class="nx">onBridgeReady</span><span class="p">);</span>
+            <span class="nb">document</span><span class="p">.</span><span class="nx">attachEvent</span><span class="p">(</span><span class="s1">&#39;onWeixinJSBridgeReady&#39;</span><span class="p">,</span> <span class="nx">onBridgeReady</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="nx">onBridgeReady</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>7.在对账的时候，可以出现金额由于数据类型不同出错的情况，为此特意写了一个工具类MathUtil（判断精度到小数点后面两位）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.utils</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/10.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MathUtil</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Double</span> <span class="n">Money_Range</span> <span class="o">=</span> <span class="n">0</span><span class="o">.</span><span class="na">01</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Boolean</span> <span class="nf">equals</span><span class="o">(</span><span class="n">Double</span> <span class="n">num1</span><span class="o">,</span> <span class="n">Double</span> <span class="n">num2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Double</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">abs</span><span class="o">(</span><span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">result</span> <span class="o">&lt;</span> <span class="n">Money_Range</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>8.处理微信发给来的异步通知信息，处理成功微信端就不发了：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java">    <span class="cm">/**
+</span><span class="cm">     * 异步回调
+</span><span class="cm">     */</span>
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="s">&#34;/notify&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">ModelAndView</span> <span class="nf">notify</span><span class="o">(</span><span class="nd">@RequestBody</span> <span class="n">String</span> <span class="n">notifyData</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">payService</span><span class="o">.</span><span class="na">notify</span><span class="o">(</span><span class="n">notifyData</span><span class="o">);</span>
+
+        <span class="c1">//返回给微信处理结果
+</span><span class="c1"></span>        <span class="k">return</span> <span class="k">new</span> <span class="n">ModelAndView</span><span class="o">(</span><span class="s">&#34;pay/success&#34;</span><span class="o">);</span>
+
+    <span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>9.在原来的基础上，增加退款逻辑，在OrderServiceImpl里面写cancel函数，paid函数，finish函数（finish和paid的区别再看看）
+10.数据库中存的是上架下架等的状态码，而在网页端的时候的时候需要是msg格式的，所以需要写一个根据枚举里面code找到msg的方法EnumUtil：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.utils</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.imooc.sell.enums.CodeEnum</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/11.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EnumUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span> <span class="kd">extends</span> <span class="n">CodeEnum</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getByCode</span><span class="o">(</span><span class="n">Integer</span> <span class="n">code</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">enumClass</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">for</span> <span class="o">(</span><span class="n">T</span> <span class="nl">each:</span> <span class="n">enumClass</span><span class="o">.</span><span class="na">getEnumConstants</span><span class="o">())</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">code</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">each</span><span class="o">.</span><span class="na">getCode</span><span class="o">()))</span> <span class="o">{</span>
+                <span class="k">return</span> <span class="n">each</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>11.有时候需要某些数据返回到前端json的时候自动省略（这些个函数主要用于生成前端页面），则可以加注解@JsonIgnore</p>
+
+<h2 id="小技巧">小技巧</h2>
+
+<p>1.为了控制台输出的数据格式直观，写了一个工具类JsonUtil，作用就是将数据变成json格式打印
+2.使用网站ibootstrap生成简单的前端页面代码</p>
+
+<h2 id="小问题">小问题</h2>
+
+<p>1.虽然获取openid可以用测试账号，但是支付的开发必须使用服务号的功能，奈何太贵，这不过就不测试开发了
+2.微信支付有个预支付参数（prepayid）之后如果有需要再看看
+3.Java语法里面Map的使用
+4.微信退款的操作需要额外的证书，这边先不尝试
+5.微信的退款通知也放放</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java学习笔记4</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">
+            <span class="next-text nav-default">Spring boot学习笔记7</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JVM虚拟机 on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/</link>
+    <description>Recent content in JVM虚拟机 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 15 Aug 2018 10:41:50 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter11</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter11/</link>
+      <pubDate>Wed, 15 Aug 2018 10:41:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter11/</guid>
+      <description>晚期（运行期）优化概述 Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter10</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter10/</link>
+      <pubDate>Wed, 15 Aug 2018 10:10:44 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter10/</guid>
+      <description>早期（编译期）优化概述 JVM的编译器可以分为三个编译器： 前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclips</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter8</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter8/</link>
+      <pubDate>Thu, 02 Aug 2018 11:13:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter8/</guid>
+      <description>虚拟机字节码执行引擎 代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。 运行时栈帧结构 栈帧(Sta</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter13</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter13/</link>
+      <pubDate>Wed, 01 Aug 2018 10:36:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter13/</guid>
+      <description>线程安全与锁优化 首先需要保证正确性，然后在此基础上实现高效 概述 「面向过程」的编程思想：站在计算机的角度去抽象问题和解决问题，把数据和过</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter2</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter2/</link>
+      <pubDate>Tue, 31 Jul 2018 10:30:16 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter2/</guid>
+      <description>Java内存区域与内存溢出异常 java与c++之间有一堵由内存动态分配和垃圾收集技术所围城的‘高墙’，墙外的人想进去。墙里面的人想出来 运行时</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter12</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter12/</link>
+      <pubDate>Sun, 29 Jul 2018 15:07:05 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter12/</guid>
+      <description>Java内存模型和线程 并发处理的广泛应用是人类“压榨”计算机运行能力的最有利武器 为啥需要并发？ 计算机的运行速度和其他存储和通信子系统差距太</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter6</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter6/</link>
+      <pubDate>Fri, 27 Jul 2018 10:00:44 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter6/</guid>
+      <description>“代码编译的结果从本地机器码转变为字节码，是存储格式发展的一小步，却是编程语言发展的一大步。” 类文件结构 啥是无关性？ JVM不仅具有平台无关性</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter7</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter7/</link>
+      <pubDate>Sat, 21 Jul 2018 21:58:23 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter7/</guid>
+      <description>虚拟机类加载机制 概述 虚拟机的类加载机制：虚拟机把描述类的数据从 Class 文件加载到内存，并对数据进行校验、转换解析和初始化，最终形成可以被虚拟机直接</description>
+    </item>
+    
+    <item>
+      <title>深入理解Java虚拟机-Chapter3</title>
+      <link>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter3/</link>
+      <pubDate>Thu, 19 Jul 2018 11:15:08 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter3/</guid>
+      <description>垃圾收集器与内存分配策略 主要思考的问题: 标记-那些内存(那些死,那些活着)需要回收? 什么时候回收? 如何回收? 内存部分分类 线程独有：程序计数器</description>
+    </item>
+    
+    <item>
+      <title>JVM框架概览</title>
+      <link>http://localhost:1313/post/jvm%E6%A1%86%E6%9E%B6%E6%A6%82%E8%A7%88/</link>
+      <pubDate>Wed, 11 Jul 2018 15:49:18 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jvm%E6%A1%86%E6%9E%B6%E6%A6%82%E8%A7%88/</guid>
+      <description>之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行</description>
+    </item>
+    
+    <item>
+      <title>Java JVM学习笔记1</title>
+      <link>http://localhost:1313/post/java-jvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Thu, 05 Jul 2018 14:18:01 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java-jvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
+      <description>光看书找不到重点，针对题目来学习一下《深入了理解Java虚拟机》。 以下哪个不属于JVM堆内存中的区域？ Java堆分为：新生代（一般是一个Ed</description>
+    </item>
+    
+  </channel>
+</rss>

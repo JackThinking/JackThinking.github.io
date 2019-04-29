@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring boot on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/spring-boot/</link>
+    <description>Recent content in Spring boot on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 13 May 2018 10:02:56 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/spring-boot/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring boot学习笔记8</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</link>
+      <pubDate>Sun, 13 May 2018 10:02:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/</guid>
+      <description>小知识 1.由于在pc端上修改了host文件，可以将网址sell.com直接解析为127.0.0.1，但是在手机上不能改host，如何访问到p</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记7</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</link>
+      <pubDate>Tue, 08 May 2018 20:07:37 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/</guid>
+      <description>今天暂停一下跟着视频学习的进程，好好回顾一下程序的逻辑。 获取yml配置文件里的变量 比如我在yml配置的微信关公众号的信息如下： 1 2 3 wechat: mpAppid: wxf98e335974fbfa76 mpAppSecret:</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记6</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</link>
+      <pubDate>Mon, 07 May 2018 09:34:29 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/</guid>
+      <description>周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记5</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</link>
+      <pubDate>Sun, 06 May 2018 09:51:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</guid>
+      <description>记录在spring boot学习中遇到的知识和难点 小知识 1.lombok的Data,Getter,Setter的区别就是，Data包含（Ge</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记4</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</link>
+      <pubDate>Thu, 03 May 2018 20:07:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</guid>
+      <description>spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记3</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</link>
+      <pubDate>Thu, 03 May 2018 09:30:43 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/</guid>
+      <description>之前按照spring boot的视频依葫芦画瓢，虽然知道了大体框架，但是很多细节方面的问题都被带过了，现在回顾一下。 框架 整个工程可以分为4个模</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记2</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</link>
+      <pubDate>Fri, 27 Apr 2018 16:01:21 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</guid>
+      <description>慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件pos</description>
+    </item>
+    
+    <item>
+      <title>Spring boot学习笔记</title>
+      <link>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Thu, 26 Apr 2018 11:34:40 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
+      <description>跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习s</description>
+    </item>
+    
+  </channel>
+</rss>

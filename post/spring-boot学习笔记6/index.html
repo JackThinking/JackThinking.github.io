@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring boot学习笔记6 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring boot学习笔记6" />
+<meta property="og:description" content="周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B06/" />
+<meta property="article:published_time" content="2018-05-07T09:34:29&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-07T09:34:29&#43;00:00"/>
+
+<meta itemprop="name" content="Spring boot学习笔记6">
+<meta itemprop="description" content="周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再">
+
+
+<meta itemprop="datePublished" content="2018-05-07T09:34:29&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-07T09:34:29&#43;00:00" />
+<meta itemprop="wordCount" content="1215">
+
+
+
+<meta itemprop="keywords" content="Spring boot," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot学习笔记6"/>
+<meta name="twitter:description" content="周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring boot学习笔记6</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-07 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring boot </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#小问题">小问题</a></li>
+<li><a href="#小技巧">小技巧</a></li>
+<li><a href="#小知识">小知识</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>周末两天把最硬核的买家端DAO-Service(单元测试)-Controller部分完成了，干货非常多，但是也有很多业务逻辑方面的代码需要再好好理解。</p>
+
+<h2 id="小问题">小问题</h2>
+
+<p>1.在OrderServiceImpl有CollectionUtils.isEmpty(orderDetailList)还不是很理解其语法
+2.PageIml，getContent()以及Page类
+3.@Valid注解和BindingResult
+4.HashMap以及map的使用</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&#34;orderId&#34;</span><span class="o">,</span> <span class="n">createResult</span><span class="o">.</span><span class="na">getOrderId</span><span class="o">());</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="小技巧">小技巧</h2>
+
+<p>1.cmd+.可以在IDEA里将括号收起来
+2.IDEA注释写/TODO可以显示高亮和跳转，方便后期修改
+3.在postman里面可以把json的数据放进去自动生成key-value字段
+4.IDEA里面如果出现删除线说明方法被弃用了，点进去可以看到修改后的方法</p>
+
+<h2 id="小知识">小知识</h2>
+
+<p>1.由于经常写DAO-&gt;DTO,索性写一个转换函数converter：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.converter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dataobject.OrderMaster</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dto.OrderDTO</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.BeanUtils</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.stream.Collectors</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/6.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderMaster2OrderDTOConverter</span> <span class="o">{</span>
+    <span class="c1">//单个参数的函数
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">OrderDTO</span> <span class="nf">convert</span><span class="o">(</span><span class="n">OrderMaster</span> <span class="n">orderMaster</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="n">OrderDTO</span> <span class="n">orderDTO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderDTO</span><span class="o">();</span>
+        <span class="n">BeanUtils</span><span class="o">.</span><span class="na">copyProperties</span><span class="o">(</span><span class="n">orderMaster</span><span class="o">,</span> <span class="n">orderDTO</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">orderDTO</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="c1">//列表参数的一个函数
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">OrderDTO</span><span class="o">&gt;</span> <span class="nf">convert</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderMaster</span><span class="o">&gt;</span> <span class="n">orderMasterList</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">orderMasterList</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">map</span><span class="o">(</span><span class="n">e</span> <span class="o">-&gt;</span>
+                <span class="n">convert</span><span class="o">(</span><span class="n">e</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">collect</span><span class="o">(</span><span class="n">Collectors</span><span class="o">.</span><span class="na">toList</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>2.对于前端传过来的表单设立专门的Form类：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.form</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.validation.constraints.NotEmpty</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 表单验证模块，涉及到前端过来的表单验证
+</span><span class="cm"> * Created by Citrix on 2018/5/6.
+</span><span class="cm"> */</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderForm</span> <span class="o">{</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 买家姓名
+</span><span class="cm">     */</span>
+    <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#34;姓名必填&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 买家手机号
+</span><span class="cm">     */</span>
+    <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#34;手机号必填&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">phone</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 买家地址
+</span><span class="cm">     */</span>
+    <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#34;地址必填&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 买家微信openid
+</span><span class="cm">     */</span>
+    <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#34;openid必填&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">openid</span><span class="o">;</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * 这个是麻烦的地方
+</span><span class="cm">     * 购物车
+</span><span class="cm">     */</span>
+    <span class="nd">@NotEmpty</span><span class="o">(</span><span class="n">message</span> <span class="o">=</span> <span class="s">&#34;购物车不能为空&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">items</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>3.在自定义异常中添加message字段，扩展异常处理的多样性
+4.BeanUtil的方法需要两个对象的类内变量名字相同
+5.使用了Google的Gson格式，在maven里面添加依赖，然后gson在项目中的应用主要在OrderForm2OrderDTOConverter里面（还待研究）:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.converter</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.google.gson.Gson</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.gson.reflect.TypeToken</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dataobject.OrderDetail</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dto.OrderDTO</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.enums.ResultEnum</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.exception.SellException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.form.OrderForm</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.extern.slf4j.Slf4j</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/6.
+</span><span class="cm"> */</span>
+<span class="nd">@Slf4j</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">OrderForm2OrderDTOConverter</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">OrderDTO</span> <span class="nf">convert</span><span class="o">(</span><span class="n">OrderForm</span> <span class="n">orderForm</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Gson</span> <span class="n">gson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Gson</span><span class="o">();</span>
+        <span class="n">OrderDTO</span> <span class="n">orderDTO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OrderDTO</span><span class="o">();</span>
+
+        <span class="n">orderDTO</span><span class="o">.</span><span class="na">setBuyerName</span><span class="o">(</span><span class="n">orderForm</span><span class="o">.</span><span class="na">getName</span><span class="o">());</span>
+        <span class="n">orderDTO</span><span class="o">.</span><span class="na">setBuyerPhone</span><span class="o">(</span><span class="n">orderForm</span><span class="o">.</span><span class="na">getPhone</span><span class="o">());</span>
+        <span class="n">orderDTO</span><span class="o">.</span><span class="na">setBuyerAddress</span><span class="o">(</span><span class="n">orderForm</span><span class="o">.</span><span class="na">getAddress</span><span class="o">());</span>
+        <span class="n">orderDTO</span><span class="o">.</span><span class="na">setBuyerOpenid</span><span class="o">(</span><span class="n">orderForm</span><span class="o">.</span><span class="na">getOpenid</span><span class="o">());</span>
+
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">OrderDetail</span><span class="o">&gt;</span> <span class="n">orderDetailList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+        <span class="cm">/*防止出错*/</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="cm">/*这边是难点*/</span>
+            <span class="n">orderDetailList</span> <span class="o">=</span> <span class="n">gson</span><span class="o">.</span><span class="na">fromJson</span><span class="o">(</span><span class="n">orderForm</span><span class="o">.</span><span class="na">getItems</span><span class="o">(),</span>
+                    <span class="k">new</span> <span class="n">TypeToken</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">OrderDetail</span><span class="o">&gt;&gt;()</span> <span class="o">{</span>
+                    <span class="o">}.</span><span class="na">getType</span><span class="o">());</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="cm">/*经常配合log使用*/</span>
+            <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">&#34;【对象转换】错误, string={}&#34;</span><span class="o">,</span> <span class="n">orderForm</span><span class="o">.</span><span class="na">getItems</span><span class="o">());</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">SellException</span><span class="o">(</span><span class="n">ResultEnum</span><span class="o">.</span><span class="na">PARAM_ERROR</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">orderDTO</span><span class="o">.</span><span class="na">setOrderDetailList</span><span class="o">(</span><span class="n">orderDetailList</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">orderDTO</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>6.如果想要做到返回字段为Null就不传的效果的话，全局可以在.yml配置文件里添加：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">jackson</span><span class="o">:</span>
+    <span class="k">default</span><span class="o">-</span><span class="nx">property</span><span class="o">-</span><span class="nx">inclusion</span><span class="o">:</span> <span class="nx">non_null</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>局部的话，在相应的类里面（比如OrderDTO）添加注解@JsonInclude(JsonInclude.Include.NON_NULL)</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B07/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Spring boot学习笔记7</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/">
+            <span class="next-text nav-default">Spring boot学习笔记5</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

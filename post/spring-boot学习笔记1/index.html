@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring boot学习笔记 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习s" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring boot学习笔记" />
+<meta property="og:description" content="跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习s" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/" />
+<meta property="article:published_time" content="2018-04-26T11:34:40&#43;00:00"/>
+<meta property="article:modified_time" content="2018-04-26T11:34:40&#43;00:00"/>
+
+<meta itemprop="name" content="Spring boot学习笔记">
+<meta itemprop="description" content="跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习s">
+
+
+<meta itemprop="datePublished" content="2018-04-26T11:34:40&#43;00:00" />
+<meta itemprop="dateModified" content="2018-04-26T11:34:40&#43;00:00" />
+<meta itemprop="wordCount" content="824">
+
+
+
+<meta itemprop="keywords" content="Spring boot," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot学习笔记"/>
+<meta name="twitter:description" content="跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习s"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring boot学习笔记</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-04-26 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring boot </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#controller的使用">Controller的使用</a>
+<ul>
+<li><a href="#请求部分">请求部分</a></li>
+<li><a href="#参数部分">参数部分</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>跟着慕课网上的《2小时学会Spring Boot》学习，发现讲解比较简单，适合像我这样的初学者学习，记录一下每个章节学到的知识点，主要以学习springboot框架为主.</p>
+
+<h2 id="controller的使用">Controller的使用</h2>
+
+<h3 id="请求部分">请求部分</h3>
+
+<p>1.@Controller:处理HTTP请求
+2.@RestController:spring4之后新加的注解，原来返回json需要@RequestBody+@Controller
+3.@RequestMapping:配置url映射</p>
+
+<p>如果单独使用@Controller的话，需要配合模板使用，首先在pom.xml配置spring的thymeleaf，然后再resources目录下建立相应的templates文件夹，再在这个文件夹下写一个index.html，这种方法带来的性能损耗较大，实际开发中前后端分离，不会这样做的，后端提供接口和json格式的数据就行。</p>
+
+<p>@RequestMapping可以将请求映射到多个url下，实际代码如下:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="o">{</span><span class="s">&#34;/hello&#34;</span><span class="err">，</span><span class="s">&#34;/hi&#34;</span><span class="o">},</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>就使得下面的url内容一致。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">http:</span><span class="c1">//127.0.0.1:8080/hello
+</span><span class="c1"></span><span class="nl">http:</span><span class="o">//</span><span class="n">127</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">1</span><span class="o">:</span><span class="n">8080</span><span class="o">/</span><span class="n">hi</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>还有就是可以在整体在前面加一个“hello”字段，然后下面再加“say”字段，如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="err"></span><span class="nd">@RestController</span>
+<span class="nd">@RequestMapping</span><span class="o">(</span><span class="s">&#34;hello&#34;</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">HelloController</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">GirlProperties</span> <span class="n">girlProperties</span><span class="o">;</span>
+
+    <span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/say&#34;</span><span class="o">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">say</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">girlProperties</span><span class="o">.</span><span class="na">getCupSize</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="参数部分">参数部分</h3>
+
+<p>1.@PathVariable:获取url的数据
+2.@RequestParam:获取请求参数的值
+3.@GetMapping:组合注解</p>
+
+<p>使用以下的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/say/{id}&#34;</span><span class="o">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">say</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>
+    <span class="k">return</span> <span class="s">&#34;id&#34;</span> <span class="o">+</span> <span class="n">id</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>就可以获取到下面url中100的这个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">http:</span><span class="o">//</span><span class="n">127</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">1</span><span class="o">:</span><span class="n">8080</span><span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">say</span><span class="o">/</span><span class="n">100</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>使用以下的代码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/say&#34;</span><span class="o">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">say</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;id&#34;</span><span class="o">,</span><span class="n">required</span> <span class="o">=</span> <span class="kc">false</span><span class="o">,</span><span class="n">defaultValue</span> <span class="o">=</span> <span class="s">&#34;0&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">myid</span><span class="o">){</span>
+    <span class="k">return</span> <span class="s">&#34;id&#34;</span> <span class="o">+</span> <span class="n">myid</span><span class="o">;</span>
+ <span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>就可以获取到下面url中100的这个值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">http:</span><span class="o">//</span><span class="n">127</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">1</span><span class="o">:</span><span class="n">8080</span><span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">say</span><span class="o">/?</span><span class="n">id</span><span class="o">=</span><span class="n">100</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>而且由于@RequestParam设置的默认参数，就算是下面这样：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">http:</span><span class="o">//</span><span class="n">127</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">0</span><span class="o">.</span><span class="na">1</span><span class="o">:</span><span class="n">8080</span><span class="o">/</span><span class="n">hello</span><span class="o">/</span><span class="n">say</span><span class="o">/?</span><span class="n">id</span><span class="o">=</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>也能显示id0。
+由于下面代码效果等价，但是第二种写法更加短小，所以推荐使用第二种写法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/say&#34;</span><span class="o">,</span><span class="n">method</span> <span class="o">=</span> <span class="n">RequestMethod</span><span class="o">.</span><span class="na">GET</span><span class="o">)</span>
+<span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/say&#34;</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-04-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Spring boot学习笔记2</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
+            <span class="next-text nav-default">Java学习笔记2</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

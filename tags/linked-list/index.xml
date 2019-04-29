@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linked List on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/linked-list/</link>
+    <description>Recent content in Linked List on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 30 Oct 2018 20:36:42 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/linked-list/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>每周总结4</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%934/</link>
+      <pubDate>Tue, 30 Oct 2018 20:36:42 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%934/</guid>
+      <description>ListNode-easy系列题 Delete Node in a Linked List(node.val = node.next.val; node.next = node.next.next;连接跳过即可) Remove Nth Node From End of List(要删除尾巴指定位置的节</description>
+    </item>
+    
+    <item>
+      <title>每日一刷66</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B766/</link>
+      <pubDate>Wed, 05 Sep 2018 15:40:57 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B766/</guid>
+      <description>138. Copy List with Random Pointer A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null. Return a deep copy of the list. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32</description>
+    </item>
+    
+    <item>
+      <title>每日一刷65</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B765/</link>
+      <pubDate>Tue, 04 Sep 2018 16:25:30 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B765/</guid>
+      <description>23. Merge k Sorted Lists Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. Example: 1 2 3 4 5 6 7 Input: [ 1-&amp;gt;4-&amp;gt;5, 1-&amp;gt;3-&amp;gt;4, 2-&amp;gt;6 ] Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4-&amp;gt;5-&amp;gt;6 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32</description>
+    </item>
+    
+    <item>
+      <title>每日一刷64</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B764/</link>
+      <pubDate>Fri, 31 Aug 2018 15:40:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B764/</guid>
+      <description>148. Sort List Sort a linked list in O(n log n) time using constant space complexity. Example 1: 1 2 Input: 4-&amp;gt;2-&amp;gt;1-&amp;gt;3 Output: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4 Example 2: 1 2 Input: -1-&amp;gt;5-&amp;gt;3-&amp;gt;4-&amp;gt;0 Output: -1-&amp;gt;0-&amp;gt;3-&amp;gt;4-&amp;gt;5 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38</description>
+    </item>
+    
+    <item>
+      <title>每日一刷63</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B763/</link>
+      <pubDate>Thu, 30 Aug 2018 21:35:10 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B763/</guid>
+      <description>61. Rotate List Given a linked list, rotate the list to the right by k places, where k is non-negative. Example 1: 1 2 3 4 5 Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, k = 2 Output: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL Explanation: rotate 1 steps to the right: 5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;NULL rotate 2 steps to the right: 4-&amp;gt;5-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;NULL Example 2: 1 2 3 4 5 6 7 Input: 0-&amp;gt;1-&amp;gt;2-&amp;gt;NULL, k = 4 Output: 2-&amp;gt;0-&amp;gt;1-&amp;gt;NULL Explanation: rotate 1 steps to</description>
+    </item>
+    
+    <item>
+      <title>每日一刷62</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B762/</link>
+      <pubDate>Wed, 29 Aug 2018 19:52:59 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B762/</guid>
+      <description>160. Intersection of Two Linked Lists Write a program to find the node at which the intersection of two singly linked lists begins. For example, the following two linked lists: 1 2 3 4 5 A: a1 → a2 ↘ c1 → c2 → c3 ↗ B: b1 → b2 → b3 begin to intersect at node c1. Notes: * If the two linked lists have no intersection at all,</description>
+    </item>
+    
+    <item>
+      <title>每日一刷61</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B761/</link>
+      <pubDate>Wed, 29 Aug 2018 16:34:31 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B761/</guid>
+      <description>92. Reverse Linked List II Reverse a linked list from position m to n. Do it in one-pass. Note: 1 ≤ m ≤ n ≤ length of list. Example: 1 2 Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, m = 2, n = 4 Output: 1-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;5-&amp;gt;NULL 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 class Solution { public ListNode reverseBetween(ListNode head,</description>
+    </item>
+    
+    <item>
+      <title>每日一刷60</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B760/</link>
+      <pubDate>Tue, 28 Aug 2018 19:54:08 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B760/</guid>
+      <description>328. Odd Even Linked List Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity. Example 1: 1 2 Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL Output: 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL Example 2: 1 2 Input:</description>
+    </item>
+    
+    <item>
+      <title>每日一刷59</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B759/</link>
+      <pubDate>Sat, 25 Aug 2018 15:55:37 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B759/</guid>
+      <description>445. Add Two Numbers II You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself. Follow up: What if you cannot modify the input lists? In</description>
+    </item>
+    
+    <item>
+      <title>每日一刷58</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B758/</link>
+      <pubDate>Sat, 25 Aug 2018 14:45:50 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B758/</guid>
+      <description>2. Add Two Numbers You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself. Example: 1 2 3 Input: (2 -&amp;gt; 4 -&amp;gt; 3) +</description>
+    </item>
+    
+    <item>
+      <title>每日一刷57</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B757/</link>
+      <pubDate>Fri, 24 Aug 2018 14:41:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B757/</guid>
+      <description>142. Linked List Cycle II Given a linked list, return the node where the cycle begins. If there is no cycle, return null. Note: Do not modify the linked list. Follow up: Can you solve it without using extra space? 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public class Solution { public ListNode detectCycle(ListNode head) { ListNode fast</description>
+    </item>
+    
+    <item>
+      <title>每日一刷56</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B756/</link>
+      <pubDate>Fri, 24 Aug 2018 14:40:18 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B756/</guid>
+      <description>141. Linked List Cycle Given a linked list, determine if it has a cycle in it. Follow up: Can you solve it without using extra space? 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public class Solution { public ListNode detectCycle(ListNode head) { ListNode fast = head, slow = head; while(fast!= null &amp;amp;&amp;amp; fast.next!=null){ fast = fast.next.next; slow =</description>
+    </item>
+    
+    <item>
+      <title>每日一刷55</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B755/</link>
+      <pubDate>Thu, 23 Aug 2018 19:52:03 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B755/</guid>
+      <description>234. Palindrome Linked List Given a singly linked list, determine if it is a palindrome. Example 1: 1 2 Input: 1-&amp;gt;2 Output: false Example 2: 1 2 Input: 1-&amp;gt;2-&amp;gt;2-&amp;gt;1 Output: true Follow up: Could you do it in O(n) time and O(1) space? 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public class Solution { public boolean isPalindrome(ListNode head)</description>
+    </item>
+    
+    <item>
+      <title>每日一刷54</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B754/</link>
+      <pubDate>Thu, 23 Aug 2018 19:48:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B754/</guid>
+      <description>21. Merge Two Sorted Lists Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. Example: 1 2 Input: 1-&amp;gt;2-&amp;gt;4, 1-&amp;gt;3-&amp;gt;4 Output: 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;4 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29</description>
+    </item>
+    
+    <item>
+      <title>每日一刷53</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B753/</link>
+      <pubDate>Wed, 22 Aug 2018 20:36:16 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B753/</guid>
+      <description>206. Reverse Linked List Reverse a singly linked list. Example: 1 2 Input: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL Output: 5-&amp;gt;4-&amp;gt;3-&amp;gt;2-&amp;gt;1-&amp;gt;NULL Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both? 1 2 3 4 5 6 7 8 9 10 11 12 13 class Solution { public ListNode reverseList(ListNode head) { ListNode newhead = null; ListNode tempnode = null; while(head!= null){ tempnode = head; head = head.next; tempnode.next</description>
+    </item>
+    
+    <item>
+      <title>每日一刷52</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B752/</link>
+      <pubDate>Sun, 19 Aug 2018 20:24:31 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B752/</guid>
+      <description>19. Remove Nth Node From End of List Given a linked list, remove the n-th node from the end of list and return its head. Example: Given linked list: 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5, and n = 2. After removing the second node from the end, the linked list becomes 1-&amp;gt;2-&amp;gt;3-&amp;gt;5. Note: Given n will always be valid. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16</description>
+    </item>
+    
+    <item>
+      <title>每日一刷51</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B751/</link>
+      <pubDate>Sun, 19 Aug 2018 20:20:20 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B751/</guid>
+      <description>237. Delete Node in a Linked List Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Given linked list &amp;ndash; head = [4,5,1,9], which looks like following: 4 -&amp;gt; 5 -&amp;gt; 1 -&amp;gt; 9 Example 1: 1 2 3 4 Input: head = [4,5,1,9], node = 5 Output: [4,1,9] Explanation: You are given the second node with value</description>
+    </item>
+    
+  </channel>
+</rss>

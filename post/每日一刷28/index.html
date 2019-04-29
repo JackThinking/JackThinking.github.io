@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>每日一刷28 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目： First Bad Version You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B728/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="每日一刷28" />
+<meta property="og:description" content="今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目： First Bad Version You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B728/" />
+<meta property="article:published_time" content="2018-07-21T15:02:36&#43;00:00"/>
+<meta property="article:modified_time" content="2018-07-21T15:02:36&#43;00:00"/>
+
+<meta itemprop="name" content="每日一刷28">
+<meta itemprop="description" content="今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目： First Bad Version You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of">
+
+
+<meta itemprop="datePublished" content="2018-07-21T15:02:36&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-21T15:02:36&#43;00:00" />
+<meta itemprop="wordCount" content="716">
+
+
+
+<meta itemprop="keywords" content="java,leetcode,Sort," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="每日一刷28"/>
+<meta name="twitter:description" content="今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目： First Bad Version You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">每日一刷28</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-21 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#first-bad-version">First Bad Version</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目：</p>
+
+<h2 id="first-bad-version">First Bad Version</h2>
+
+<p>You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of your product fails the quality check. Since each version is developed based on the previous version, all the versions after a bad version are also bad.</p>
+
+<p>Suppose you have n versions [1, 2, &hellip;, n] and you want to find out the first bad one, which causes all the following ones to be bad.</p>
+
+<p>You are given an API bool isBadVersion(version) which will return whether version is bad. Implement a function to find the first bad version. You should minimize the number of calls to the API.</p>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Given</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="nx">and</span> <span class="nx">version</span> <span class="o">=</span> <span class="mi">4</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">first</span> <span class="nx">bad</span> <span class="nx">version</span><span class="p">.</span>
+
+<span class="nx">call</span> <span class="nx">isBadVersion</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">false</span>
+<span class="nx">call</span> <span class="nx">isBadVersion</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">true</span>
+<span class="nx">call</span> <span class="nx">isBadVersion</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">true</span>
+
+<span class="nx">Then</span> <span class="mi">4</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">first</span> <span class="nx">bad</span> <span class="nx">version</span><span class="p">.</span> 
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="kd">extends</span> <span class="n">VersionControl</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">firstBadVersion</span><span class="o">(</span><span class="kt">int</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">right</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+        <span class="k">while</span><span class="o">(</span><span class="n">left</span><span class="o">&lt;=</span><span class="n">right</span><span class="o">){</span>
+            <span class="c1">//int mid = left + ((right - left) &gt;&gt; 1);//用移位的写法
+</span><span class="c1"></span>            <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">left</span> <span class="o">+</span> <span class="o">(</span><span class="n">right</span><span class="o">-</span><span class="n">left</span><span class="o">)/</span><span class="n">2</span><span class="o">;</span><span class="c1">// 避免整数加法溢出
+</span><span class="c1"></span>            <span class="c1">//int mid = (left + right)/2;//可能有加法溢出风险
+</span><span class="c1"></span>            
+            <span class="k">if</span> <span class="o">(</span><span class="n">isBadVersion</span><span class="o">(</span><span class="n">mid</span><span class="o">)){</span>     
+                <span class="n">right</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span>
+            <span class="k">else</span><span class="o">{</span>
+                <span class="n">left</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>题目思路简单，没什么好说的，就是二分，下面说说二分的陷阱有哪些。
+- 第一点：上述代码的问题就出在int mid = (left + right)/2，这句可能导致整数溢出，此时该方法就会抛出数组越界的异常。这个是我遇到的第一个坑。
+- 第二点：while循环里面为什么取等号？具体一点就是，如果令 high = n - 1 (n是数组长度)，则 while 的循环条件为 low &lt;= high，从而更新右边界位置的时候为 high = mid - 1；而如果令 high = n，则 while 循环的循环条件为 left &lt; right，从而更新右边界位置的时候为 high = mid。同时，mid 的计算不能写在循环外，否则无法得到更新。
+- 第三点：JDK本身对于除2的运算都是以位运算&gt;&gt;1来代替的，是不是效果更好，查了网上的资料后发现的确效率更高。</p>
+
+<p>总结一下，二分查找大的方面需要注意三点：
+- mid 赋值问题，注意溢出情况。
+- 判断 while 循环体是否终止的语句的编写
+- 边界值 left, right 和区间值这三个地方要保持一致
+- 位运算代替除法，效率更高</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-07-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/sort/">Sort</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter7/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">深入理解Java虚拟机-Chapter7</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B727/">
+            <span class="next-text nav-default">每日一刷27</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

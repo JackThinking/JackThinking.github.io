@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>每日一刷24 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="Maximum Length of Repeated Subarray Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays. Example 1: 1 2 3 4 Input: A: [1,2,3,2,1] B: [3,2,1,4,7] Output: 3 Explanation: The repeated subarray with maximum length is [3, 2, 1]. Note: 1. 1&amp;lt;= len(A), len(B) &amp;lt;= 1000 2. 0&amp;lt;= A[i], B[i] &amp;lt; 100 1 2 3 4 5 6 7 8 9" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B724/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="每日一刷24" />
+<meta property="og:description" content="Maximum Length of Repeated Subarray Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays. Example 1: 1 2 3 4 Input: A: [1,2,3,2,1] B: [3,2,1,4,7] Output: 3 Explanation: The repeated subarray with maximum length is [3, 2, 1]. Note: 1. 1&lt;= len(A), len(B) &lt;= 1000 2. 0&lt;= A[i], B[i] &lt; 100 1 2 3 4 5 6 7 8 9" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B724/" />
+<meta property="article:published_time" content="2018-07-17T15:12:04&#43;00:00"/>
+<meta property="article:modified_time" content="2018-07-17T15:12:04&#43;00:00"/>
+
+<meta itemprop="name" content="每日一刷24">
+<meta itemprop="description" content="Maximum Length of Repeated Subarray Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays. Example 1: 1 2 3 4 Input: A: [1,2,3,2,1] B: [3,2,1,4,7] Output: 3 Explanation: The repeated subarray with maximum length is [3, 2, 1]. Note: 1. 1&lt;= len(A), len(B) &lt;= 1000 2. 0&lt;= A[i], B[i] &lt; 100 1 2 3 4 5 6 7 8 9">
+
+
+<meta itemprop="datePublished" content="2018-07-17T15:12:04&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-17T15:12:04&#43;00:00" />
+<meta itemprop="wordCount" content="563">
+
+
+
+<meta itemprop="keywords" content="java,leetcode,Dynamic Programming," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="每日一刷24"/>
+<meta name="twitter:description" content="Maximum Length of Repeated Subarray Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays. Example 1: 1 2 3 4 Input: A: [1,2,3,2,1] B: [3,2,1,4,7] Output: 3 Explanation: The repeated subarray with maximum length is [3, 2, 1]. Note: 1. 1&lt;= len(A), len(B) &lt;= 1000 2. 0&lt;= A[i], B[i] &lt; 100 1 2 3 4 5 6 7 8 9"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">每日一刷24</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-17 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#maximum-length-of-repeated-subarray">Maximum Length of Repeated Subarray</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="maximum-length-of-repeated-subarray">Maximum Length of Repeated Subarray</h1>
+
+<p>Given two integer arrays A and B, return the maximum length of an subarray that appears in both arrays.
+<strong>Example 1:</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Input</span><span class="o">:</span>
+<span class="nx">A</span><span class="o">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="nx">B</span><span class="o">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="nx">Output</span><span class="o">:</span> <span class="mi">3</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Explanation:
+The repeated subarray with maximum length is [3, 2, 1].
+Note:
+1. 1&lt;= len(A), len(B) &lt;= 1000
+2. 0&lt;= A[i], B[i] &lt; 100</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">findLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">max</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">dp</span><span class="o">[]</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">m</span><span class="o">+</span><span class="n">1</span><span class="o">];</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span><span class="o">--)</span> <span class="o">{</span>
+                <span class="k">if</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">==</span> <span class="n">B</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="n">1</span><span class="o">]){</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span><span class="n">1</span><span class="o">;</span>
+                    <span class="n">max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span><span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]);</span>
+                <span class="o">}</span>
+                <span class="k">else</span><span class="o">{</span>
+                    <span class="n">dp</span><span class="o">[</span><span class="n">j</span><span class="o">]</span>  <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这道题难得不是逻辑，难得是把第二个for循环倒过来减少了复杂度，一般的想法是用m*n的存储复杂度，单实际上光m或者n就可以了，二维数组可以保持详细的信息，但是如果不涉及其他操作的话可以不要，最大值的数据还是存在着的。这里详细的解释如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">findLength</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">A</span><span class="o">,</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">B</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">m</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="na">length</span><span class="o">,</span> <span class="n">max</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span>
+    <span class="kt">int</span><span class="o">[][]</span> <span class="n">dp</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="o">+</span><span class="n">1</span><span class="o">][</span><span class="n">m</span><span class="o">+</span><span class="n">1</span><span class="o">];</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">n</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span> <span class="n">j</span><span class="o">&lt;=</span> <span class="n">m</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">A</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">B</span><span class="o">[</span><span class="n">j</span><span class="o">-</span><span class="n">1</span><span class="o">])</span> <span class="o">{</span>
+                <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]</span> <span class="o">=</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="n">1</span><span class="o">][</span><span class="n">j</span><span class="o">-</span><span class="n">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">1</span><span class="o">;</span>
+                <span class="n">max</span> <span class="o">=</span> <span class="n">Math</span><span class="o">.</span><span class="na">max</span><span class="o">(</span><span class="n">max</span><span class="o">,</span> <span class="n">dp</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">]);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="k">return</span> <span class="n">max</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>If you look at the only line that updates/changes array dp&rsquo;s value:
+dp[i][j] = dp[i-1][j-1] + 1;
+The value of dp[i][j] depends only on the value of dp[i-1][j-1]. If we replace the 2D array with 1D array, dp[j-1] should hold the value of dp[i-1][j-1] in the 2D version. If we loop from 1 -&gt; m, we calculate dp[j-1] before dp[j], dp[j-1] is actually the value of dp[i][j-1] in the 2D version. if we do dp[j] = dp[j-1] + 1, it is actually dp[i][j] = dp[i][j-1] + 1, not dp[i][j] = dp[i-1][j-1] + 1 in the 2D version. But if we loop backwards, that is from m -&gt; 1, dp[j] is calculated before dp[j-1] which still holds the value of dp[i-1][j-1] in the 2D version. After dp[j] is calculated, we don&rsquo;t need dp[i-1][j-1] any more. It can be used to calculate value of dp[i][j-1].</p>
+
+<p>Another note is, you must set dp[j] = 0 if A[i-1] != B[j-1]. Because, remember we reuse dp[j] to hold the value of dp[i][j]. If it is not reset, it still holds the value of dp[i-1][j] which may not be zero.</p>
+
+<p>Hope that will help.</p>
+
+<p>- tips:要是见到dp[i][j] = dp[i-1][j-1] + 1;就有机会缩减空间复杂度</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-07-17
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/dynamic-programming/">Dynamic Programming</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B725/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每日一刷25</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B723/">
+            <span class="next-text nav-default">每日一刷23</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

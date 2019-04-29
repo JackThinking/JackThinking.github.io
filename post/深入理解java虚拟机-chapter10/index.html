@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>深入理解Java虚拟机-Chapter10 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="早期（编译期）优化概述 JVM的编译器可以分为三个编译器： 前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclips" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter10/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="深入理解Java虚拟机-Chapter10" />
+<meta property="og:description" content="早期（编译期）优化概述 JVM的编译器可以分为三个编译器： 前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclips" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter10/" />
+<meta property="article:published_time" content="2018-08-15T10:10:44&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-15T10:10:44&#43;00:00"/>
+
+<meta itemprop="name" content="深入理解Java虚拟机-Chapter10">
+<meta itemprop="description" content="早期（编译期）优化概述 JVM的编译器可以分为三个编译器： 前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclips">
+
+
+<meta itemprop="datePublished" content="2018-08-15T10:10:44&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-15T10:10:44&#43;00:00" />
+<meta itemprop="wordCount" content="3029">
+
+
+
+<meta itemprop="keywords" content="java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入理解Java虚拟机-Chapter10"/>
+<meta name="twitter:description" content="早期（编译期）优化概述 JVM的编译器可以分为三个编译器： 前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclips"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">深入理解Java虚拟机-Chapter10</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-15 </span>
+        <div class="post-category">
+            <a href="/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"> JVM虚拟机 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#早期-编译期-优化概述">早期（编译期）优化概述</a></li>
+<li><a href="#javac编译器">Javac编译器</a>
+<ul>
+<li><a href="#解析与填充符号表">解析与填充符号表</a>
+<ul>
+<li><a href="#词法分析与语法分析">词法分析与语法分析</a></li>
+<li><a href="#填充符号表">填充符号表</a></li>
+</ul></li>
+<li><a href="#注解处理器">注解处理器</a></li>
+<li><a href="#语义分析与字节码生成">语义分析与字节码生成</a></li>
+</ul></li>
+<li><a href="#java语法糖">Java语法糖</a>
+<ul>
+<li><a href="#泛型和类型擦除">泛型和类型擦除</a></li>
+<li><a href="#自动装箱-拆箱与遍历循环">自动装箱、拆箱与遍历循环</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="早期-编译期-优化概述">早期（编译期）优化概述</h2>
+
+<p><strong>JVM的编译器可以分为三个编译器</strong>：</p>
+
+<ul>
+<li>前端编译器：把.java转变为.class的过程。如Sun的Javac、Eclipse JDT中的增量式编译器（ECJ）。</li>
+<li>JIT编译器：把字节码转变为机器码的过程，如HotSpot VM的C1、C2编译器。</li>
+<li>AOT编译器：静态提前编译器，直接将*.java文件编译本地机器代码的过程。</li>
+</ul>
+
+<p><strong>本节讲述的仅限于第一类编译过程</strong></p>
+
+<blockquote>
+<p>Java即时编译器在运行期的优化过程对于程序运行来说更加重要，而前端编译器在编译期的优化过程对于程序编码，来说关系更加密切。</p>
+</blockquote>
+
+<h2 id="javac编译器">Javac编译器</h2>
+
+<p>Javac编译器本身是由Java语言编写的程序。</p>
+
+<p>编译过程大致可以分为3个过程：</p>
+
+<ul>
+<li>解析与填充符号表过程。</li>
+<li>插入式注解处理器的注解处理过程。</li>
+<li>分析与字节码生成过程。
+<br /></li>
+</ul>
+
+<p>这3个步骤之间的关系与交互顺序如下：
+<a href="https://i.loli.net/2018/08/15/5b739229dc4e3.jpg"><img src="https://i.loli.net/2018/08/15/5b739229dc4e3.jpg" alt="JVM之编译器优化1.jpg" /></a></p>
+
+<h3 id="解析与填充符号表">解析与填充符号表</h3>
+
+<p>解析步骤包括了词法分析和语法分析两个过程</p>
+
+<h4 id="词法分析与语法分析">词法分析与语法分析</h4>
+
+<p><strong>词法分析</strong>：将源代码的字符流转变为标记（Token）集合，单个字符是程序编写过程的最小元素，而标记则是编译过程的最小元素，关键字、变量名、字面量、运算符都可以成为标记。如“int a=b+2”这句代码就包含了6个标记，分别是int、a、=、b、+、2。</p>
+
+<p><strong>语法分析</strong>：是根据Token序列构造抽象语法树的过程，「抽象语法树」是一种用来<strong>描述程序代码语法结构的树形表述方式</strong>。语法树的每一个节点都代表着程序代码中的一个语法结构，例如包、类型、修饰符、接口、返回值甚至代码注释都可以是一个语法结构。</p>
+
+<p><strong>经过这个步骤之后，编译器就基本不会再对源码文件进行操作了，后续的操作都是建立在抽象语法树之上的。</strong></p>
+
+<h4 id="填充符号表">填充符号表</h4>
+
+<p>完成抽象语法树之后，下一步就是填充符号表的过程，即enterTrees()方法。符号表是由一组符号地址和符号信息构成的表格，类似于哈希表中K-V值对的形式。符号表中所登记的信息在编译的不同阶段都要用到。当对符号名进行地址分配时，符号表是地址分配的依据。</p>
+
+<h3 id="注解处理器">注解处理器</h3>
+
+<p>JDK1.5之后，Java提供了对注解的支持，这些注解与普通的Java代码一样，在运行期间发挥作用。</p>
+
+<p>可以把它看做是一组编译器的插件，在这些插件里面，可以读取。修改、添加抽象语法树中的任意元素。如果这些插件在处理注解期间对语法树进行了修改，编译器将回到解析及填充符号表的过程重新处理，直到所有的插入式注解处理器都没有再对语法树进行修改为止，每一次循环称为一个Round。也是上图中的回环过程。</p>
+
+<h3 id="语义分析与字节码生成">语义分析与字节码生成</h3>
+
+<p>语法分析之后，编译器获得了程序代码的抽象语法树表示，语法树能表示一个结构正确的源代码抽象。而语义分析的主要任务是对结构上正确的源程序进行上下文有关性质的审查，如进行类型审查。
+在Javac编译过程中，语法分析过程分为<strong>标注检查</strong>以及<strong>数据及控制流分析</strong>两个步骤。</p>
+
+<ul>
+<li>标注检查：
+标注检查步骤检查的内容包括诸如：变量使用前是否已被声明、变量与赋值之间的数据类型是否能够匹配等。此外，这个过程中还有一个重要的步骤称为常量折叠，如定义
+int a = 1 + 2 和 int a = 1 + 2 是一样的</li>
+<li>数据及控制流分析：
+数据及控制流分析是对程序上下文逻辑更进一步的验证，它可以查出诸如程序员局部变量在使用前是否有赋值、方法的每条路径是否都有返回值、是否所有的受查异常都被正确处理了等问题。
+编译期的数据及控制流分析与类加载时的数据及数据流分析的目的基本上是一致的，但校验范围有所区别，有一些校验项只有在编译期或者运行期才能进行。如将局部变量声明为final，对运行期是没有影响的，变量的不变性仅仅由编译器在编译期间保障。</li>
+<li>解语法糖：
+语法糖是指在计算机语言中添加某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。
+Java是一种“低糖语言”，常用的语法糖主要是之前提到的泛型、变长参数、自动装箱/拆箱等。虚拟机运行时不支持这些语法，它们在编译期还原回简单的基础语法结构，这个过程称为解语法糖。</li>
+<li>字节码生成：
+字节码生成是Javac编译过程的最后一个阶段，字节码生成阶段不仅仅是把前面各个步骤所生成的信息（语法树、符号表）转化为字节码写入磁盘中，编译器还进行了少量代码添加和转换工作。
+实例构造器&lt; init &gt;方法和类构造器&lt; clinit &gt;方法就是在这个阶段添加到语法树中的。</li>
+</ul>
+
+<h2 id="java语法糖">Java语法糖</h2>
+
+<h3 id="泛型和类型擦除">泛型和类型擦除</h3>
+
+<p>与C#的泛型不一样的是，Java的泛型只存在于程序源码中，<strong>在编译后的字节码文件中，就已经替换成原来的原生类型，也称为裸类型，并且在相应的地方插入了强制转型代码。</strong></p>
+
+<p>对于运行期的Java语言来说，<code>ArrayList&lt; String &gt;</code>与<code>ArrayList&lt; Integer &gt;</code>就是同一个类，所以<strong>泛型技术实际上是Java语言的一颗语法糖，Java语言中的泛型实现方法称为类型擦除，基于这种方法实现的泛型称为伪泛型。</strong></p>
+
+<p>故当方法名一样，<code>List&lt; String &gt;</code>和List<code>&lt; Integer &gt;</code>作为参数时，擦除使得两者的特征签名变得一样，导致拥有这两个方法无法重载。</p>
+
+<p>擦除法所谓的擦除，仅仅是对方的Code属性中的字节码进行擦除，实际上元数据中还是保留了泛型信息，这也是我们能通过反射手段取得参数化类型的根本依据。</p>
+
+<h3 id="自动装箱-拆箱与遍历循环">自动装箱、拆箱与遍历循环</h3>
+
+<p>自动装箱、拆箱在编译之后就被转换成了相应的包装和还原方法，如Integer.valueOf()与Integer,intValue()方法，而遍历循环则把代码还原成了迭代器的实现，这也是为何遍历循环需要被遍历类实现Iterable接口的原因。
+<strong>栗子：</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Integer</span> <span class="n">a</span> <span class="o">=</span> <span class="n">1</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">b</span> <span class="o">=</span> <span class="n">2</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">c</span> <span class="o">=</span> <span class="n">3</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">d</span> <span class="o">=</span> <span class="n">3</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">e</span> <span class="o">=</span> <span class="n">321</span><span class="o">;</span>
+        <span class="n">Integer</span> <span class="n">f</span> <span class="o">=</span> <span class="n">321</span><span class="o">;</span>
+        <span class="n">Long</span> <span class="n">g</span> <span class="o">=</span> <span class="n">3L</span><span class="o">;</span>
+        <span class="n">Long</span> <span class="n">h</span> <span class="o">=</span> <span class="n">2L</span><span class="o">;</span>
+         
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">==</span><span class="n">d</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">e</span><span class="o">==</span><span class="n">f</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">==(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">c</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">g</span><span class="o">==(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">g</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">a</span><span class="o">+</span><span class="n">h</span><span class="o">));</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">a</span><span class="o">==</span><span class="n">b</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>输出结果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kc">true</span>
+<span class="kc">false</span>
+<span class="kc">true</span>
+<span class="kc">true</span>
+<span class="kc">true</span>
+<span class="kc">false</span>
+<span class="kc">true</span>
+<span class="kc">false</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>当包装器类进行“==”比较时，内部会调用 Integer.valueOf方法进行自动装箱（int -&gt; Integer），源码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="cm">/**
+</span><span class="cm">   * Returns an {@code Integer} instance representing the specified
+</span><span class="cm">   * {@code int} value.  If a new {@code Integer} instance is not
+</span><span class="cm">   * required, this method should generally be used in preference to
+</span><span class="cm">   * the constructor {@link #Integer(int)}, as this method is likely
+</span><span class="cm">   * to yield significantly better space and time performance by
+</span><span class="cm">   * caching frequently requested values.
+</span><span class="cm">   *
+</span><span class="cm">   * This method will always cache values in the range -128 to 127,
+</span><span class="cm">   * inclusive, and may cache other values outside of this range.
+</span><span class="cm">   *
+</span><span class="cm">   * @param  i an {@code int} value.
+</span><span class="cm">   * @return an {@code Integer} instance representing {@code i}.
+</span><span class="cm">   * @since  1.5
+</span><span class="cm">   */</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="n">Integer</span> <span class="nf">valueOf</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="n">IntegerCache</span><span class="o">.</span><span class="na">low</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">IntegerCache</span><span class="o">.</span><span class="na">high</span><span class="o">)</span>
+          <span class="k">return</span> <span class="n">IntegerCache</span><span class="o">.</span><span class="na">cache</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="o">(-</span><span class="n">IntegerCache</span><span class="o">.</span><span class="na">low</span><span class="o">)];</span>
+      <span class="k">return</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>从源码中可见，Integer对象内部有IntegerCache类，可缓存（-128~127范围的数值），如果超过了，则会返回一个新的Integer类。由于“==”比较的是内存地址，因此，在“-128~127”数值范围内，比较的是同一个对象，得到true，而超过了该范围，则是返回自动装箱后的新对象，因此得到false。</p>
+
+<p><strong>总结：</strong></p>
+
+<ul>
+<li>Integer（-128~127）、Short（-128~127）、Byte（-128~127）、Character（0~127）、Long（-128~127）这几个包装类的valueOf方法的实现是类似的</li>
+<li>Double、Float的valueOf方法的实现是类似的，并没有缓存，直接返回一个新的实例化对象</li>
+
+<li><p>Boolean的valueOf方法的实现是个三目运算，形如return (b ? TRUE : FALSE); TRUE、FALSE为两个内部定义的静态成员，这里直接返回两者其一</p></li>
+
+<li><p>当 “==”运算符的两个操作数都是 包装器类型的引用，则是比较指向的是否是同一个对象，而如果其中有一个操作数是表达式（即包含算术运算或含有基本类型）则比较的是数值（即会触发自动拆箱的过程）。另外，对于包装器类型，equals方法并不会进行类型转换。</p></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-08-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/jvm/">JVM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter11/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">深入理解Java虚拟机-Chapter11</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B743/">
+            <span class="next-text nav-default">每日一刷43</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
