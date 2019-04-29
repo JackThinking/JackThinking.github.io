@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java学习笔记4 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="包 使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系 类的导入 1.一个类可以使用所属包中的所有类，以及其" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java学习笔记4" />
+<meta property="og:description" content="包 使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系 类的导入 1.一个类可以使用所属包中的所有类，以及其" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" />
+<meta property="article:published_time" content="2018-05-14T20:29:39&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-14T20:29:39&#43;00:00"/>
+
+<meta itemprop="name" content="Java学习笔记4">
+<meta itemprop="description" content="包 使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系 类的导入 1.一个类可以使用所属包中的所有类，以及其">
+
+
+<meta itemprop="datePublished" content="2018-05-14T20:29:39&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-14T20:29:39&#43;00:00" />
+<meta itemprop="wordCount" content="1427">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java学习笔记4"/>
+<meta name="twitter:description" content="包 使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系 类的导入 1.一个类可以使用所属包中的所有类，以及其"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java学习笔记4</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-14 </span>
+        <div class="post-category">
+            <a href="/categories/java/"> Java </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#包">包</a>
+<ul>
+<li><a href="#类的导入">类的导入</a></li>
+<li><a href="#静态导入">静态导入</a></li>
+<li><a href="#将类放到包中">将类放到包中</a></li>
+<li><a href="#包作用域">包作用域</a></li>
+</ul></li>
+<li><a href="#异常-断言-日志和调试">异常、断言、日志和调试</a>
+<ul>
+<li><a href="#异常">异常</a></li>
+<li><a href="#异常技巧">异常技巧</a></li>
+<li><a href="#使用断言">使用断言</a></li>
+<li><a href="#记录日志">记录日志</a></li>
+</ul></li>
+<li><a href="#对象构造">对象构造</a>
+<ul>
+<li><a href="#重载">重载</a></li>
+</ul></li>
+<li><a href="#继承">继承</a>
+<ul>
+<li><a href="#类-超类-子类">类，超类，子类</a></li>
+<li><a href="#多态">多态</a></li>
+<li><a href="#动态绑定">动态绑定</a></li>
+<li><a href="#final类和方法阻止继承">final类和方法阻止继承</a></li>
+<li><a href="#强制类型转换">强制类型转换</a></li>
+<li><a href="#抽象类">抽象类</a></li>
+<li><a href="#受保护访问">受保护访问</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="包">包</h2>
+
+<p>使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系</p>
+
+<h3 id="类的导入">类的导入</h3>
+
+<p>1.一个类可以使用所属包中的所有类，以及其他包中的公有类
+2.*号只能导入一个包</p>
+
+<h3 id="静态导入">静态导入</h3>
+
+<p>import语句不仅仅导入类，还可以导入静态域和静态方法</p>
+
+<h3 id="将类放到包中">将类放到包中</h3>
+
+<p>想要把包放到包中，就必须将包的名字放在源文件的开头</p>
+
+<h3 id="包作用域">包作用域</h3>
+
+<p>没有指定public或者private的话，这个部分（类，方法，变量）可以被同一个包的所有方法访问</p>
+
+<h2 id="异常-断言-日志和调试">异常、断言、日志和调试</h2>
+
+<h3 id="异常">异常</h3>
+
+<p>1.Exception主要分为两类，一类程序错误导致的日常属于RuntimeException;另外一类是程序本身没有错误，但是由于IO这类错误导致的异常
+2.try catch final进行异常处理
+3.catch字句还可以抛出异常（有其特殊的优点）
+4.可以捕获多个异常
+5.子类可以抛出更加特定的异常
+6.异常链可以好好看之前的程序</p>
+
+<h3 id="异常技巧">异常技巧</h3>
+
+<p>1.异常处理不能代替简单的测试
+2.不要过分的细化异常
+3.利用异常层次结构
+4.不要压制异常
+5.在检测错误时，“苛刻”要比放任更好
+6.不要羞于传递异常</p>
+
+<h3 id="使用断言">使用断言</h3>
+
+<p>1.断言主要用在测试阶段，当代码发布的时候，这些插入的语句会被自动移走</p>
+
+<h3 id="记录日志">记录日志</h3>
+
+<p>1.不要将所有日志记录到一个全局日记记录器中，要有层次</p>
+
+<h2 id="对象构造">对象构造</h2>
+
+<h3 id="重载">重载</h3>
+
+<p>1.方法名和参数类型叫做方法的签名，返回类型不算
+2.允许重载任何方法，不止构造函数
+3.构造函数没有显示赋值的话会有默认值（0，null，false）
+4.类如果没有构造函数，系统才会提供一个默认的构造函数
+5.显式域初始化不一定是常量
+6.构造器的第一个语句用this()，则意思是调用另外一个构造函数
+7.参数名中两种方式(更加喜欢第二种)：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nf">Employee</span><span class="o">(</span><span class="n">String</span> <span class="n">aName</span><span class="o">,</span> <span class="kt">double</span> <span class="n">aSalary</span><span class="o">){</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">aName</span><span class="o">;</span>
+    <span class="n">salary</span> <span class="o">=</span> <span class="n">aSalary</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="nf">Employee</span><span class="o">(</span><span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="kt">double</span> <span class="n">salary</span><span class="o">){</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">salary</span> <span class="o">=</span> <span class="n">salary</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>8.初始化块优先于构造函数执行
+9.初始化数据域的三种方式（构造函数里，声明中，构造快）
+10.类加载顺序静态代码块(包括静态初始化块，静态属性，但不包括静态方法)-&gt;非静态代码块(包括非静态初始化块，非静态属性)-&gt;构造函数</p>
+
+<h2 id="继承">继承</h2>
+
+<h3 id="类-超类-子类">类，超类，子类</h3>
+
+<p>1.所有的继承都是公用继承
+2.在覆盖的时候，希望调用父类的公有方法访问父类的私有变量，则可以用super关键字</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">double</span> <span class="nf">getSalary</span><span class="o">(){</span>
+    <span class="kt">double</span> <span class="n">baseSalary</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">getSalary</span><span class="o">();</span>
+    <span class="k">return</span> <span class="n">baseSalary</span> <span class="o">+</span> <span class="n">bonus</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>3.子类的构造函数如果没有显式的调用超类的构造器，则将自动调用超类的无参构造函数
+4.this有两个用途：一是引用隐式参数，二是调用该类其他的构造函数
+5.super有两个用途：一是调用超类的方法，二是调用超类的构造器</p>
+
+<h3 id="多态">多态</h3>
+
+<p>1.子类的每个对象也是超类的对象
+2.子类数组的引用可以转化为超类数组的引用</p>
+
+<h3 id="动态绑定">动态绑定</h3>
+
+<p>1.先看对象的声明类型和方法名，在看调用时的参数类型
+2.用了private，static，final方法或者构造器，称为静态绑定</p>
+
+<h3 id="final类和方法阻止继承">final类和方法阻止继承</h3>
+
+<p>1.final方法可以独立存在，final类中只有方法自动变成final方法（参数不是）</p>
+
+<h3 id="强制类型转换">强制类型转换</h3>
+
+<p>1.只能在继承层次内进行类型转换
+2.在将超类转换成子类之前，应该使用instanceof进行检查</p>
+
+<h3 id="抽象类">抽象类</h3>
+
+<p>1.抽象类，可以没有抽象方法，可以有具体数据和方法
+2.只要有抽象方法，那就一定是抽象类
+3.抽象类不能被实体化
+4.抽象方法没有方法体（这个小玩意{}）</p>
+
+<h3 id="受保护访问">受保护访问</h3>
+
+<p>1.最好将域标记为private,将方法标记为public</p>
+
+<p>2.仅对本类可见（private），对所有类可见（public），对本包和所有子类可见（protect），对本包可见（默认）</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java学习笔记5</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B08/">
+            <span class="next-text nav-default">Spring boot学习笔记8</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

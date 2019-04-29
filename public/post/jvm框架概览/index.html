@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>JVM框架概览 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/jvm%E6%A1%86%E6%9E%B6%E6%A6%82%E8%A7%88/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="JVM框架概览" />
+<meta property="og:description" content="之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/jvm%E6%A1%86%E6%9E%B6%E6%A6%82%E8%A7%88/" />
+<meta property="article:published_time" content="2018-07-11T15:49:18&#43;00:00"/>
+<meta property="article:modified_time" content="2018-07-11T15:49:18&#43;00:00"/>
+
+<meta itemprop="name" content="JVM框架概览">
+<meta itemprop="description" content="之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行">
+
+
+<meta itemprop="datePublished" content="2018-07-11T15:49:18&#43;00:00" />
+<meta itemprop="dateModified" content="2018-07-11T15:49:18&#43;00:00" />
+<meta itemprop="wordCount" content="1164">
+
+
+
+<meta itemprop="keywords" content="java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JVM框架概览"/>
+<meta name="twitter:description" content="之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">JVM框架概览</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-07-11 </span>
+        <div class="post-category">
+            <a href="/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"> JVM虚拟机 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#jvm-体系结构和工作方式">JVM体系结构和工作方式</a>
+<ul>
+<li><a href="#啥是jvm">啥是JVM</a></li>
+<li><a href="#jvm体系结构详解">JVM体系结构详解</a></li>
+</ul></li>
+<li><a href="#jvm工作机制">JVM工作机制</a>
+<ul>
+<li><a href="#为啥选择基于栈">为啥选择基于栈</a></li>
+</ul></li>
+<li><a href="#物理内存和虚拟内存">物理内存和虚拟内存</a></li>
+<li><a href="#内核空间与用户空间">内核空间与用户空间</a></li>
+<li><a href="#哪些组件需要内存">哪些组件需要内存</a></li>
+<li><a href="#java内存-结构">Java内存结构</a></li>
+<li><a href="#java内存分配详解">Java内存分配详解</a></li>
+<li><a href="#java内存回收策略">Java内存回收策略</a>
+<ul>
+<li><a href="#静态内存分配和-回收">静态内存分配和回收</a></li>
+<li><a href="#动态内存分配和-回收">动态内存分配和回收</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行整理概况。</p>
+
+<h2 id="jvm-体系结构和工作方式">JVM体系结构和工作方式</h2>
+
+<h3 id="啥是jvm">啥是JVM</h3>
+
+<p>计算机系统可以分为一下几个部分(指令集，计算单元，寻址方式，存储器定义，存储单元)，其中最主要的是指令集。Java和实体机一样有一套自己的指令集，称为JVM字节码指令集。</p>
+
+<h3 id="jvm体系结构详解">JVM体系结构详解</h3>
+
+<ul>
+<li>类加载器：三大加载器</li>
+<li>执行引擎：Hotspot基于栈，Dalvik基于寄存器</li>
+<li>内存区：线程共享(方法区+堆)，非共享（栈+PC寄存器），本地方法</li>
+<li>本地方法调用：调用C/C++</li>
+</ul>
+
+<h2 id="jvm工作机制">JVM工作机制</h2>
+
+<h3 id="为啥选择基于栈">为啥选择基于栈</h3>
+
+<ol>
+<li>要设计成与平台无关的，保证寄存器很少也能执行Java代码；</li>
+<li>为了指令的紧凑型</li>
+</ol>
+
+<h2 id="物理内存和虚拟内存">物理内存和虚拟内存</h2>
+
+<p>32位总线最多单次读取4GB的内存。
+虚拟内存使得多项进程共享物理内存，注意是空间是上共享，逻辑还是隔离的。</p>
+
+<h2 id="内核空间与用户空间">内核空间与用户空间</h2>
+
+<p>这种从内核空间到用户空间的数据复制很费时，虽然保住了程序运行的安全性和稳定性，但是也牺牲了一部分效率。</p>
+
+<h2 id="哪些组件需要内存">哪些组件需要内存</h2>
+
+<ol>
+<li>堆：-Xms（初始），-Xmx（最大），-Xms（）</li>
+<li>线程：每个线程创建时JVM都会为它创建一个堆栈，堆栈的大小根据不同的JVM实现而不同，通常在256KB~ 756KB之间。</li>
+<li>类和类加载器：任何系统类(如java.lang.String)或通过应用程序类加载器加载的任何应用程序类都不能在运行时释放。</li>
+<li>NIO：分配的内存使用的是本机内存而不是Java堆上的内存</li>
+<li>JNI：JNI也会增加Java运行时的本机内存占用</li>
+</ol>
+
+<h2 id="java内存-结构">Java内存结构</h2>
+
+<ol>
+<li>PC寄存器：保存当前正常执行的程序的内存地址</li>
+<li>栈：由于Java栈是与Java 线程对应起来的，这个数据不是线程共享的，所以我们不用关心数据一致性问题，也不会存在同步锁的问题</li>
+<li>堆：堆是被所有Java线程所共享的，所以对它的访问需要注意同步问题</li>
+<li>方法区：JVM方法区是用于存儲炎結枸信息的地方（<strong>常量池</strong>、域、方法数据、方法体、构造函数，包括类中的专用方法、实例初始化、接口初始化）</li>
+<li>本地方法区：为JVM运行Native方法准备的空间</li>
+<li>运行时常量池：它是方法区的部分，所以它的存储也受方法区的规范约束</li>
+</ol>
+
+<h2 id="java内存分配详解">Java内存分配详解</h2>
+
+<ol>
+<li>栈：栈中主要存放一些基本类型的变量数据( int、short、long、byte、float、 double、boolean、char)和对象句柄(引用)。存取速度比堆要快，仅次于寄存器，栈数据可以共享。缺点是，存在栈中的数据大小与生存期必须是确定的，这也导致缺乏了其灵活性。</li>
+
+<li><p>堆：堆的效率非常低。但是堆的优点在于，编译器不必知道要从堆里分配多少存储空间，也不必知道存储的数据要在堆里停留多长时间，因此，用堆保存数据时会得到更大的灵活性。</p>
+
+<h2 id="java内存回收策略">Java内存回收策略</h2></li>
+</ol>
+
+<h3 id="静态内存分配和-回收">静态内存分配和回收</h3>
+
+<h3 id="动态内存分配和-回收">动态内存分配和回收</h3>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-07-11
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/jvm/">JVM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B718/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每日一刷18</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B717/">
+            <span class="next-text nav-default">每日一刷17</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

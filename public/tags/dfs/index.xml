@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DFS on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/dfs/</link>
+    <description>Recent content in DFS on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 11 Aug 2018 17:28:46 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/dfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>每日一刷40</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B740/</link>
+      <pubDate>Sat, 11 Aug 2018 17:28:46 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B740/</guid>
+      <description>Combination Sum Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target. The same repeated number may be chosen from candidates unlimited number of times. Note: All numbers (including target) will be positive integers. The solution set must not contain duplicate combinations. Example 1: 1 2 3 4 5 6 Input: candidates =</description>
+    </item>
+    
+    <item>
+      <title>每日一刷21</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B721/</link>
+      <pubDate>Sat, 14 Jul 2018 12:48:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B721/</guid>
+      <description>真的是做的欲仙欲死，估计做了有2个小时。 Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences. Note: The same word in the dictionary may be reused multiple times in the</description>
+    </item>
+    
+  </channel>
+</rss>

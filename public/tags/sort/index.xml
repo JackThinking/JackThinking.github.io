@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sort on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/sort/</link>
+    <description>Recent content in Sort on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 Aug 2018 19:10:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/sort/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>每日一刷50</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B750/</link>
+      <pubDate>Sat, 18 Aug 2018 19:10:33 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B750/</guid>
+      <description>287. Find the Duplicate Number Given an array nums containing n + 1 integers where each integer is between 1 and n (inclusive), prove that at least one duplicate number must exist. Assume that there is only one duplicate number, find the duplicate one. Example 1: 1 2 Input: [1,3,4,2,2] Output: 2 Example 2: 1 2 Input: [3,1,3,4,2] Output: 3 Note: * You must not modify the array (assume the</description>
+    </item>
+    
+    <item>
+      <title>每日一刷33</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B733/</link>
+      <pubDate>Fri, 27 Jul 2018 19:56:22 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B733/</guid>
+      <description>Find Peak Element A peak element is an element that is greater than its neighbors. Given an input array nums, where nums[i] ≠ nums[i+1], find a peak element and return its index. The array may contain multiple peaks, in that case return the index to any one of the peaks is fine. You may imagine that nums[-1] = nums[n] = -∞. Example 1: 1 2 3 Input: nums</description>
+    </item>
+    
+    <item>
+      <title>每日一刷32</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B732/</link>
+      <pubDate>Wed, 25 Jul 2018 19:49:26 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B732/</guid>
+      <description>Kth Largest Element in an Array Find the kth largest element in an unsorted array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Example 1: 1 2 Input: [3,2,1,5,6,4] and k = 2 Output: 5 Example 2: 1 2 Input: [3,2,3,1,2,4,5,5,6] and k = 4 Output: 4 Note: You may assume k is always valid, 1 ≤ k ≤ array&amp;rsquo;s length.</description>
+    </item>
+    
+    <item>
+      <title>每日一刷31</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B731/</link>
+      <pubDate>Tue, 24 Jul 2018 21:34:24 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B731/</guid>
+      <description>Top K Frequent Elements Given a non-empty array of integers, return the k most frequent elements. 1 2 For example, Given [1,1,1,2,2,3] and k = 2, return [1,2]. Note: You may assume k is always valid, 1 ≤ k ≤ number of unique elements. Your algorithm&amp;rsquo;s time complexity must be better than O(n log n), where n is the array&amp;rsquo;s size. 1 2 3 4 5 6 7 8 9</description>
+    </item>
+    
+    <item>
+      <title>每日一刷30</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B730/</link>
+      <pubDate>Mon, 23 Jul 2018 20:05:34 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B730/</guid>
+      <description>Sort Colors Given an array with n objects colored red, white or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively. Note: You are not suppose to use the library&amp;rsquo;s sort function for this problem. Example: 1</description>
+    </item>
+    
+    <item>
+      <title>每日一刷29</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B729/</link>
+      <pubDate>Sun, 22 Jul 2018 19:39:49 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B729/</guid>
+      <description>Merge Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. Note: The number of elements initialized in nums1 and nums2 are m and n respectively. You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. Example: 1 2 3 4 5 Input: nums1 = [1,2,3,0,0,0], m = 3 nums2</description>
+    </item>
+    
+    <item>
+      <title>每日一刷28</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B728/</link>
+      <pubDate>Sat, 21 Jul 2018 15:02:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B728/</guid>
+      <description>今天做了一道二分查找的简单题，发现二分虽然原理简单，但是有不少坑，在此记录一下，先看题目： First Bad Version You are a product manager and currently leading a team to develop a new product. Unfortunately, the latest version of</description>
+    </item>
+    
+  </channel>
+</rss>

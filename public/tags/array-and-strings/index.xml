@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Array and Strings on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/array-and-strings/</link>
+    <description>Recent content in Array and Strings on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 26 Nov 2018 19:58:07 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/array-and-strings/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>每周总结6</title>
+      <link>http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%936/</link>
+      <pubDate>Mon, 26 Nov 2018 19:58:07 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%936/</guid>
+      <description>Array and Strings easy系列题 Remove Duplicates from Sorted Array(首先想到放到set里面；然后想到自己写的需要判断是否重复，重复了几个；后面想到由于是有序的，判断发生</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring boot学习笔记4 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring boot学习笔记4" />
+<meta property="og:description" content="spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/" />
+<meta property="article:published_time" content="2018-05-03T20:07:36&#43;00:00"/>
+<meta property="article:modified_time" content="2018-05-03T20:07:36&#43;00:00"/>
+
+<meta itemprop="name" content="Spring boot学习笔记4">
+<meta itemprop="description" content="spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转">
+
+
+<meta itemprop="datePublished" content="2018-05-03T20:07:36&#43;00:00" />
+<meta itemprop="dateModified" content="2018-05-03T20:07:36&#43;00:00" />
+<meta itemprop="wordCount" content="2267">
+
+
+
+<meta itemprop="keywords" content="Spring boot," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot学习笔记4"/>
+<meta name="twitter:description" content="spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring boot学习笔记4</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-05-03 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring boot </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#getset方法太麻烦怎么办">getset方法太麻烦怎么办</a></li>
+<li><a href="#单元测试">单元测试</a></li>
+<li><a href="#梳理一下流程">梳理一下流程</a></li>
+<li><a href="#service服务写成接口-并且实现接口与接口实现分离">Service服务写成接口（并且实现接口与接口实现分离）</a></li>
+<li><a href="#小技巧">小技巧</a></li>
+<li><a href="#小问题">小问题</a></li>
+<li><a href="#又一次使用枚举">又一次使用枚举</a></li>
+<li><a href="#回顾">回顾</a></li>
+<li><a href="#json格式设计">Json格式设计</a></li>
+<li><a href="#返回数据统一化">返回数据统一化</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>spring中jpa操作createTime对应于数据库的中的create_time,这个是固定的，jpa操作的时候会自动进行名字的转化，不能写错，负责就会造成数据库操作出错。</p>
+
+<h2 id="getset方法太麻烦怎么办">getset方法太麻烦怎么办</h2>
+
+<p>1.在pom.xml添加lombok
+2.idea添加插件lombok
+3.在DAO类中添加注解@Data就可以取消getset以及tostring之类的方法了</p>
+
+<h2 id="单元测试">单元测试</h2>
+
+<p>1.注意要使用Assert断言来确认数据的正确性。
+2.@Transactional注解可以报使得测试的数据不会对数据库造成影响（只是测试一下嘛）
+3.遇到了这样的语法，应该是数组的初始化吧</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="n">2</span><span class="o">,</span><span class="n">3</span><span class="o">,</span><span class="n">4</span><span class="o">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="梳理一下流程">梳理一下流程</h2>
+
+<p>第一个数据的设计顺序是，先设计DAO（数据库对象），然后设计Service模块（注意接口与接口实现的分离），最后设计controller模块，其中还有很重要的是一定要先进行单元测试。</p>
+
+<h2 id="service服务写成接口-并且实现接口与接口实现分离">Service服务写成接口（并且实现接口与接口实现分离）</h2>
+
+<p>拿CategoryService举个栗子🌰:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dataobject.ProductCategory</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 类目接口
+</span><span class="cm"> * Created by Citrix on 2018/5/3.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">CategoryService</span> <span class="o">{</span>
+
+    <span class="n">ProductCategory</span> <span class="nf">findOne</span><span class="o">(</span><span class="n">Integer</span> <span class="n">categoryId</span><span class="o">);</span><span class="c1">//id查找一个
+</span><span class="c1"></span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">ProductCategory</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">();</span><span class="c1">//查找全部
+</span><span class="c1"></span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">ProductCategory</span><span class="o">&gt;</span> <span class="nf">findByCategoryTypeIn</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">categoryTypeList</span><span class="o">);</span><span class="c1">//根据商品种类找
+</span><span class="c1"></span>
+    <span class="n">ProductCategory</span> <span class="nf">save</span><span class="o">(</span><span class="n">ProductCategory</span> <span class="n">productCategory</span><span class="o">);</span><span class="c1">//保存
+</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>具体的实现虽然不麻烦，只是重载之前ProductCategoryRepository的Jpa函数，但是还是这样比较清晰：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.service.impl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.imooc.sell.dataobject.ProductCategory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.repository.ProductCategoryRepository</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.imooc.sell.service.CategoryService</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 类目接口具体实现
+</span><span class="cm"> * Created by Citrix on 2018/5/3.
+</span><span class="cm"> */</span>
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CategoryServiceImpl</span> <span class="kd">implements</span> <span class="n">CategoryService</span><span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">ProductCategoryRepository</span> <span class="n">repository</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">ProductCategory</span> <span class="nf">findOne</span><span class="o">(</span><span class="n">Integer</span> <span class="n">categoryId</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">categoryId</span><span class="o">).</span><span class="na">get</span><span class="o">();</span><span class="c1">//这边本来是自带的findOne函数，不过在spring更新之后变成了findById而且还得加get()函数
+</span><span class="c1"></span>    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ProductCategory</span><span class="o">&gt;</span> <span class="nf">findAll</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ProductCategory</span><span class="o">&gt;</span> <span class="nf">findByCategoryTypeIn</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">categoryTypeList</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">findByCategoryTypeIn</span><span class="o">(</span><span class="n">categoryTypeList</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="n">ProductCategory</span> <span class="nf">save</span><span class="o">(</span><span class="n">ProductCategory</span> <span class="n">productCategory</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">repository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">productCategory</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="小技巧">小技巧</h2>
+
+<p>1.cmd+shift+enter在IDEA中可以直接跳转到下一行，方便coding
+2.Mac上的ctrl+N（我改变按键映射）可以快速使用IDEA提供的getset之类的自动生成函数</p>
+
+<h2 id="小问题">小问题</h2>
+
+<p>1.第一次遇到用BigDecimal类型的变量，作用是精确计算，具体使用方式暂且留着
+2.在单元测试ProductServiceImplTest遇到了Page<ProductInfo>以及PageRequest的类，先留着
+3.项目之后打成JAR包部署的时候会自带项目名称，在.yml文件中添加</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml">server<span class="p">:</span><span class="w">
+</span><span class="w">  </span>servlet<span class="p">:</span><span class="w">
+</span><span class="w">    </span>context-path<span class="p">:</span><span class="w"> </span>/sell</code></pre></td></tr></table>
+</div>
+</div>
+<p>4.遇到了lambda表达式，之后学习Java8语法的时候格外注意
+5.用到了beanutil的方法，但不是很懂</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">BeanUtils</span><span class="o">.</span><span class="na">copyProperties</span><span class="o">(</span><span class="n">productInfo</span><span class="o">,</span><span class="n">productInfoVO</span><span class="o">);</span><span class="c1">//用到了bean的方法
+</span><span class="c1"></span><span class="n">productInfoVOList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">productInfoVO</span><span class="o">);</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="又一次使用枚举">又一次使用枚举</h2>
+
+<p>为了程序的清晰性和可维护性，将程序中使用的一些状态码写成枚举的类型：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.enums</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Getter</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/4.
+</span><span class="cm"> */</span>
+<span class="nd">@Getter</span><span class="c1">//也是lombak的好东西
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">enum</span> <span class="n">ProductStatusEnum</span> <span class="o">{</span>
+    <span class="c1">//枚举数据类型
+</span><span class="c1"></span>    <span class="n">UP</span><span class="o">(</span><span class="n">0</span><span class="o">,</span><span class="s">&#34;在架&#34;</span><span class="o">),</span>
+    <span class="n">DOWN</span><span class="o">(</span><span class="n">1</span><span class="o">,</span><span class="s">&#34;下架&#34;</span><span class="o">)</span>
+    <span class="o">;</span>
+    <span class="c1">//变量
+</span><span class="c1"></span>    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">code</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">message</span><span class="o">;</span>
+    <span class="c1">//构造函数
+</span><span class="c1"></span>    <span class="n">ProductStatusEnum</span><span class="o">(</span><span class="n">Integer</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">code</span> <span class="o">=</span> <span class="n">code</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="回顾">回顾</h2>
+
+<p>@RestController是@ResponseBody和@Controller的组合注解，目的是返回json格式</p>
+
+<h2 id="json格式设计">Json格式设计</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">GET</span> <span class="o">/</span><span class="nx">sell</span><span class="o">/</span><span class="nx">buyer</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="nx">list</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">无</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>返回</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-js" data-lang="js"><span class="p">{</span>
+    <span class="s2">&#34;code&#34;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&#34;msg&#34;</span><span class="o">:</span> <span class="s2">&#34;成功&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;data&#34;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;热榜&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&#34;foods&#34;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;123456&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;皮蛋粥&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;price&#34;</span><span class="o">:</span> <span class="mf">1.2</span><span class="p">,</span>
+                    <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="s2">&#34;好吃的皮蛋粥&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;icon&#34;</span><span class="o">:</span> <span class="s2">&#34;http://xxx.com&#34;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;好吃的&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&#34;foods&#34;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;123457&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;慕斯蛋糕&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;price&#34;</span><span class="o">:</span> <span class="mf">10.9</span><span class="p">,</span>
+                    <span class="s2">&#34;description&#34;</span><span class="o">:</span> <span class="s2">&#34;美味爽口&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;icon&#34;</span><span class="o">:</span> <span class="s2">&#34;http://xxx.com&#34;</span><span class="p">,</span>
+                <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+<p>比较复杂，在程序中分成了三层类实现（ResultVO+ProductVO+ProductInfoVO）：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.VO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/4.
+</span><span class="cm"> */</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResultVO</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/*错误码*/</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">code</span><span class="o">;</span>
+    <span class="cm">/*提示信息*/</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">msg</span><span class="o">;</span>
+    <span class="cm">/*具体内容*/</span>
+    <span class="kd">private</span> <span class="n">T</span> <span class="n">data</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.VO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.annotation.JsonProperty</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 商品（包含类目）
+</span><span class="cm"> * Created by Citrix on 2018/5/4.
+</span><span class="cm"> */</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductVO</span> <span class="o">{</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">categoryName</span><span class="o">;</span>
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;type&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">Integer</span> <span class="n">categoryType</span><span class="o">;</span>
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;foods&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">ProductInfoVO</span><span class="o">&gt;</span> <span class="n">productVOList</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.VO</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.fasterxml.jackson.annotation.JsonProperty</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">lombok.Data</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.math.BigDecimal</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * 商品详情
+</span><span class="cm"> * Created by Citrix on 2018/5/4.
+</span><span class="cm"> */</span>
+<span class="nd">@Data</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ProductInfoVO</span> <span class="o">{</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">productId</span><span class="o">;</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;name&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">productName</span><span class="o">;</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;price&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">BigDecimal</span> <span class="n">productPrice</span><span class="o">;</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;description&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">productDescription</span><span class="o">;</span>
+
+    <span class="nd">@JsonProperty</span><span class="o">(</span><span class="s">&#34;icon&#34;</span><span class="o">)</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">productIcon</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>其中的@JsonProperty(&ldquo;XXX&rdquo;)注解作用是，后端的变量和到时候传到前端的变量名字不一样，因为如果全按照之前的json格式在定义本地变量，必然造成变量名重复和混乱，还有一点，可以发现传回带前端的数据少于后端的数据，实际情况大多数也是，有些数据比如（库存）不会轻易的让别人知道。</p>
+
+<h2 id="返回数据统一化">返回数据统一化</h2>
+
+<p>为了避免在返回给前端的过程中重复写（定义变量,set一些，save一些，return之类），将其写成一个类，并且写好三个函数（带参success，无参success，带参error）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.imooc.sell.utils</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">com.imooc.sell.VO.ResultVO</span><span class="o">;</span>
+
+<span class="cm">/**
+</span><span class="cm"> * Created by Citrix on 2018/5/4.
+</span><span class="cm"> */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ResultVOUtil</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ResultVO</span> <span class="nf">success</span><span class="o">(</span><span class="n">Object</span> <span class="n">object</span><span class="o">){</span>
+        <span class="n">ResultVO</span> <span class="n">resultVO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">();</span>
+        <span class="n">resultVO</span><span class="o">.</span><span class="na">setData</span><span class="o">(</span><span class="n">object</span><span class="o">);</span>
+        <span class="n">resultVO</span><span class="o">.</span><span class="na">setCode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+        <span class="n">resultVO</span><span class="o">.</span><span class="na">setMsg</span><span class="o">(</span><span class="s">&#34;成功&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">resultVO</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ResultVO</span> <span class="nf">success</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">success</span><span class="o">(</span><span class="kc">null</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">ResultVO</span> <span class="nf">error</span><span class="o">(</span><span class="n">Integer</span> <span class="n">code</span><span class="o">,</span> <span class="n">String</span> <span class="n">msg</span><span class="o">){</span>
+        <span class="n">ResultVO</span> <span class="n">resultVO</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ResultVO</span><span class="o">();</span>
+        <span class="n">resultVO</span><span class="o">.</span><span class="na">setCode</span><span class="o">(</span><span class="n">code</span><span class="o">);</span>
+        <span class="n">resultVO</span><span class="o">.</span><span class="na">setMsg</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">resultVO</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-05-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Spring boot学习笔记5</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">
+            <span class="next-text nav-default">Spring boot学习笔记3</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

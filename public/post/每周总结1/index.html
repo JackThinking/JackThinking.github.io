@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>每周总结1 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="之前的每日算法更新结束，文章多了后，hexo编译好慢，而且每天写的话有点浪费时间，算法题还是每天在做，之后改成总结更新类的方式。 Tr" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%931/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="每周总结1" />
+<meta property="og:description" content="之前的每日算法更新结束，文章多了后，hexo编译好慢，而且每天写的话有点浪费时间，算法题还是每天在做，之后改成总结更新类的方式。 Tr" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%931/" />
+<meta property="article:published_time" content="2018-10-14T15:15:09&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-14T15:15:09&#43;00:00"/>
+
+<meta itemprop="name" content="每周总结1">
+<meta itemprop="description" content="之前的每日算法更新结束，文章多了后，hexo编译好慢，而且每天写的话有点浪费时间，算法题还是每天在做，之后改成总结更新类的方式。 Tr">
+
+
+<meta itemprop="datePublished" content="2018-10-14T15:15:09&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-14T15:15:09&#43;00:00" />
+<meta itemprop="wordCount" content="1006">
+
+
+
+<meta itemprop="keywords" content="java,leetcode,Treenode," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="每周总结1"/>
+<meta name="twitter:description" content="之前的每日算法更新结束，文章多了后，hexo编译好慢，而且每天写的话有点浪费时间，算法题还是每天在做，之后改成总结更新类的方式。 Tr"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">每周总结1</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-14 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#treenode-easy系列题">TreeNode-easy系列题</a></li>
+<li><a href="#treenode-middle系列题">TreeNode-middle系列题</a></li>
+<li><a href="#treenode-hard系列题">TreeNode-hard系列题</a></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>之前的每日算法更新结束，文章多了后，hexo编译好慢，而且每天写的话有点浪费时间，算法题还是每天在做，之后改成总结更新类的方式。</p>
+
+<h1 id="treenode-easy系列题">TreeNode-easy系列题</h1>
+
+<ol>
+<li>Maximum Depth of Binary Tree（树的深度）</li>
+<li>Validate Binary Search Tree（二叉搜索树的判定）</li>
+<li>Symmetric Tree（对称树-学到了helper的双遍历）</li>
+<li>Binary Tree Level Order Traversal（根据树的深度来找同一层的点，helper函数需要加入level属性）</li>
+<li>Convert Sorted Array to Binary Search Tree（有序数组变成二叉搜索树-中序遍历的特点-需要在helper函数里面不断的找中点，然后左右递归，边界条件要注意）</li>
+</ol>
+
+<h1 id="treenode-middle系列题">TreeNode-middle系列题</h1>
+
+<ol>
+<li>Binary Tree Inorder Traversal（树的中序遍历）</li>
+<li>Binary Tree Zigzag Level Order Traversal（Z形level遍历，在原有easy的基础上对add函数做一下小处理，在末端加入，有点trick的感觉）</li>
+<li>Construct Binary Tree from Preorder and Inorder Traversal（根据先序中序遍历结果进行重新排列，有点难度，搞清楚就是先序的节点作为中序数组的分界点）</li>
+<li>Populating Next Right Pointers in Each Node（给树增加右向指针，可以好好理解BFS和DFS的区别）</li>
+<li>Kth Smallest Element in a BST（根据二叉搜索树的特点统计每个节点左右两边的节点个数，依据个数来找出index的node）</li>
+<li>Number of I slands（可以说是比较经典的二维图遍历了，用dfs的思路进行遍历，找到后变0，这样之后再遇到就不会对下一个图产生误导了）</li>
+</ol>
+
+<h1 id="treenode-hard系列题">TreeNode-hard系列题</h1>
+
+<ol>
+<li>Word Ladder（很难，从首到尾BFS将相差1个字的单词从原有数组去掉，加入到该level的数组中）</li>
+<li>Surrounded Regions（二维数组，去掉被包围的点，这道题是逆向思维，从4条边缘进行dfs,将遇到的点给值，然后再遍历的时候，如果没有被给值就直接变成X）</li>
+<li>Lowest Common Ancestor of a Binary Tree（这道题还是要在看一下YouTube视频理解一下，是一道经典题）</li>
+<li>Binary Tree Maximum Path Sum（二叉树上的最大路径，基于DFS，需要识别负数，return的时候有点技巧）</li>
+<li>Friend Circles（朋友圈，也是用dfs，不过要理解visited的含义）</li>
+<li>Course Schedule（拓扑搜索，用一个set和dp的数组来解决）</li>
+<li>Course Schedule II（用一个stack和一个set可以解决）</li>
+<li>Longest Increasing Path in a Matrix（二维数据的找最大上升序列，需要一个visited数组作数据记录）</li>
+<li>Alien Dictionary</li>
+<li>Count of Smaller Numbers After Self（其实这道题换个角度理解就是一个个进行二分插入，统计插入位置的index，进index进行记录）</li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-10-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/treenode/">Treenode</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%932/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每周总结2</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B768/">
+            <span class="next-text nav-default">每日一刷68</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

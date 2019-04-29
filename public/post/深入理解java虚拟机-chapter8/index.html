@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>深入理解Java虚拟机-Chapter8 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="虚拟机字节码执行引擎 代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。 运行时栈帧结构 栈帧(Sta" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="深入理解Java虚拟机-Chapter8" />
+<meta property="og:description" content="虚拟机字节码执行引擎 代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。 运行时栈帧结构 栈帧(Sta" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter8/" />
+<meta property="article:published_time" content="2018-08-02T11:13:24&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-02T11:13:24&#43;00:00"/>
+
+<meta itemprop="name" content="深入理解Java虚拟机-Chapter8">
+<meta itemprop="description" content="虚拟机字节码执行引擎 代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。 运行时栈帧结构 栈帧(Sta">
+
+
+<meta itemprop="datePublished" content="2018-08-02T11:13:24&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-02T11:13:24&#43;00:00" />
+<meta itemprop="wordCount" content="4938">
+
+
+
+<meta itemprop="keywords" content="java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入理解Java虚拟机-Chapter8"/>
+<meta name="twitter:description" content="虚拟机字节码执行引擎 代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。 运行时栈帧结构 栈帧(Sta"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">深入理解Java虚拟机-Chapter8</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-02 </span>
+        <div class="post-category">
+            <a href="/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"> JVM虚拟机 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#虚拟机字节码执行引擎">虚拟机字节码执行引擎</a></li>
+<li><a href="#运行时栈帧结构">运行时栈帧结构</a>
+<ul>
+<li><a href="#局部变量表">局部变量表</a></li>
+<li><a href="#操作数栈">操作数栈</a></li>
+<li><a href="#动态连接">动态连接</a></li>
+<li><a href="#方法返回地址">方法返回地址</a></li>
+<li><a href="#附加信息">附加信息</a></li>
+</ul></li>
+<li><a href="#方法调用">方法调用</a>
+<ul>
+<li><a href="#解析">解析</a></li>
+<li><a href="#分派">分派！！！</a>
+<ul>
+<li><a href="#静态分派-重载-overload-的体现">静态分派——重载(Overload)的体现</a></li>
+<li><a href="#动态分派-重写-override-的体现">动态分派——重写(Override)的体现</a></li>
+</ul></li>
+<li><a href="#单分派与多分派">单分派与多分派</a></li>
+<li><a href="#虚拟机动态分派的实现">虚拟机动态分派的实现</a></li>
+</ul></li>
+<li><a href="#基于栈的字节码解释执行引擎">基于栈的字节码解释执行引擎</a>
+<ul>
+<li><a href="#解释执行">解释执行</a></li>
+<li><a href="#基于栈的指令集与基于寄存器的指令集">基于栈的指令集与基于寄存器的指令集</a></li>
+<li><a href="#基于栈的解释器执行过程">基于栈的解释器执行过程</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="虚拟机字节码执行引擎">虚拟机字节码执行引擎</h2>
+
+<blockquote>
+<p>代码编译的结果是从本地机器码变成字节码，是存储格式发展的一小步，却是编程语言发展的一大步。</p>
+</blockquote>
+
+<h2 id="运行时栈帧结构">运行时栈帧结构</h2>
+
+<ul>
+<li>栈帧(Stack Frame)是用于支持虚拟机进行方法调用和方法执行的数据结构，它是虚拟机运行时数据区中的虚拟机栈(Virtual Machine Stack)的栈元素。</li>
+<li>每一个栈帧都包含了<strong>局部变量表</strong>、<strong>操作数栈</strong>、<strong>动态连接</strong>、<strong>方法返回地址</strong>等信息。在编译程序代码的时候，栈帧中需要多大的局部变量表，多深的操作数栈都已经完全确定，并且写入到方法表的Code属性之中。</li>
+<li>每一个<strong>方法</strong>从调用开始至执行完成的过程，都对应着一个<strong>栈帧</strong>在虚拟机栈里面从入栈到出栈的过程。</li>
+<li>在活动线程中，只有位于栈顶的栈帧才是有效的。</li>
+</ul>
+
+<h3 id="局部变量表">局部变量表</h3>
+
+<ul>
+<li>局部变量表(Local Variable Table)是一组变量值存储空间，用于存放<strong>方法参数</strong>和方法内部定义的<strong>局部变量</strong>。</li>
+<li>局部变量与类变量不同，<strong>必须要赋初始值</strong> 。</li>
+</ul>
+
+<h3 id="操作数栈">操作数栈</h3>
+
+<ul>
+<li>操作数栈(Operand Stack)也常称操作栈，它是一个后入先出(Last In First Out,LIFO)栈。操作数栈的最大深度也在编译的时候写如了Code属性的max_stacks数据项中。</li>
+<li>当一个方法刚刚开始执行时，这个方法的操作数栈是空的，在方法的执行过程中，会有各种字节码指令往操作数栈中写入和提取内容，也就是出栈/入栈操作。</li>
+<li>在概念模型中，两个栈帧作为虚拟机栈的元素，是完全独立的，但在大多数虚拟机的实现里都会做一些优化梳理，令两个栈帧出现一部分重叠。</li>
+</ul>
+
+<h3 id="动态连接">动态连接</h3>
+
+<ul>
+<li>每个栈帧都包含一个指向运行时常量池中该栈帧所属方法的引用，持有这个引用是为了支持方法调用过程中的动态连接(Dynamic Linking)。</li>
+<li>Class文件的常量池中存有大量的符号引用，字节码中的方法调用指令就以 <strong>常量池中指向方法的符号引用作为参数</strong> 。</li>
+<li>这些符号引用一部分会在类加载阶段或第一次使用的时候就转化为直接引用，这种转化称为 <strong>静态解析</strong> 。另外一部分将在每一次运行期间转化为直接引用，这部分称为 <strong>动态连接</strong> 。</li>
+</ul>
+
+<h3 id="方法返回地址">方法返回地址</h3>
+
+<ul>
+<li>当一个方法开始执行后，只有两种方式可以退出这个方法：
+
+<ul>
+<li>第一种方式是执行引擎遇到任意一个 <strong>方法返回的字节码指令</strong> ，这时候可能会有返回值传递给上层的方法调用者（调用当前方法的方法称为调用者），是否有返回值和返回值的类型将根据遇到何种方法返回指令来决定，这种退出方法的方式称为正常完成出口(Normal Method Invocation Comletion)。</li>
+<li>另一种是，在方法执行过程中遇到异常，并且这个异常没有在方法体内得到处理，就会导致方法退出，这种退出方法的方式称为 <strong>异常完成出口</strong>(Abrupt Method Invocation Completion)。一个方法使用异常完成出口的方式退出，是不会给它的上层调用者产生任何返回值的。</li>
+</ul></li>
+<li>一般来说，方法正常退出时，调用者的 <strong>PC计数器的值</strong> 可以作为返回地址，栈帧中很可能会保存这个计数器值。而方法异常退出时，返回地址是要通过 <strong>异常处理器表</strong> 来确定的，栈帧中一般不会保存这部分信息。</li>
+<li>方法退出的过程实际上就等同于把当前栈帧出栈，因此退出时可能执行的操作有：
+
+<ul>
+<li>恢复上层方法的局部变量表和操作栈帧</li>
+<li>返回值（如果有的话）压入调用者栈帧的操作数栈中</li>
+<li>调整PC计数器的值</li>
+<li>指向方法调用指令后面的一条指令等</li>
+</ul></li>
+</ul>
+
+<h3 id="附加信息">附加信息</h3>
+
+<h2 id="方法调用">方法调用</h2>
+
+<p><strong>方法调用并不等同于方法执行</strong>，方法调用阶段唯一的任务就是 <strong>确定被调用方法的版本</strong>（即调用哪一个方法） ，暂时还不涉及方法内部的具体运行过程。</p>
+
+<h3 id="解析">解析</h3>
+
+<ul>
+<li>在Java语言中符合“编译期可知，运行期不可变”这个要求的方法，主要包括 <strong>静态方法</strong> 和 <strong>私有方法</strong> 两个大类，前者与类型直接关联，后者在外部不可被访问，这决定了它们不可能通过继承或别的方式重写其他版本，因此它们都适合 <strong>在类加载阶段进行解析</strong> 。</li>
+<li>与之相对应的是，在Java虚拟机里面提供了5条方法调用字节码指令：
+
+<ul>
+<li>invokestatic：调用静态方法。</li>
+<li>invokespecial：调用实例构造器方法、私有方法和父类方法。</li>
+<li>invokevirual：调用所有的虚方法。</li>
+<li>invokeinterface：调用接口方法，会在运行时再确定一个实现此接口的对象。</li>
+<li>invokedynamic：先在运行时动态解析出调用点限定符所引用的方法，然后再执行该方法，在此之前的4条调用指令，分派逻辑是固化在Java虚拟机内部的，而invokedynamic指令的分派逻辑是由用户所设定的引导方法决定的。</li>
+</ul></li>
+<li>只要能被<code>invokestatic</code>和<code>invokespecial</code>指令调用的方法，都可以在解析阶段中确定唯一的调用版本，符合这个条件的有 <strong>静态方法</strong> 、 <strong>私有方法</strong> 、 <strong>实例构造器</strong> 、 <strong>父类方法</strong> 4类，它们在类加载的时候就会把符号引用解析为该方法的直接引用，这些方法称为「非虚方法」。</li>
+<li>还有一种特殊情况就是被final修饰的方法，虽然final方法使用invokevirual指令来进行调用，但是由于其无法被覆盖，没有其他版本，所以无须对方接受者进行多态选择。</li>
+</ul>
+
+<h3 id="分派">分派！！！</h3>
+
+<p>Java具备面向对象的三个基本特征：继承，封装和多态</p>
+
+<h4 id="静态分派-重载-overload-的体现">静态分派——重载(Overload)的体现</h4>
+
+<ul>
+<li>重载：两同一不同
+
+<ul>
+<li>类、方法名 相同</li>
+<li>形参列表 不同</li>
+<li>返回类型、修饰符 无关</li>
+</ul></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//方法静态分派演示
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StaticDispatch</span><span class="o">{</span>
+  <span class="kd">static</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Human</span><span class="o">{</span>
+  <span class="o">}</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Man</span> <span class="kd">extends</span> <span class="n">Human</span><span class="o">{</span>
+  <span class="o">}</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Woman</span> <span class="kd">extends</span> <span class="n">Human</span><span class="o">{</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Human</span> <span class="n">guy</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello,guy!&#34;</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Man</span> <span class="n">guy</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello,getleman!&#34;</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Woman</span> <span class="n">guy</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello,lady!&#34;</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">Human</span> <span class="n">man</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Man</span><span class="o">();</span>
+    <span class="n">Human</span> <span class="n">woman</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Woman</span><span class="o">();</span>
+    <span class="n">StaticDispatch</span> <span class="n">sr</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StaticDispatch</span><span class="o">();</span>
+    <span class="n">sr</span><span class="o">.</span><span class="na">sayHello</span><span class="o">(</span><span class="n">man</span><span class="o">);</span>   <span class="c1">//输出hello,guy!
+</span><span class="c1"></span>    <span class="n">sr</span><span class="o">.</span><span class="na">sayHello</span><span class="o">(</span><span class="n">woman</span><span class="o">);</span>  <span class="c1">//输出hello,guy!
+</span><span class="c1"></span>  <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>对于 <code>Human man = new Man()</code>; ：我们把 <code>Human</code> 称为变量的 <strong>静态类型</strong> (Static Type)，或者叫做变量的 <strong>外观类型</strong> (Apparent Type)，后面的 <code>Man</code> 则称为变量的 <strong>实际类型</strong> (Actual Type)。</li>
+<li>静态类型的变化仅仅在使用时发生，变量本身的静态类型不会被改变，并且最终的静态类型是在编译期 <strong>可知</strong> 的；而 <strong>实际类型</strong> 变化的结果在 <strong>运行期</strong> 才可确定，编译器在编译程序的时候并 不知道 一个对象的实际类型是什么。</li>
+<li>回到上述代码，main()里面的两次sayHello()方法调用，在方法接收者已经确定是对象“sr”情况下，使用哪个重载版本，就完全 <strong>取决于传入参数的数量和数据类型</strong> 。虚拟机（准确地说是编译器）在重载时是通过参数的 <strong>静态类型</strong> 而不是实际类型作为判定依据的。</li>
+<li>所有依赖静态类型来定位方法执行版本的分派动作称为 <strong>静态分派</strong> 。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//重载方法匹配优先级
+</span><span class="c1"></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Overload</span><span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Object</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello object&#34;</span><span class="o">);</span>  <span class="c1">//优先级六，char装箱后转型为父类了，如果有多个父类，则在继承关系中由下往上搜索，越接近上层的优先级越低。
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="kt">int</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello int&#34;</span><span class="o">);</span> <span class="c1">//优先级二，&#39;a&#39;可以代表数据97（&#39;a&#39;的Unicode数值为十进制数字97）
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="kt">long</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello long&#34;</span><span class="o">);</span>  <span class="c1">//优先级三，进一步转型为长整数97L，（安装char-&gt;int-&gt;long-&gt;float-&gt;double的顺序转型）
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Character</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello Character&#34;</span><span class="o">);</span> <span class="c1">//优先级四，发生一次自动装箱，&#39;a&#39;被包装成它的封装类型java.lang.Character
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="kt">char</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello char&#34;</span><span class="o">);</span>  <span class="c1">//优先级一（最高），‘a’是一个char类型的数据
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="kt">char</span><span class="o">...</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello char...&#34;</span><span class="o">);</span> <span class="c1">//优先级七，变长参数的重载优先级是最低的，这时候字符&#39;a&#39;被当做了一个数组元素
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(</span><span class="n">Serializable</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;hello Serializable&#34;</span><span class="o">);</span> <span class="c1">//优先级五，java.lang.Serializable是java.lang.Character类实现的一个接口，当自动装箱之后发现还是找不到装箱类，但是找到了装箱类实现的接口类型，所以又发生了一次自动转型。char可以转型成int，但Character是绝对不会转型为Integer的，它只能安全地转型为它实现的接口或父类。
+</span><span class="c1"></span>  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">sayHello</span><span class="o">(</span><span class="sc">&#39;a&#39;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>优先级规则：
+1. 先char-int-long-float-double方向转换（byte和short不会，因为转型不安全）
+2. 自动装箱（char-Character）
+3. 检查接口
+4. 检查父类
+5. 变长参数</p>
+
+<h4 id="动态分派-重写-override-的体现">动态分派——重写(Override)的体现</h4>
+
+<ul>
+<li>重写：两同两小一大
+
+<ul>
+<li>方法名、形参列表 <strong>相同</strong></li>
+<li>子类返回类型、抛出异常 <strong>小于等于</strong> 父类方法返回类型、父类方法抛出异常</li>
+<li>子类访问权限 <strong>大于等于</strong> 父类方法访问权限。
+<br /></li>
+</ul></li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DynamicDispatch</span><span class="o">{</span>
+  <span class="kd">static</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Humam</span><span class="o">{</span>
+    <span class="kd">protected</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Man</span> <span class="kd">extends</span> <span class="n">Human</span><span class="o">{</span>
+    <span class="nd">@override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(){</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;man say hello&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Woman</span> <span class="kd">extends</span> <span class="n">Human</span><span class="o">{</span>
+    <span class="nd">@override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">sayHello</span><span class="o">(){</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;woman say hello&#34;</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span>
+    <span class="n">Human</span> <span class="n">man</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Man</span><span class="o">();</span>
+    <span class="n">Human</span> <span class="n">woman</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Woman</span><span class="o">();</span>
+    <span class="n">man</span><span class="o">.</span><span class="na">sayHello</span><span class="o">();</span>
+    <span class="n">woman</span><span class="o">.</span><span class="na">sayHello</span><span class="o">();</span>
+    <span class="n">man</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Woman</span><span class="o">();</span>
+    <span class="n">man</span><span class="o">.</span><span class="na">sayHello</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+<span class="cm">/**
+</span><span class="cm"> *运行结果：
+</span><span class="cm"> *man say hello
+</span><span class="cm"> *woman say hello
+</span><span class="cm"> *woman say hello
+</span><span class="cm"> **/</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>invokevirtual指令的运行时解析过程大致分为以下几个步骤：
+
+<ul>
+<li>找到操作数栈顶的第一个元素所指向的对象的 实际类型 ，记作C</li>
+<li>如果在类型C中找到与常量中的描述符和简单名称都相符的方法，则进行访问权限校验，如果通过则返回这个方法的直接引用，查找结束；如果不通过，则返回 <code>java.lang.IllegalAccessError</code> 异常。</li>
+<li>否则，按照继承关系从下往上依次对C的各个父类进行第2步的搜索和验证过程。</li>
+<li>如果始终没有找到合适的方法，则抛出 <code>java.lang.AbstractMethodError</code> 异常。</li>
+</ul></li>
+
+<li><p>由于invokevirtual指令执行的第一步就是在运行期确定接收者的 <strong>实际类型</strong> ，所有两次调用中的invokevirtual指令把常量池中的类方法符号引用解析到了不同的直接引用上，这个过程就是Java语言中 <strong>方法重写的本质</strong> 。</p></li>
+
+<li><p>我们把这种在 <strong>运行期</strong> 根据实际类型确定方法执行版本的分派过程称为动态分派。</p></li>
+</ul>
+
+<h3 id="单分派与多分派">单分派与多分派</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Dispatch</span> <span class="o">{</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">QQ</span> <span class="o">{}</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">_360</span> <span class="o">{}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Father</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hardChoice</span><span class="o">(</span><span class="n">QQ</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;father choose qq&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hardChoice</span><span class="o">(</span><span class="n">_360</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;father choose 360&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">Son</span> <span class="kd">extends</span> <span class="n">Father</span> <span class="o">{</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hardChoice</span> <span class="o">(</span><span class="n">QQ</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;son choose qq&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">hardChoice</span> <span class="o">(</span><span class="n">_360</span> <span class="n">arg</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;son choose 360&#34;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Father</span> <span class="n">father</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Father</span><span class="o">();</span>
+        <span class="n">Father</span> <span class="n">son</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Son</span><span class="o">();</span>
+        <span class="n">father</span><span class="o">.</span><span class="na">hardChoice</span><span class="o">(</span><span class="k">new</span> <span class="n">_360</span><span class="o">());</span>
+        <span class="n">son</span><span class="o">.</span><span class="na">hardChoice</span><span class="o">(</span><span class="k">new</span> <span class="n">QQ</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="c1">//father choose 360
+</span><span class="c1"></span><span class="o">//</span><span class="n">son</span> <span class="n">choose</span> <span class="n">qq</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><p>方法的接收者与方法的参数统称为方法的 <strong>宗量</strong> 。单分派是根据一个宗量对目标方法进行选择，多分派则是根据多于一个宗量对目标方法进行选择。我们看编译阶段编译器的选择过程，也就是静态分派的过程。这时选择目标方法的依据有两点：一是静态类型是Father还是Son，二是方法参数是QQ还是360这次选择结果产生了两条invokevirtual指令，两条指令的参数分别是常量池中指向 <code>Father.hardChoice(360)</code> 及 <code>Father.hardChoice(QQ)</code> 方法的符号引用。因为是根据两个宗量进行选择，所以Java语言的静态分派属于多分派类型。</p></li>
+
+<li><p>再看运行阶段虚拟机的选择，也就是动态分派的过程。在执行 <code>son.hardChoice(new QQ())</code> 这句代码时（准确地说时在执行这句代码所对应的invokevirtual指令时），由于 编译期已经决定目标方法的签名必须是 <code>hardChoice(QQ)</code> ，虚拟机此时不会关心传递过来的参数“QQ”到底时“腾讯QQ”还是“奇瑞QQ”，因为这时参数的静态类型、实际类型都对方法的选择 不会 构成影响，唯一可以影响虚拟机选择的因素只有 此方法的接受者的实际类型 是Father还是Son。因为只有一个宗量作为选择依据，所以Java语言的动态分派属于单分派类型。</p></li>
+
+<li><p>Java语言的 <strong>静态分派</strong> 属于 <strong>多分派</strong> 类型； <strong>动态分派</strong> 属于 <strong>单分派</strong> 类型。</p></li>
+</ul>
+
+<h3 id="虚拟机动态分派的实现">虚拟机动态分派的实现</h3>
+
+<ul>
+<li>“稳定优化” 手段就是为类在方法区中建立一个「虚方法表」（Vritual Methdo Table，也成为vtable，与此对应的，在invokeinterface执行时也会用到接口方法表——Interface Method Table，简称itable），使用虚方法表索引来代替元数据查找以提高性能。</li>
+<li>虚方法表中存放着各个方法的实际入口地址。
+
+<ul>
+<li>如果某个方法在子类中没有被重写，那子类的虚方法表里面的地址入口和父类相同方法的地址入口是一致的，都指向父类的实现入口。</li>
+<li>如果子类中重写了这个方法，子类方法表中的地址将会替换为指向子类实现版本的入口地址。</li>
+</ul></li>
+</ul>
+
+<h2 id="基于栈的字节码解释执行引擎">基于栈的字节码解释执行引擎</h2>
+
+<h3 id="解释执行">解释执行</h3>
+
+<p><a href="https://i.loli.net/2018/08/14/5b728be07937e.png"><img src="https://i.loli.net/2018/08/14/5b728be07937e.png" alt="jvm-tu-8.4.png" /></a></p>
+
+<ul>
+<li>词法分析、语法分析以至后面的优化器和目标代码生成器都可以选择独立与执行引擎，形成一个完整意义的编译器去实现，这类代表是 c/c++ 语言。</li>
+<li>选择把其中的一部分步骤（如生成抽象语法树之前的步骤）实现为一个半独立的编译器，这类代表是 Java 语言。</li>
+<li>把这些步骤和执行引擎全部集中封装在一个封闭的黑匣子之中，如大多数的 JavaScript 。</li>
+<li>Java 语言中，Javac编译器完成了程序代码经过词法分析、语法分析到抽象语法树，再遍历语法树生成线性的字节码指令流的过程。因为这一部分动作是在Java虚拟机之外进行的，而解释器在虚拟机的内部，所以Java的编译解释 半独立 的实现。</li>
+</ul>
+
+<h3 id="基于栈的指令集与基于寄存器的指令集">基于栈的指令集与基于寄存器的指令集</h3>
+
+<ul>
+<li>栈指令集：
+
+<ul>
+<li>优点：可移植，代码更加紧凑，编译器实现简单</li>
+<li>确定：速度慢，完成相同功能指令数量多</li>
+</ul></li>
+</ul>
+
+<h3 id="基于栈的解释器执行过程">基于栈的解释器执行过程</h3>
+
+<p>具体见书</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-08-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/jvm/">JVM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B737/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每日一刷37</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B736/">
+            <span class="next-text nav-default">每日一刷36</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

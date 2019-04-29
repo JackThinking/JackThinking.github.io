@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>深入理解Java虚拟机-Chapter13 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="线程安全与锁优化 首先需要保证正确性，然后在此基础上实现高效 概述 「面向过程」的编程思想：站在计算机的角度去抽象问题和解决问题，把数据和过" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter13/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="深入理解Java虚拟机-Chapter13" />
+<meta property="og:description" content="线程安全与锁优化 首先需要保证正确性，然后在此基础上实现高效 概述 「面向过程」的编程思想：站在计算机的角度去抽象问题和解决问题，把数据和过" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter13/" />
+<meta property="article:published_time" content="2018-08-01T10:36:29&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-01T10:36:29&#43;00:00"/>
+
+<meta itemprop="name" content="深入理解Java虚拟机-Chapter13">
+<meta itemprop="description" content="线程安全与锁优化 首先需要保证正确性，然后在此基础上实现高效 概述 「面向过程」的编程思想：站在计算机的角度去抽象问题和解决问题，把数据和过">
+
+
+<meta itemprop="datePublished" content="2018-08-01T10:36:29&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-01T10:36:29&#43;00:00" />
+<meta itemprop="wordCount" content="5079">
+
+
+
+<meta itemprop="keywords" content="java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入理解Java虚拟机-Chapter13"/>
+<meta name="twitter:description" content="线程安全与锁优化 首先需要保证正确性，然后在此基础上实现高效 概述 「面向过程」的编程思想：站在计算机的角度去抽象问题和解决问题，把数据和过"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">深入理解Java虚拟机-Chapter13</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-01 </span>
+        <div class="post-category">
+            <a href="/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"> JVM虚拟机 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#线程安全与锁优化">线程安全与锁优化</a></li>
+<li><a href="#概述">概述</a></li>
+<li><a href="#线程安全">线程安全</a>
+<ul>
+<li><a href="#java语言中的线程安全">Java语言中的线程安全</a>
+<ul>
+<li><a href="#不可变">不可变</a></li>
+<li><a href="#绝对线程安全">绝对线程安全</a></li>
+<li><a href="#相对线程安全">相对线程安全</a></li>
+<li><a href="#线程兼容">线程兼容</a></li>
+<li><a href="#线程对立">线程对立</a></li>
+</ul></li>
+<li><a href="#线程安全的实现的实现方法">线程安全的实现的实现方法</a>
+<ul>
+<li><a href="#互斥同步-mutual-exclusion-synchronization">互斥同步(Mutual Exclusion &amp; Synchronization)</a></li>
+<li><a href="#非阻塞同步-non-blocking-synchronization">非阻塞同步(Non-Blocking Synchronization)</a></li>
+<li><a href="#无同步方案">无同步方案</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#锁优化">锁优化</a>
+<ul>
+<li><a href="#自旋锁与自适应自旋">自旋锁与自适应自旋</a></li>
+<li><a href="#锁消除">锁消除</a></li>
+<li><a href="#锁粗化">锁粗化</a></li>
+<li><a href="#轻量级锁">轻量级锁</a></li>
+<li><a href="#偏向锁">偏向锁</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="线程安全与锁优化">线程安全与锁优化</h2>
+
+<blockquote>
+<p>首先需要保证正确性，然后在此基础上实现高效</p>
+</blockquote>
+
+<h2 id="概述">概述</h2>
+
+<ul>
+<li>「面向过程」的编程思想：站在<strong>计算机</strong>的角度去抽象问题和解决问题，把数据和过程分别作为独立的部分来考虑，数据代表问题空间中的客体，程序代码则用于处理这些数据。</li>
+<li>「面向对象」的编程思想：站在<strong>现实世界</strong>的角度去抽象和解决问题，把数据和行为都看做是对象的一部分，这样可以让程序员能以符合现实世界的思维方式来编写和组织程序。</li>
+</ul>
+
+<h2 id="线程安全">线程安全</h2>
+
+<blockquote>
+<p>严格定义：“当多个线程访问一个对象时，如果不用考虑这些线程在运行时环境下的调度和交替执行，也不需要进行额外的同步，或者在调用进行任何其他的协调操作，调用这个对象的行为都可以获得正确的结果，那这个对象是线程安全的。”</p>
+</blockquote>
+
+<p>这个定义比较严谨，要求线程安全的代码有一个特征：代码本身封装了所有必要的正确性保障手段，这点听起来容易，实际很难做到，在大多数场景中，我们会把定义弱化一点。把“调用这个对象的行为”改为“单词调用”，就可以称之为线程安全了。</p>
+
+<h3 id="java语言中的线程安全">Java语言中的线程安全</h3>
+
+<p>按照线程安全的“安全程度”<strong>由强至弱</strong>来排序，可以将Java语言中各种操作共享的数据分为以下5类：<strong>不可变</strong>、<strong>绝对线程安全</strong>、<strong>相对线程安全</strong>、<strong>线程兼容</strong>和线<strong>程对立</strong>。</p>
+
+<h4 id="不可变">不可变</h4>
+
+<ul>
+<li>在Java语言中，不可变(Immutable)的对象一定是线程安全的。“不可变”带来的安全性是最简单和最纯粹的。</li>
+<li>Java语言中，
+
+<ul>
+<li>如果共享数据是一个<strong>基本数据类型</strong>，那么只要在定义时使用final关键字修饰它就可以保证它是不可变的；</li>
+<li>如果共享数据是一个<strong>对象</strong>，那就需要保证对象的行为不会对其状态产出任何影响才行。</li>
+</ul></li>
+<li>例如java.lang.String类的对象就是一个典型的不可变对象，我们调用它的substring()、replace()和concat()这些方法都不会影响它原来的值，<strong>只会返回一个新构造的字符串对象</strong> 。</li>
+<li>保证对象行为不影响自己状态的途径有很多种，最简单的就是对象中 带有状态的变量都声明为final ，这样在构造函数结束之后，它就是不可变的。</li>
+<li>符合不可变要求的类型，除了<code>String</code>外，常用的还有<strong>枚举类型</strong>，以及<code>java.lang.Number</code>的部分子类，如<code>Long</code>和<code>Double</code>等数值包装类型，<code>BigInteger</code>和<code>BigDecimal</code>等大数据类型；但同为Number的子类型的原子类 <code>AtomicInteger</code> 和 <code>AtomicLong</code> 则并非不可变的。</li>
+</ul>
+
+<h4 id="绝对线程安全">绝对线程安全</h4>
+
+<ul>
+<li>不管运行时环境如何，调用者都不需要任何额外的同步措施。</li>
+<li>在Java API中标注自己是线程安全的类，大多数都<strong>不是</strong>绝对的线程安全。</li>
+</ul>
+
+<h4 id="相对线程安全">相对线程安全</h4>
+
+<ul>
+<li>相对线程安全就是我们<strong>通常意义上所讲的线程安全</strong>，它需要保证对这个对象单独的操作是线程安全的，我们在调用的时候不需要做额外的保障措施，但对于一些特定顺序的连续调用，就可能需要在调用端使用额外的同步手段来保证调用的正确性。</li>
+<li>在Java语言中，大部分的线程安全类都属于这种类型，例如<code>Vector</code>、 <code>HashTable</code>、<code>Collections</code>的<code>synchronizedCollection()</code>方法包装的集合等。</li>
+</ul>
+
+<h4 id="线程兼容">线程兼容</h4>
+
+<p>线程兼容是指<strong>对象本身并不是线程安全</strong>的，但是可以通过在调用端正<strong>确地使用同步手段</strong>来保证对象在并发环境中可以安全地使用，我们平常说一个类不是线程安全的，绝大多数的时候指的是这一种情况。Java API中大部分的类都是属于线程兼容的，如与前面的Vector和HashTable相对应的集合类<code>ArrayList</code>和<code>HashMap</code>等。</p>
+
+<h4 id="线程对立">线程对立</h4>
+
+<p>线程对立是指无论调用端是否采取了同步措施，都无法在多线程环境中并发使用的代码。如Thread类的<code>suspend()</code>和<code>resume()</code>方法，<code>System.setIn()、System.setOut()</code>和<code>System.runFinalizersOnExit()</code> 等。</p>
+
+<h3 id="线程安全的实现的实现方法">线程安全的实现的实现方法</h3>
+
+<h4 id="互斥同步-mutual-exclusion-synchronization">互斥同步(Mutual Exclusion &amp; Synchronization)</h4>
+
+<ul>
+<li>同步是指在多个线程并发访问共享数据时，保证共享数据在同一个时刻只被一个（或者是一些，使用信号量的时候）线程使用。而互斥是实现同步的一种手段， 「临界区(Critical Section)」、「互斥量(Mutex)」和「信号量(Semaphore)」都是主要的互斥实现方式。</li>
+<li>在Java中，最基本的互斥同步手段就是<code>synchronized</code>关键字，synchronized关键字经过编译之后，会在同步块的前后分别形成 <code>monitorenter</code>和<code>monitorexit</code>这两个字节码指令，这两个字节码都需要一个reference类型的参数来指明要锁定和解锁的对象。</li>
+<li>在执行monitorenter指令时，首先要尝试获取对象的锁。如果这个对象没被锁定，或者当前线程已经拥有了那个对象的锁，把锁的计数器加1，相应的，在执行monitorexit指令时会将所计数器减1，当计数器为0时，锁就被释放。如果获取对象锁失败，那当前线程就要阻塞等待，直到对象锁被另外一个线程释放为止。</li>
+<li>两点值得注意：
+
+<ul>
+<li>首先，synchronized同步块对同一条线程来说是<strong>可重入</strong>的，不会出现自己把自己锁死的问题。</li>
+<li>其次，同步块在已进入的线程执行完之前，会阻塞后面其他线程的进入。</li>
+</ul></li>
+<li>synchronized是Java语言中一个「重量级(Heavyweight)」的操作，在确实有必要情况下才使用。</li>
+<li>除了synchronized之外，还可以使用<code>java.util.concurrent</code>包中的「重入锁(ReentrantLock)」 来实现同步。ReentrantLock和synchronized在代码写法上有点<strong>区别</strong>：一个表现为<strong>API层面</strong>的互斥锁（lock()h和unlock()方法配合try/finally语句块来完成），另一个表现为<strong>原生语法层面</strong>的互斥锁。</li>
+<li>ReentrantLock增加了一些高级功能，主要有以下3项：<strong>等待可中断</strong>  、<strong>可实现公平锁</strong>，以及<strong>锁可以绑定多个条件</strong> 。
+
+<ul>
+<li><strong>等待可中断</strong>是值当持有锁的线程长期不释放锁的时候，正在等待的线程可以选择放弃等待，改为处理其他事情。</li>
+<li><strong>公平锁</strong>是指多个线程在等待同一个锁时，必须按照申请锁的时间顺序来依次获得锁。 <code>synchronized</code>中的锁是<strong>非公平</strong>的 ，ReetrantLock默认情况下也是<strong>非公平</strong>的，<strong>但可以通过带布尔值的构造函数要求使用公平锁</strong>。</li>
+<li><strong>锁绑定多个条件</strong>是指一个ReetrantLock对象可以同时绑定多个Condition对象，只需多次调用<code>newCondition()</code>方法即可。
+&gt; 提倡在synchronized能实现需求的情况下，优先考虑synchronized来进行同步。</li>
+</ul></li>
+</ul>
+
+<h4 id="非阻塞同步-non-blocking-synchronization">非阻塞同步(Non-Blocking Synchronization)</h4>
+
+<ul>
+<li>互斥同步主要的问题就是进行线程阻塞和唤醒所带来的性能问题，因此这种同步也被称为「阻塞同步」(Blocking Synchronization)，属于一种<strong>悲观</strong>的并发策略。</li>
+<li>基于冲突检测的乐观并发策略：就是先进行操作，如果没有其他线程争用共享数据，那操作就成功了；如果共享数据有争用，产生了冲突，就采取其他的补救措施（如不断重试，直到成功），这种<strong>乐观</strong>的并发策略的许多实现不需要把线程挂起，因此这种同步策略称为「非阻塞同步」。</li>
+<li>使用乐观并发策略需要<strong>硬件指令集的发展</strong>，硬件保证一个从语义上看起来需要多次操作的行为只通过一条处理器指令就能完成，这类指令常用的有：
+
+<ul>
+<li>测试并设置（Test-and-Set）</li>
+<li>获取并增加（Fetch-and-Increment）</li>
+<li>交换（Swap）</li>
+<li><strong>比较并交换</strong>（Compare-and-Swap，CAS）&mdash;&mdash; 核心</li>
+<li>加载链接/条件存储（Load-Linked/Store-Conditional, LL/SC）
+&gt; CAS指令需要三个操作数，分别是内存位置V，旧的预期值A，新值B，CAS执行时，当且仅当V符合A时，处理器用B值更新V的值，否则不执行。无论是否更新，都是原子操作。</li>
+</ul></li>
+</ul>
+
+<h4 id="无同步方案">无同步方案</h4>
+
+<ul>
+<li>要保证线程安全，并不是一定就要进行同步，两个没有因果关系。</li>
+<li>「可重入代码」(Reentrant Code)：这种代码也叫做纯代码(Pure Code)，所有的可重入的代码都是线程安全的。如果一个方法，它的返回结果是可以预测的，只要输入了相同的数据，就都能返回相同的结果，那它就满足可重入性的要求。</li>
+<li>「线程本地存储」(Thread Local Storage)：共享数据的代码保证在一个线程中执行。如使用消费队列的架构模式（如“生产者-消费者”模式）中经典Web交互模型中的“一个请求对应一个服务器线程(Thread-per-Request)”的处理方式。Java可以通过<code>java.lang.ThreadLocal</code>类来实现线程本地存储功能。</li>
+</ul>
+
+<h2 id="锁优化">锁优化</h2>
+
+<h3 id="自旋锁与自适应自旋">自旋锁与自适应自旋</h3>
+
+<ul>
+<li>互斥同步对性能最大的影响是阻塞的实现，挂起线程和恢复线程的操作都需要转入内核态完成。</li>
+<li>如果物理机器有一个以上的处理器，能让两个或以上的线程同时并行执行，我们就可以让后面请求锁的那个线程“稍等一下”，但不放弃处理器的执行时间，看看持有锁的线程是否很快就释放锁。为了让线程等待，我们只需要让线程执行一个<strong>忙循环（自旋）</strong> ，这项技术就是所谓的「自旋锁 」。</li>
+<li>自适应的自旋锁：自适应意味着自旋的时间不在固定了，而是由前一次在同一个锁上的自旋时间及锁的拥有者的状态来决定。</li>
+</ul>
+
+<h3 id="锁消除">锁消除</h3>
+
+<ul>
+<li>锁消除是指虚拟机即时编译器在运行时，对一些<strong>代码上要求同步</strong>，但是被检测到<strong>不可能存在共享数据竞争</strong>的锁进行消除。</li>
+<li>怎么会在明知道不存在数据征用的情况下设置同步呢？原因是许多同步措施不是程序员自己加进去的，而是Java中的代码自己加的。</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="c1">//一段看起来没有同步的代码
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">concatString</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">,</span> <span class="n">String</span> <span class="n">s3</span><span class="o">){</span>
+  <span class="k">return</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span> <span class="o">+</span> <span class="n">s3</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="c1">//经javac转化后的字符串链接操作
+</span><span class="c1"></span><span class="kd">public</span> <span class="n">String</span> <span class="nf">concatString</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">,</span> <span class="n">String</span> <span class="n">s3</span><span class="o">){</span>
+  <span class="n">StringBuffer</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
+  <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s1</span><span class="o">);</span>
+  <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s2</span><span class="o">);</span>
+  <span class="n">sb</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">s3</span><span class="o">);</span>
+  <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>每个StringBuffer.appeng()方法中都有一个同步块，锁就是sb对象。虚拟机观察变量sb，很快发现它的动态作用域被限制在concatString()方法内部，其他线程无法访问到它，因此，虽然这里有锁，但是可以被安全地消除掉，在即时编译之后，这段代码就会忽略掉所有的同步而直接执行了。</li>
+</ul>
+
+<h3 id="锁粗化">锁粗化</h3>
+
+<ul>
+<li>原则上，总是推荐将同步块的作用范围限制的尽量小——只在共享数据的实际作用域才进行同步。</li>
+<li>但是如果一系列的<strong>连续操作</strong>都对<strong>同一个对象</strong>反复加锁和解锁，甚至加锁操作是出现在循环体内的，那即使没有线程竞争，频繁地进行互斥同步操作也会导致不必要的性能损坏。</li>
+<li>如果虚拟机探测到有这样一串零碎的操作对同一个对象加锁（如上面的append()），将会把加锁同步的范围扩展（粗化）到这个操作序列的外部。</li>
+</ul>
+
+<h3 id="轻量级锁">轻量级锁</h3>
+
+<ul>
+<li>轻量级锁的本意是在没有多线程竞争的前提下，减少传统的重量级锁使用操作系统互斥量产生的性能消耗。</li>
+<li>HotSpot虚拟机的对象头(Object Header)分为两部分信息：
+
+<ul>
+<li>第一部分用于存储对象自身的运行时数据，如哈希码(HashCode)、GC分代年龄(Generational GC Age)等，这部分数据的长度在32位和64位的虚拟机分别为32bit和64bit，称为“Mark Word”，它是<strong>实现轻量级锁和偏向锁的关键</strong>。</li>
+<li>另一部分用于存储指向方法区对象类型数据的指针。</li>
+</ul></li>
+<li>Mark Word被设计成一个非固定的数据结构以便在极小的空间内存储尽可能多的信息。</li>
+</ul>
+
+<p><a href="https://i.loli.net/2018/08/01/5b612ac3ec9a3.png"><img src="https://i.loli.net/2018/08/01/5b612ac3ec9a3.png" alt="jvmb-13.1.png" /></a>
+* 在代码进入同步块的时候
+    * 如果此同步对象没有被锁定，虚拟机首先将在当前线程的栈帧中建立一个名为锁记录（Lock Record）的空间，用于存储锁对象目前的Mark Word的拷贝。
+    <a href="https://i.loli.net/2018/08/01/5b612c113d21e.png"><img src="https://i.loli.net/2018/08/01/5b612c113d21e.png" alt="jvm-tu-13.3.png" /></a>
+    * 然后，虚拟机将使用CAS操作尝试将对象的Mark Word更新为指向Lock Record的指针。如果这个更新动作成功了，那么这个线程就拥有了该对象的锁，并且对象Mark Word的锁标志位将转变为“00”，即表示 此对象处于轻量级锁定状态。
+    <a href="https://i.loli.net/2018/08/01/5b612b47033de.png"><img src="https://i.loli.net/2018/08/01/5b612b47033de.png" alt="jvm-tu-13.4.png" /></a>
+    * 如果这个更新操作失败了，虚拟机首先会检查对象的Mark Word是否指向当前线程的栈帧，如果只说明当前线程已经拥有了这个对象的锁，那就可以直接进入同步块继续执行，否则说明这个锁对象已经被其他线程抢占了。如果有两条以上的线程争用同一个锁，那轻量级锁就膨胀为重量级锁，Mark Word中存储的就是执行重量级锁（互斥量）的指针，后面等待锁的线程也要进入阻塞状态。
+* 轻量级锁能提升程序同步性能的依据是“<strong>对于绝大部分的锁，在整个同步周期内都是不存在竞争的</strong>”，这是一个<strong>经验数据</strong>。
+* 如果没有竞争，轻量级锁可以使用CAS操作避免互斥操作的开销；如果有竞争，则算是额外发生了CAS操作，因此比传统的重量级锁还慢。</p>
+
+<h3 id="偏向锁">偏向锁</h3>
+
+<ul>
+<li>轻量级锁是在无竞争的情况下使用<strong>CAS操作去取消除同步使用的互斥量</strong>。</li>
+<li>偏向锁是在无竞争的情况下把<strong>整个同步都取消掉</strong>，连CAS操作都不做了。
+<br /></li>
+</ul>
+
+<p><a href="https://i.loli.net/2018/08/01/5b612b7f71050.png"><img src="https://i.loli.net/2018/08/01/5b612b7f71050.png" alt="jvm-tu-13.6.png" /></a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-08-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/jvm/">JVM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B736/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每日一刷36</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B735/">
+            <span class="next-text nav-default">每日一刷35</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

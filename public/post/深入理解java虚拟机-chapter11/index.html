@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>深入理解Java虚拟机-Chapter11 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="晚期（运行期）优化概述 Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter11/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="深入理解Java虚拟机-Chapter11" />
+<meta property="og:description" content="晚期（运行期）优化概述 Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter11/" />
+<meta property="article:published_time" content="2018-08-15T10:41:50&#43;00:00"/>
+<meta property="article:modified_time" content="2018-08-15T10:41:50&#43;00:00"/>
+
+<meta itemprop="name" content="深入理解Java虚拟机-Chapter11">
+<meta itemprop="description" content="晚期（运行期）优化概述 Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代">
+
+
+<meta itemprop="datePublished" content="2018-08-15T10:41:50&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-15T10:41:50&#43;00:00" />
+<meta itemprop="wordCount" content="2284">
+
+
+
+<meta itemprop="keywords" content="java,JVM," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入理解Java虚拟机-Chapter11"/>
+<meta name="twitter:description" content="晚期（运行期）优化概述 Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">深入理解Java虚拟机-Chapter11</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-15 </span>
+        <div class="post-category">
+            <a href="/categories/jvm%E8%99%9A%E6%8B%9F%E6%9C%BA/"> JVM虚拟机 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#晚期-运行期-优化概述">晚期（运行期）优化概述</a></li>
+<li><a href="#解释器与编译器">解释器与编译器</a></li>
+<li><a href="#编译对象与触发条件">编译对象与触发条件</a>
+<ul>
+<li><a href="#编译对象">编译对象</a></li>
+<li><a href="#触发条件">触发条件</a></li>
+</ul></li>
+<li><a href="#编译过程">编译过程</a></li>
+<li><a href="#编译优化技术">编译优化技术</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h2 id="晚期-运行期-优化概述">晚期（运行期）优化概述</h2>
+
+<p>Java程序在运行的期间，可能会有某个方法或者代码块的运行特别频繁时，就会把这些代码认定为“热点代码”。为了提高热点代码的执行效率，在运行时JVM会将这些代码编译成与本地平台相关的机器码，并进行各种层次的优化，完成这个任务的编译器称为即时编译器（Just In Time Compiler,JIT编译器）。</p>
+
+<h2 id="解释器与编译器">解释器与编译器</h2>
+
+<p>事实上，现在许多主流的商用虚拟机，都同时包含有解释器与编译器，解释器与编译器两者各有<strong>优势</strong>。与解释器相比，编译器会将常运行到的代码编译成本地代码区实现，可以获取更高的执行效率。而当程序运行环境中内存资源限制较大时，可以使用解释执行节约内存，反之可以使用编译执行来提高效率。解释器和编译器之间还可以通过逆优化退回到解释状态继续执行，因此，在整个虚拟机执行架构中，解释器与编译器经常配合工作。
+关系如图所示：
+<a href="https://i.loli.net/2018/08/15/5b739796c1c87.jpg"><img src="https://i.loli.net/2018/08/15/5b739796c1c87.jpg" alt="JVM之运行期优化1.jpg" /></a></p>
+
+<p><strong>HotSpot编译器中出现两个编译器Client Compiler称为「C1编译器」，Server Compiler称为「C2编译器」</strong>。JVM默认采用解释器与其中一个编译器直接配合的方法工作，程序使用哪个编译器，取决于虚拟机运行的模式，HotSpot虚拟机会根据自身版本与宿主机器的硬件性能自动选择运行模式，用户也可以使用“-client”或“server”参数去强制指定虚拟机运行在Client模式还是Server模式。</p>
+
+<h2 id="编译对象与触发条件">编译对象与触发条件</h2>
+
+<h3 id="编译对象">编译对象</h3>
+
+<p>在运行过程中会被即时编译器编译的“热点代码”有两类：</p>
+
+<ul>
+<li>被多次调用的方法。</li>
+<li>被多次执行的循环体。
+<br /></li>
+</ul>
+
+<p>对于<strong>第一种情况</strong>，由于是由方法调用触发的编译，因此编译器会以整个方法作为编译对象，这种编译也是虚拟机中标准的JIT编译方式。<strong>而对第二种情况</strong>，尽管编译动作是由循环体所触发的，但编译器依然会以整个方法作为编译对象，这种编译方式因为编译发生在方法执行过程之中，因此形象地被称为栈上替换，简称为OSR编译，即方法栈帧还在栈上，方法就被替换了。</p>
+
+<h3 id="触发条件">触发条件</h3>
+
+<p>判断一段代码是不是为热点代码，是不是需要触发即时编译，这样的行为称为热点探测，但进行热点探测也是不一定要知道方法具体被调用了多少次，目前主要的热点探测判定方法有两种：</p>
+
+<ul>
+<li>基于采样的热点探测：虚拟机会周期性地检查各种线程的栈顶，如果发现某个或者某些方法经常出现在栈顶，那这个方法就是“热点方法”。
+<br /></li>
+</ul>
+
+<p>优点：实现简单、高效，还可以很容易地获取方法调用方法。</p>
+
+<p>缺点：很难精确地确认一个方法的热度，容易因为受到线程阻塞或别的外界因素的影响而扰乱热点探测。</p>
+
+<ul>
+<li>基于计数器的热点探测：虚拟机会为每个方法尽力计数器，统计方法的执行次数，如果执行次数超过一定的阙值就认为它是热点方法。
+<br /></li>
+</ul>
+
+<p>优点：统计结构相对来说更加精确与严谨。</p>
+
+<p>缺点：实现起来麻烦，需要为每个方法及建立并维护计数器，而且不能直接获取到方法的调用关系。</p>
+
+<p>在HotSpot中使用的是第二种方法，基于计数器的热点探测法，因此它为每个方法准备了<strong>两类计数器</strong>：方法调用计数器和回边计数器（回边计数器是统计一个方法中循环体代码执行的次数，在字节码中遇到控制流向后跳转的指令称为”回边“；显然，建立回边计数器统计的目的是为了触发OSR 编译）</p>
+
+<ul>
+<li><p>方法调用计数器（统计方法被调用次数）
+当一个方法被调用时，会先检查该方法是否存在被JIT 编译过的版本，如果存在，则优先使用编译后的本地代码来执行。如果不存在已被编译过的版本，则将此方法的调用计数器值加1，然后判断方法调用计数器与回边计数器值之和是否超过方法计数器的阈值。若超过了，则将会向即时编译器提交一个该方法的代码编译请求；
+整个JIT 编译的交互过程如下图所示：
+<a href="https://i.loli.net/2018/08/15/5b73973bc635f.jpg"><img src="https://i.loli.net/2018/08/15/5b73973bc635f.jpg" alt="JVM之运行期优化2.jpg" /></a></p></li>
+
+<li><p>回边计数器（统计方法循环体代码执行次数）
+当解释器遇到一条回边指令时，会先查找将要执行的代码片段是否有已经编译好的version，如果有，他将会优先执行已编译的代码，否则就把回边计数器的值加1，然后判断方法调用计数器与回边计数器之和是否超过回边计数器的阈值。当超过阈值的时候，将会提交一个OSR编译请求，并且把回边计数器的值降低一些，以便继续在解释器中执行循环，等待编译器输出编译结果，整个执行过程如下图所示：
+<a href="https://i.loli.net/2018/08/15/5b73976e4d54c.jpg"><img src="https://i.loli.net/2018/08/15/5b73976e4d54c.jpg" alt="JVM之运行期优化3.jpg" /></a></p></li>
+</ul>
+
+<h2 id="编译过程">编译过程</h2>
+
+<p><strong>在默认设置下，无论是方法调用产生即使「编译请求」，还是「OSR编译请求」，虚拟机在代码编译器还未完成之前，都仍然将按照解释方式继续执行，而编译动作则在后台的编译线程中进行。</strong></p>
+
+<p>在后台执行编译的过程中，对于Client Compiler来说，它是一个简单快速的三段式编译器，主要的关注点在于局部性的优化，而放弃了许多耗时较长的全局优化手段。</p>
+
+<ul>
+<li>一个平台独立前段将字节码构造成一种高级中间代码表示（HIR），HIR使用 静态单分配的形式来表示代码值，这可以使得一些在JIR的构造过程之中和之后进行的优化动作更容易实现。在此之前，编译器会在字节码上完成一部分基础优化，如方法内联、常量传播等。</li>
+<li>一个平台相关的后端从HIR中产生低级中间代码表示，而在此之前，在HIR上完成另外一些优化， 如空值检查消除、范围检查消除等。</li>
+<li>在平台的后端使用线性扫描算法在LIR上分配寄存器，并在LIR上做窥孔优化，然后产生机器代码。
+<br /></li>
+</ul>
+
+<p>过程如图所示：
+<a href="https://i.loli.net/2018/08/15/5b739708ecad1.jpg"><img src="https://i.loli.net/2018/08/15/5b739708ecad1.jpg" alt="JVM之运行期优化4.jpg" /></a></p>
+
+<p>对于Server Compiler则是专门面向服务端的典型应用并为服务端的性能配置特别调整过的编译期，也是一个充分优化过的高级编译器，它会执行所有经典的优化动作。
+Server Compiler的寄存器分配器是一个全局图着色分配器，它可以充分利用某些处理器架构上的大寄存器集合。所以它也是比较缓慢的，但是编译代码质量高，可以减少本地代码的执行时间，从而抵消了额外的编译时间开销，所以很多非服务端的应用选择使用server模式的虚拟机运行。</p>
+
+<h2 id="编译优化技术">编译优化技术</h2>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-08-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/jvm/">JVM</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E6%97%A5%E4%B8%80%E5%88%B744/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每日一刷44</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3java%E8%99%9A%E6%8B%9F%E6%9C%BA-chapter10/">
+            <span class="next-text nav-default">深入理解Java虚拟机-Chapter10</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

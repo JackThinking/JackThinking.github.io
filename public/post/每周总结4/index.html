@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>每周总结4 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="ListNode-easy系列题 Delete Node in a Linked List(node.val = node.next.val; node.next = node.next.next;连接跳过即可) Remove Nth Node From End of List(要删除尾巴指定位置的节" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%934/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="每周总结4" />
+<meta property="og:description" content="ListNode-easy系列题 Delete Node in a Linked List(node.val = node.next.val; node.next = node.next.next;连接跳过即可) Remove Nth Node From End of List(要删除尾巴指定位置的节" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%934/" />
+<meta property="article:published_time" content="2018-10-30T20:36:42&#43;00:00"/>
+<meta property="article:modified_time" content="2018-10-30T20:36:42&#43;00:00"/>
+
+<meta itemprop="name" content="每周总结4">
+<meta itemprop="description" content="ListNode-easy系列题 Delete Node in a Linked List(node.val = node.next.val; node.next = node.next.next;连接跳过即可) Remove Nth Node From End of List(要删除尾巴指定位置的节">
+
+
+<meta itemprop="datePublished" content="2018-10-30T20:36:42&#43;00:00" />
+<meta itemprop="dateModified" content="2018-10-30T20:36:42&#43;00:00" />
+<meta itemprop="wordCount" content="2231">
+
+
+
+<meta itemprop="keywords" content="java,leetcode,Linked List," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="每周总结4"/>
+<meta name="twitter:description" content="ListNode-easy系列题 Delete Node in a Linked List(node.val = node.next.val; node.next = node.next.next;连接跳过即可) Remove Nth Node From End of List(要删除尾巴指定位置的节"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">每周总结4</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-10-30 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#listnode-easy系列题">ListNode-easy系列题</a></li>
+<li><a href="#listnode-middle系列题">ListNode-middle系列题</a>
+<ul>
+<li><a href="#add-two-numbers">Add Two Numbers</a></li>
+<li><a href="#odd-even-linked-list">Odd Even Linked List</a></li>
+<li><a href="#intersection-of-two-linked-lists">Intersection of Two Linked Lists</a></li>
+</ul></li>
+<li><a href="#listnode-hard系列题">ListNode-hard系列题</a>
+<ul>
+<li><a href="#merge-k-sorted-lists">Merge k Sorted Lists</a></li>
+<li><a href="#sort-list">Sort List</a></li>
+<li><a href="#copy-list-with-random-pointer">Copy List with Random Pointer</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="listnode-easy系列题">ListNode-easy系列题</h1>
+
+<ol>
+<li>Delete Node in a Linked List(<code>node.val = node.next.val;
+node.next = node.next.next;</code>连接跳过即可)</li>
+<li>Remove Nth Node From End of List(要删除尾巴指定位置的节点，首先是先找到它，快慢指针的思想在于，先让两个指针起点一下，然后快指针先走N步，然后两者一起走，当快指针走到头时，慢指针所在的位置就是我们想要的位置，这么麻烦的原因也是因为listnode没有按照序号遍历的功能，只能很原始的去找)</li>
+<li>Reverse Linked List(一个指针一直指在新链接的头上，另外一个不断是去编制，注意编织的顺序，让head及时滑向下一个)</li>
+<li>Merge Two Sorted Lists(合并两个有序链表，考虑4中情况，其实就是归并排序的merge子函数，没啥，递归解决)</li>
+<li>Palindrome Linked List(思路是快慢指针进行二分，注意有快指针的话，判断条件<code>fast!=null&amp;&amp;fast.next!=null</code>，同时这道题也要注意奇偶数的判断，有一个额外的判断条件让slow越过那个奇数值)</li>
+
+<li><p>Linked List Cycle(还是利用了快慢指针的思想，要是存在圈，快慢指针一定会相遇导致slow==fast    )</p>
+
+<h1 id="listnode-middle系列题">ListNode-middle系列题</h1>
+
+<h2 id="add-two-numbers">Add Two Numbers</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">addTwoNumbers</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">ListNode</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">0</span><span class="o">);</span><span class="c1">//结果指针，表示答案，它不能滑动
+</span><span class="c1"></span>    <span class="n">ListNode</span> <span class="n">point</span> <span class="o">=</span> <span class="n">result</span><span class="o">;</span><span class="c1">//苦力指针，用来滑动编制
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span><span class="c1">//进位标志位
+</span><span class="c1"></span>    <span class="k">while</span><span class="o">(</span><span class="n">l1</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">l2</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">temp</span> <span class="o">!=</span> <span class="n">0</span><span class="o">){</span>
+
+        <span class="k">if</span> <span class="o">(</span><span class="n">l1</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">temp</span> <span class="o">+=</span> <span class="n">l1</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="n">l1</span> <span class="o">=</span> <span class="n">l1</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">l2</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+            <span class="n">temp</span> <span class="o">+=</span> <span class="n">l2</span><span class="o">.</span><span class="na">val</span><span class="o">;</span>
+            <span class="n">l2</span> <span class="o">=</span> <span class="n">l2</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="n">ListNode</span> <span class="n">tempnode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListNode</span><span class="o">(</span><span class="n">temp</span><span class="o">%</span><span class="n">10</span><span class="o">);</span><span class="c1">//取新节点
+</span><span class="c1"></span>        <span class="n">point</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">tempnode</span><span class="o">;</span><span class="c1">//编制
+</span><span class="c1"></span>        <span class="n">point</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//编制完移动
+</span><span class="c1"></span>        <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">/</span><span class="n">10</span><span class="o">;</span><span class="c1">//进位标志位更新
+</span><span class="c1"></span>    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//去掉头部无用节点返回
+</span><span class="c1"></span><span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这道题第一感觉难在进位上，还有就是要考虑到两条链表不是一样长的时候的情形。对于链表的编制，往往都需要一个钉在开头的指针和一个不断编制的苦力指针（苦力指针基本上要执行node1.next=node2;node = node.next）。</p>
+
+<h2 id="odd-even-linked-list">Odd Even Linked List</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">oddEvenList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">head</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span>
+        <span class="n">ListNode</span> <span class="n">odd</span> <span class="o">=</span> <span class="n">head</span><span class="o">,</span> <span class="n">even</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">evenhead</span> <span class="o">=</span> <span class="n">even</span><span class="o">;</span><span class="c1">//奇数偶数各一个起始位，并且保留偶数起始位，用于之后的连接
+</span><span class="c1"></span>        <span class="k">while</span><span class="o">(</span><span class="n">even</span><span class="o">!=</span><span class="kc">null</span><span class="o">&amp;&amp;</span><span class="n">even</span><span class="o">.</span><span class="na">next</span><span class="o">!=</span><span class="kc">null</span><span class="o">){</span><span class="c1">//只要while里面涉及到了node = node.next的话，就需要进行next判断，之前我是觉得fast才需要的
+</span><span class="c1"></span>            <span class="n">odd</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">odd</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//奇数编制
+</span><span class="c1"></span>            <span class="n">odd</span> <span class="o">=</span> <span class="n">odd</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//奇数滑动
+</span><span class="c1"></span>            <span class="n">even</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//偶数编制
+</span><span class="c1"></span>            <span class="n">even</span> <span class="o">=</span> <span class="n">even</span><span class="o">.</span><span class="na">next</span><span class="o">;</span><span class="c1">//偶数滑动
+</span><span class="c1"></span>        <span class="o">}</span>
+        <span class="n">odd</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">evenhead</span><span class="o">;</span><span class="c1">//两条连接进行合并
+</span><span class="c1"></span>    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>奇偶数的分开再编制，思路简单，但是这道题没有新建一个node来表示答案，而是直接用head返回，之后要考虑下什么时候需要新建node，什么时候可以返回node。</p>
+
+<h2 id="intersection-of-two-linked-lists">Intersection of Two Linked Lists</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">getIntersectionNode</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">headA</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">headB</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">headA</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">headB</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">ListNode</span> <span class="n">pointA</span> <span class="o">=</span> <span class="n">headA</span><span class="o">;</span>
+    <span class="n">ListNode</span> <span class="n">pointB</span> <span class="o">=</span> <span class="n">headB</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">pointA</span><span class="o">!=</span><span class="n">pointB</span><span class="o">){</span>
+        <span class="n">pointA</span> <span class="o">=</span> <span class="n">pointA</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">headB</span> <span class="o">:</span> <span class="n">pointA</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">pointB</span> <span class="o">=</span> <span class="n">pointB</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">headA</span> <span class="o">:</span> <span class="n">pointB</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">pointA</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>问题在于两条链表的长度不同的话，无法进行比较，否则只需要进行node1==node2指针比较即可，那么问题在于长度 不同，可以让链表1连上链表2；链表2连上链表1，这样长度就一样了，之后再判断就可以了。</p>
+
+<h1 id="listnode-hard系列题">ListNode-hard系列题</h1>
+
+<h2 id="merge-k-sorted-lists">Merge k Sorted Lists</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">mergeKLists</span><span class="o">(</span><span class="n">ListNode</span><span class="o">[]</span> <span class="n">lists</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">lists</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">lists</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">sortByPartition</span><span class="o">(</span><span class="n">lists</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span> <span class="n">lists</span><span class="o">.</span><span class="na">length</span><span class="o">-</span><span class="n">1</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">ListNode</span> <span class="nf">sortByPartition</span><span class="o">(</span><span class="n">ListNode</span><span class="o">[]</span> <span class="n">lists</span><span class="o">,</span> <span class="kt">int</span> <span class="n">start</span><span class="o">,</span> <span class="kt">int</span> <span class="n">end</span><span class="o">){</span>
+    <span class="cm">/*
+</span><span class="cm">    * 递归先确定结束条件
+</span><span class="cm">    * */</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">start</span> <span class="o">==</span> <span class="n">end</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">lists</span><span class="o">[</span><span class="n">start</span><span class="o">];</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 经典的分治理念，切半，递归递归，合并
+</span><span class="cm">    * */</span>
+    <span class="kt">int</span> <span class="n">mid</span> <span class="o">=</span> <span class="n">start</span><span class="o">+(</span><span class="n">end</span><span class="o">-</span><span class="n">start</span><span class="o">)/</span><span class="n">2</span><span class="o">;</span>
+    <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortByPartition</span><span class="o">(</span><span class="n">lists</span><span class="o">,</span> <span class="n">start</span><span class="o">,</span> <span class="n">mid</span><span class="o">);</span>
+    <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortByPartition</span><span class="o">(</span><span class="n">lists</span><span class="o">,</span> <span class="n">mid</span><span class="o">+</span><span class="n">1</span><span class="o">,</span> <span class="n">end</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">,</span><span class="n">right</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">ListNode</span> <span class="nf">merge</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">left</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">right</span><span class="o">){</span>
+    <span class="cm">/*
+</span><span class="cm">    * 同样是递归，先要确定结束条件
+</span><span class="cm">    * */</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="n">right</span> <span class="o">:</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 链表合并总是要有连接的过程的，这边需要额外注意
+</span><span class="cm">    * */</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span><span class="o">&lt;</span><span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">){</span>
+        <span class="n">left</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">,</span><span class="n">right</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">else</span> <span class="o">{</span>
+        <span class="n">right</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">,</span><span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>这不就是归并排序嘛，之前的middle难度的merge双lists算是merge的练习的话，这个就是merge sort的链表版本，区别是归并排序merge的是等长的数组，这边merge的是一条条的链表,对于链表合并的优先性，这边取的是二分法，有点不确定这和挨个合并的区别；还有一点是排序版本的么merge需要（lo,mid（是因为要判断用尽）,hi）而listnode版本的只需要（list1，list2）。</p>
+
+<h2 id="sort-list">Sort List</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Solution</span> <span class="o">{</span>
+<span class="kd">public</span> <span class="n">ListNode</span> <span class="nf">sortList</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">head</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">head</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">head</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">head</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">ListNode</span> <span class="n">slow</span> <span class="o">=</span> <span class="n">head</span><span class="o">,</span> <span class="n">fast</span> <span class="o">=</span> <span class="n">head</span><span class="o">,</span> <span class="n">pre</span> <span class="o">=</span> <span class="n">head</span><span class="o">;</span>
+    <span class="cm">/*
+</span><span class="cm">     * 这个相当于是二分啦
+</span><span class="cm">     * */</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">fast</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span><span class="c1">//有fast的存在，判断的时候需要有两个判断条件
+</span><span class="c1"></span>        <span class="n">pre</span> <span class="o">=</span> <span class="n">slow</span><span class="o">;</span><span class="c1">//这个pre用来切数组，周末一定要把链表的
+</span><span class="c1"></span>        <span class="n">slow</span> <span class="o">=</span> <span class="n">slow</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+        <span class="n">fast</span> <span class="o">=</span> <span class="n">fast</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">pre</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="n">ListNode</span> <span class="n">left</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">head</span><span class="o">);</span>
+    <span class="n">ListNode</span> <span class="n">right</span> <span class="o">=</span> <span class="n">sortList</span><span class="o">(</span><span class="n">slow</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">ListNode</span> <span class="nf">merge</span><span class="o">(</span><span class="n">ListNode</span> <span class="n">left</span><span class="o">,</span> <span class="n">ListNode</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">left</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">right</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">val</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">.</span><span class="na">val</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">left</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">left</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">right</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">merge</span><span class="o">(</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">.</span><span class="na">next</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">right</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>归并和链表也太相配了吧，merge部分还是一样的，主要是sort部分，结合之前总结的快慢指针代替二分的方法，pre用来断开链接。</p>
+
+<h2 id="copy-list-with-random-pointer">Copy List with Random Pointer</h2>
+
+<p>```java
+public class Solution {
+public RandomListNode copyRandomList(RandomListNode head) {
+    if (head == null){
+        return null;
+    }
+    Map<RandomListNode,RandomListNode> map = new HashMap<RandomListNode,RandomListNode>();</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">/*
+* 节点意义复制到map中
+* */
+RandomListNode point = head;
+while(point!=null){
+    map.put(point,new RandomListNode(point.label));
+    point = point.next;
+}
+/*
+* 指针重新指向开头的地方
+* */
+point = head;
+while(point!=null){
+    map.get(point).next = map.get(point.next);
+    map.get(point).random = map.get(point.random);
+    point = point.next;
+}
+return map.get(head);</pre></td></tr></table>
+</div>
+</div>
+<p>}
+}
+```
+链表的深拷贝，不是很懂他的原理，之后如果遇到了再看看吧。</p></li>
+</ol>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-10-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          <a href="/tags/leetcode/">leetcode</a>
+          <a href="/tags/linked-list/">Linked List</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%935/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">每周总结5</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%933/">
+            <span class="next-text nav-default">每周总结3</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

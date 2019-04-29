@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring boot学习笔记2 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件pos" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring boot学习笔记2" />
+<meta property="og:description" content="慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件pos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/" />
+<meta property="article:published_time" content="2018-04-27T16:01:21&#43;00:00"/>
+<meta property="article:modified_time" content="2018-04-27T16:01:21&#43;00:00"/>
+
+<meta itemprop="name" content="Spring boot学习笔记2">
+<meta itemprop="description" content="慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件pos">
+
+
+<meta itemprop="datePublished" content="2018-04-27T16:01:21&#43;00:00" />
+<meta itemprop="dateModified" content="2018-04-27T16:01:21&#43;00:00" />
+<meta itemprop="wordCount" content="1047">
+
+
+
+<meta itemprop="keywords" content="Spring boot," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring boot学习笔记2"/>
+<meta name="twitter:description" content="慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件pos"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring boot学习笔记2</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-04-27 </span>
+        <div class="post-category">
+            <a href="/categories/spring-boot/"> Spring boot </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#spring-data-jpa">spring-data-jpa</a>
+<ul>
+<li><a href="#利用jpa创建mysql数据库">利用JPA创建MySQL数据库</a></li>
+<li><a href="#配置jpa和数据库">配置JPA和数据库</a></li>
+<li><a href="#创建与数据表对应的实体类person">创建与数据表对应的实体类Person</a></li>
+<li><a href="#创建接口girlresponsitory">创建接口GirlResponsitory</a></li>
+<li><a href="#创建控制器girlcontroller">创建控制器GirlController</a></li>
+<li><a href="#创建服务girlservice">创建服务GirlService</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>慕课网上的《2小时学会Spring Boot》学习结束,后半段主要讲了spring通过jpa操作Mysql数据库的操作，用到了测试软件postman（亲测很好用，界面又好看），在mac端安装了MySQL数据库，使用mac端的Navicat Premium作为数据库的workbench（这个老师虽然讲得好，但是用的例子略显猥琐，我这边虽然照着他也用了这个例子，可是这并不是我的本意/(ㄒoㄒ)/~~）。</p>
+
+<h2 id="spring-data-jpa">spring-data-jpa</h2>
+
+<p>JPA全称Java Persistence API.JPA通过JDK 5.0注解或XML描述对象－关系表的映射关系，并将运行期的实体对象持久化到数据库中。</p>
+
+<h3 id="利用jpa创建mysql数据库">利用JPA创建MySQL数据库</h3>
+
+<p>pom.xml加入JPA和MySQL的依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">jpa</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="n">dependency</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">groupId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">&lt;/</span><span class="n">groupId</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">artifactId</span><span class="o">&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">java</span><span class="o">&lt;/</span><span class="n">artifactId</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">dependency</span><span class="o">&gt;</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="配置jpa和数据库">配置JPA和数据库</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="nl">spring:
+</span><span class="nl">  profiles:
+</span><span class="nl">    active:</span> <span class="n">a</span><span class="nl">
+</span><span class="nl">  datasource:</span>
+      <span class="n">driver</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="nl">name:</span> <span class="n">com</span><span class="o">.</span><span class="na">mysql</span><span class="o">.</span><span class="na">jdbc</span><span class="o">.</span><span class="na">Driver</span><span class="nl">
+</span><span class="nl">      url:</span> <span class="nl">jdbc:mysql:</span><span class="c1">//127.0.0.1:3306/dbgirl
+</span><span class="c1"></span>      <span class="nl">username:</span> <span class="n">root</span><span class="nl">
+</span><span class="nl">      password:</span> <span class="n">你猜</span><span class="nl">
+</span><span class="nl">
+</span><span class="nl">  jpa:
+</span><span class="nl">    hibernate:</span>
+      <span class="n">ddl</span><span class="o">-</span><span class="nl">auto:</span> <span class="n">update</span>
+    <span class="n">show</span><span class="o">-</span><span class="nl">sql:</span> <span class="kc">true</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="创建与数据表对应的实体类person">创建与数据表对应的实体类Person</h3>
+
+<p>这边就不贴代码了，我懒。</p>
+
+<h3 id="创建接口girlresponsitory">创建接口GirlResponsitory</h3>
+
+<p>接口继承自JpaRepository，在之后控制部分都要用到GirlResponsitory。其中findByAge函数是自定义的用来根据年龄找出女生数组的函数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">GirlResponsitory</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">Girl</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;{</span>
+<span class="c1">//    通过年龄来查询
+</span><span class="c1"></span>    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Girl</span><span class="o">&gt;</span> <span class="nf">findByAge</span><span class="o">(</span><span class="n">Integer</span> <span class="n">age</span><span class="o">);</span>
+
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="创建控制器girlcontroller">创建控制器GirlController</h3>
+
+<p>这个是核心的操作数据库逻辑的文件，具体不解释了，看代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.citrix.girl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.*</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.persistence.criteria.CriteriaBuilder</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.sql.rowset.serial.SerialStruct</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+
+<span class="nd">@RestController</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GirlController</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">GirlResponsitory</span> <span class="n">girlResponsitory</span><span class="o">;</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">GirlService</span> <span class="n">girlService</span><span class="o">;</span>
+    <span class="cm">/*
+</span><span class="cm">    * 查询女生列表
+</span><span class="cm">    * @return
+</span><span class="cm">    * */</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Girl</span><span class="o">&gt;</span> <span class="nf">girlList</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">findAll</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 添加一个女生
+</span><span class="cm">    * */</span>
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Girl</span> <span class="nf">girlAdd</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;cupSize&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">cupSize</span><span class="o">,</span>
+                          <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">Girl</span> <span class="n">girl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Girl</span><span class="o">();</span>
+        <span class="n">girl</span><span class="o">.</span><span class="na">setCupSize</span><span class="o">(</span><span class="n">cupSize</span><span class="o">);</span>
+        <span class="n">girl</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">girl</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 查询一个女生
+</span><span class="cm">    * */</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls/{id}&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Girl</span> <span class="nf">girlFindOne</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>
+
+        <span class="k">return</span> <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">findById</span><span class="o">(</span><span class="n">id</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 更新一个女生
+</span><span class="cm">    * */</span>
+    <span class="nd">@PutMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls/{id}&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">Girl</span> <span class="nf">girlUpdate</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">,</span>
+                           <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;cupSize&#34;</span><span class="o">)</span> <span class="n">String</span> <span class="n">cupSize</span><span class="o">,</span>
+                           <span class="nd">@RequestParam</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">age</span>
+                           <span class="o">){</span>
+        <span class="n">Girl</span> <span class="n">girl</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Girl</span><span class="o">();</span>
+        <span class="n">girl</span><span class="o">.</span><span class="na">setId</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+        <span class="n">girl</span><span class="o">.</span><span class="na">setCupSize</span><span class="o">(</span><span class="n">cupSize</span><span class="o">);</span>
+        <span class="n">girl</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">girl</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 删除一个女生
+</span><span class="cm">    * */</span>
+    <span class="nd">@DeleteMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls/{id}&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">girlDelete</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;id&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">){</span>
+        <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">deleteById</span><span class="o">(</span><span class="n">id</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    * 根据年龄来查找女生列表
+</span><span class="cm">    * */</span>
+    <span class="nd">@GetMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls/age/{age}&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Girl</span><span class="o">&gt;</span> <span class="nf">girlListByAge</span><span class="o">(</span><span class="nd">@PathVariable</span><span class="o">(</span><span class="s">&#34;age&#34;</span><span class="o">)</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">findByAge</span><span class="o">(</span><span class="n">age</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+</span><span class="cm">    *添加两个女生，相应的处理在GirlService里面
+</span><span class="cm">    * */</span>
+    <span class="nd">@PostMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">&#34;/girls/two&#34;</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">girlTwo</span><span class="o">(){</span>
+        <span class="n">girlService</span><span class="o">.</span><span class="na">insertTwo</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="创建服务girlservice">创建服务GirlService</h3>
+
+<p>添加Service方法的事务注解@Transactional，该方法遇到错误即可自动回滚，代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">com.citrix.girl</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.springframework.beans.factory.annotation.Autowired</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Service</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.transaction.Transactional</span><span class="o">;</span>
+
+<span class="nd">@Service</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">GirlService</span> <span class="o">{</span>
+    <span class="nd">@Autowired</span>
+    <span class="kd">private</span> <span class="n">GirlResponsitory</span> <span class="n">girlResponsitory</span><span class="o">;</span>
+    
+    <span class="nd">@Transactional</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">insertTwo</span><span class="o">(){</span>
+        <span class="n">Girl</span> <span class="n">girlA</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Girl</span><span class="o">();</span>
+        <span class="n">girlA</span><span class="o">.</span><span class="na">setCupSize</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">);</span>
+        <span class="n">girlA</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">18</span><span class="o">);</span>
+        <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">girlA</span><span class="o">);</span>
+
+        <span class="n">Girl</span> <span class="n">girlB</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Girl</span><span class="o">();</span>
+        <span class="n">girlB</span><span class="o">.</span><span class="na">setCupSize</span><span class="o">(</span><span class="s">&#34;B&#34;</span><span class="o">);</span>
+        <span class="n">girlB</span><span class="o">.</span><span class="na">setAge</span><span class="o">(</span><span class="n">19</span><span class="o">);</span>
+        <span class="n">girlResponsitory</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">girlB</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>其中@Transactional注解配合@Service可以使得，两条数据要嘛同时插入，要不同时不插入。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-04-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/spring-boot/">Spring boot</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java学习笔记3</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/">
+            <span class="next-text nav-default">Spring boot学习笔记</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

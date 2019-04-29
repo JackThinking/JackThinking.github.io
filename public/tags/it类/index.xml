@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IT类 on Even - A super concise theme for Hugo</title>
+    <link>http://localhost:1313/tags/it%E7%B1%BB/</link>
+    <description>Recent content in IT类 on Even - A super concise theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 30 May 2018 19:27:12 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/it%E7%B1%BB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>软技能</title>
+      <link>http://localhost:1313/post/%E8%BD%AF%E6%8A%80%E8%83%BD/</link>
+      <pubDate>Wed, 30 May 2018 19:27:12 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E8%BD%AF%E6%8A%80%E8%83%BD/</guid>
+      <description>哎，写字又丑又慢，准备慢慢的把读书笔记记到博客中来。最近清恰好在网上看到了一本《软技能》的书，大概是讲程序员的职业规划的，自己对此也一直</description>
+    </item>
+    
+  </channel>
+</rss>

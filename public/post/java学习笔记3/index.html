@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java学习笔记3 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="之前在慕课网上学完《Spring Boot进阶之Web进阶》和《2小时学会Spring Boot》中间遇到了不少java语法上的问题，不过当时就" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java学习笔记3" />
+<meta property="og:description" content="之前在慕课网上学完《Spring Boot进阶之Web进阶》和《2小时学会Spring Boot》中间遇到了不少java语法上的问题，不过当时就" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03/" />
+<meta property="article:published_time" content="2018-04-30T09:08:55&#43;00:00"/>
+<meta property="article:modified_time" content="2018-04-30T09:08:55&#43;00:00"/>
+
+<meta itemprop="name" content="Java学习笔记3">
+<meta itemprop="description" content="之前在慕课网上学完《Spring Boot进阶之Web进阶》和《2小时学会Spring Boot》中间遇到了不少java语法上的问题，不过当时就">
+
+
+<meta itemprop="datePublished" content="2018-04-30T09:08:55&#43;00:00" />
+<meta itemprop="dateModified" content="2018-04-30T09:08:55&#43;00:00" />
+<meta itemprop="wordCount" content="1753">
+
+
+
+<meta itemprop="keywords" content="java," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java学习笔记3"/>
+<meta name="twitter:description" content="之前在慕课网上学完《Spring Boot进阶之Web进阶》和《2小时学会Spring Boot》中间遇到了不少java语法上的问题，不过当时就"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java学习笔记3</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-04-30 </span>
+        
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#对象与类">对象与类</a>
+<ul>
+<li><a href="#类之间的关系">类之间的关系</a></li>
+<li><a href="#对象与对象变量">对象与对象变量</a></li>
+<li><a href="#用户自定义类">用户自定义类</a></li>
+<li><a href="#构造函数">构造函数</a></li>
+<li><a href="#隐式参数与显式参数">隐式参数与显式参数</a></li>
+<li><a href="#静态域和静态方法">静态域和静态方法</a></li>
+<li><a href="#方法参数">方法参数</a></li>
+<li><a href="#类设计技巧">类设计技巧</a></li>
+</ul></li>
+<li><a href="#接口">接口</a>
+<ul>
+<li><a href="#接口的特性">接口的特性</a></li>
+<li><a href="#接口与抽象类">接口与抽象类</a></li>
+</ul></li>
+<li><a href="#泛型">泛型</a>
+<ul>
+<li><a href="#定义简单的泛型类">定义简单的泛型类</a></li>
+<li><a href="#泛型方法">泛型方法</a></li>
+<li><a href="#类型变量的限定">类型变量的限定</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p>之前在慕课网上学完《Spring Boot进阶之Web进阶》和《2小时学会Spring Boot》中间遇到了不少java语法上的问题，不过当时就先跳过了，现在把之前不会的知识点进补充学习。</p>
+
+<h2 id="对象与类">对象与类</h2>
+
+<p>Java在面向对象上比C++做的更加彻底，下面来介绍一下。</p>
+
+<h3 id="类之间的关系">类之间的关系</h3>
+
+<p>1.依赖（uses-a）: 一个类的方法操作另外一个类的对象
+2.聚合（has-a）:类A的对象包含类B的对象
+3.继承（is-a）:表示特殊与一般关系的</p>
+
+<h3 id="对象与对象变量">对象与对象变量</h3>
+
+<p>1.一个对象变量并没有实际包含一个对象，而仅仅是引用一个对象（C++中指针生成对象的感觉）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">Date</span> <span class="n">birthday</span><span class="o">;</span><span class="c1">//java
+</span><span class="c1"></span><span class="n">Date</span><span class="o">*</span> <span class="n">birthday</span><span class="o">;//</span><span class="n">C</span><span class="o">++</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>2.指针没有初始化的话，会直接报错，而不是产生随机数，不必担心内存管理问题
+3.必须使用clone方法获得对象的完整拷贝</p>
+
+<h3 id="用户自定义类">用户自定义类</h3>
+
+<p>1.一个源文件，只有有一个公有类，但是可以有任意的私有类
+2.建议类内变量设为private，方法（一般）设为public</p>
+
+<h3 id="构造函数">构造函数</h3>
+
+<p>1.构造器没有返回值
+2.构造器总是伴随着new操作仪器调用
+3.在方法中不要命名与实例域（类中前面定义的）同名的变量</p>
+
+<h3 id="隐式参数与显式参数">隐式参数与显式参数</h3>
+
+<p>在每一个方法中，关键字this表示隐式参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">abc</span><span class="o">(</span><span class="kt">double</span> <span class="n">d</span><span class="o">){</span>
+    <span class="kt">double</span> <span class="n">e</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">g</span> <span class="o">*</span> <span class="n">d</span><span class="o">;</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">g</span> <span class="o">+=</span> <span class="n">e</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>有些程序员喜欢这个风格，因为可以讲局部变量和实例域明显的区分开来。
+Java程序的方法定义都是在类内部，但这表示他们是内联方法。</p>
+
+<h3 id="静态域和静态方法">静态域和静态方法</h3>
+
+<p>1.实例域定义为final，构建对象时必须初始化这样的域
+2.域定义为static的话，每个类只有只有一个这样的域，而每个对象的所有实例域都有自己的拷贝
+3.静态变量使用的少，静态常量使用的多，比如π
+4.静态方法是一种不能对对象进行操作的方法，即没有this参数
+5.静态方法可以访问吱自身类中的静态域
+6.可以使用对象来调用静态方法，但是建议使用类名，而不是对象</p>
+
+<h3 id="方法参数">方法参数</h3>
+
+<p>1.Java程序设计对对象引用是值传递
+2.一个方法不能修修改一个基本数据类型的参数
+3.一个方法可以改变一个对象参数的状态
+4.一个方法不能让对象参数引用一个新的对象</p>
+
+<h3 id="类设计技巧">类设计技巧</h3>
+
+<p>1.一定要保证数据私有
+2.一定要对数据初始化.
+3.不要在类中使用过多的基本类型
+4.不是所有的域都需要独立的域访问器和域更改器
+5.将职责过多的类进行分解
+6.类名和方法名要能体现他们的职责</p>
+
+<h2 id="接口">接口</h2>
+
+<p>Java中，接口不是类，而是对类的一组需求描述。</p>
+
+<h3 id="接口的特性">接口的特性</h3>
+
+<p>比如下面的Flyable接口就定义了三个方法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Runner</span> <span class="o">{</span><span class="kt">void</span> <span class="nf">run</span><span class="o">();}</span>
+
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Swimmer</span> <span class="o">{</span><span class="kt">void</span> <span class="nf">swim</span><span class="o">();}</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Flyable</span> <span class="o">{</span> 
+	<span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">();</span> 
+	<span class="kt">void</span> <span class="nf">land</span><span class="o">();</span> 
+	<span class="kt">void</span> <span class="nf">takeoff</span><span class="o">();</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>1.接口的所有方法都自动属于public
+2.接口不能实例化，而且也不能在接口内实现方法
+3.实现接口的时候一定要声明为public
+为了让类实现接口，通常需要以下两个步骤：
+1.对类声明为实现给定的接口
+2.对接口中的所有方法进行定义
+3.用关键词implements</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Animal</span>  <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">age</span><span class="o">;</span>
+	<span class="kd">abstract</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Person</span> <span class="kd">extends</span> <span class="n">Animal</span> <span class="kd">implements</span> <span class="n">Runner</span><span class="o">,</span><span class="n">Swimmer</span><span class="o">,</span><span class="n">Flyable</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;run&#34;</span><span class="o">);</span> <span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">swim</span><span class="o">()</span>  <span class="o">{</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;swim&#34;</span><span class="o">);</span> <span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">()</span> <span class="o">{</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;eat&#34;</span><span class="o">);</span> <span class="o">}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">fly</span><span class="o">()</span> <span class="o">{</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;fly&#34;</span><span class="o">);}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">land</span><span class="o">(){</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;land&#34;</span><span class="o">);}</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">takeoff</span><span class="o">(){</span> <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&#34;takeoff&#34;</span><span class="o">);}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="接口与抽象类">接口与抽象类</h3>
+
+<p>接口与抽象类有点相似，为什么不直接用抽象类？
+比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Comparable</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Object</span><span class="o">)</span>
+<span class="o">}</span>
+<span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compareTo</span><span class="o">(</span><span class="n">Object</span> <span class="n">other</span><span class="o">){...}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>因为抽象类有个问题，每个类只能拓展与一个类，下面的例子：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">extends</span> <span class="n">Comparable</span><span class="err">，</span><span class="n">Person</span> <span class="c1">//error
+</span><span class="c1"></span>
+<span class="kd">class</span> <span class="nc">Employee</span> <span class="kd">extends</span> <span class="n">Comparable</span> <span class="kd">implements</span> <span class="n">Person</span> <span class="c1">//ok
+</span><span class="c1"></span><span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>实际上，接口可以提供多重继承的大多数好处，同时还能避免多重继承的复杂性和低效性。</p>
+
+<h2 id="泛型">泛型</h2>
+
+<p>泛型总体来说有点像C++的模板，作用是对于不同的参数类型实现相同的方法，但是本质上Java的泛型和C++的模板还是很不一样的。</p>
+
+<h3 id="定义简单的泛型类">定义简单的泛型类</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">GenericTreeClass</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span> 
+		<span class="n">TNode</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TNode</span><span class="o">&lt;&gt;(</span><span class="s">&#34;Roo&#34;</span><span class="o">);</span>
+		<span class="n">t</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Left&#34;</span><span class="o">);</span> <span class="n">t</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Middle&#34;</span><span class="o">);</span> <span class="n">t</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;Right&#34;</span><span class="o">);</span>
+		<span class="n">t</span><span class="o">.</span><span class="na">getChild</span><span class="o">(</span><span class="n">0</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;aaa&#34;</span><span class="o">);</span>
+		<span class="n">t</span><span class="o">.</span><span class="na">getChild</span><span class="o">(</span><span class="n">0</span><span class="o">).</span><span class="na">add</span><span class="o">(</span><span class="s">&#34;bbb&#34;</span><span class="o">);</span>
+		<span class="n">t</span><span class="o">.</span><span class="na">traverse</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">TNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span>
+<span class="o">{</span>
+  <span class="kd">private</span> <span class="n">T</span> <span class="n">value</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">TNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">children</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+  <span class="n">TNode</span><span class="o">(</span><span class="n">T</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span> <span class="o">}</span> 
+  <span class="kd">public</span> <span class="n">T</span> <span class="nf">getValue</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">;</span> <span class="o">}</span> 
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">T</span> <span class="n">v</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">TNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">child</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TNode</span><span class="o">&lt;&gt;(</span><span class="n">v</span><span class="o">);</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">child</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="kd">public</span> <span class="n">TNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">getChild</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">((</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">0</span><span class="o">)</span> <span class="o">||</span> <span class="o">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">size</span><span class="o">()))</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">TNode</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;)</span><span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">traverse</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">value</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">TNode</span> <span class="n">child</span> <span class="o">:</span> <span class="k">this</span><span class="o">.</span><span class="na">children</span><span class="o">)</span>
+      <span class="n">child</span><span class="o">.</span><span class="na">traverse</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="泛型方法">泛型方法</h3>
+
+<p>泛型方法既可以定义在普通类中，也可以定义在泛型类中，<T>要放在函数的前面。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">GenericMethod</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">){</span> 
+		<span class="n">Date</span> <span class="n">date</span> <span class="o">=</span> <span class="n">BeanUtil</span><span class="o">.&lt;</span><span class="n">Date</span><span class="o">&gt;</span><span class="n">getInstance</span><span class="o">(</span><span class="s">&#34;java.util.Date&#34;</span><span class="o">);</span>
+		<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">date</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">BeanUtil</span><span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getInstance</span><span class="o">(</span> <span class="n">String</span> <span class="n">clzName</span> <span class="o">){</span>
+		<span class="k">try</span>
+		<span class="o">{</span>
+			<span class="n">Class</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">clzName</span><span class="o">);</span>
+			<span class="k">return</span> <span class="o">(</span><span class="n">T</span><span class="o">)</span> <span class="n">c</span><span class="o">.</span><span class="na">newInstance</span><span class="o">();</span>
+		<span class="o">}</span>
+		<span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">ex</span><span class="o">){}</span>
+		<span class="k">catch</span> <span class="o">(</span><span class="n">InstantiationException</span> <span class="n">ex</span><span class="o">){}</span>
+		<span class="k">catch</span> <span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">ex</span><span class="o">){}</span>
+		<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="类型变量的限定">类型变量的限定</h3>
+
+<p>1.使用？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">reverse</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">list</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>2.使用extends</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">addAll</span><span class="o">(</span><span class="n">Collection</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">col</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>3.使用super</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="n">fill</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">&gt;</span><span class="n">list</span><span class="o">,</span><span class="n">T</span> <span class="n">obj</span><span class="o">)</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>总体来说，泛型是比较高级的机制，有点难，之后有需求再详细学习。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-04-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java%E7%BC%96%E5%86%99%E4%B9%A0%E6%83%AF/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java编写习惯</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/spring-boot%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/">
+            <span class="next-text nav-default">Spring boot学习笔记2</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
