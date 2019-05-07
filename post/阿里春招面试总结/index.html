@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>阿里春招面试总结 - Even - A super concise theme for Hugo</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="CitrixQian" /><meta name="description" content="阿里巴巴春招面试总结 4月10日 阿里天猫部门技术一面（42分钟） 面试问题 简单的自我介绍（1分30秒） 讲一下做的这个Java Web的项目（2分钟" /><meta name="keywords" content="Java, Spring, Go" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.55.4 with even 4.0.0" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E9%98%BF%E9%87%8C%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="阿里春招面试总结" />
+<meta property="og:description" content="阿里巴巴春招面试总结 4月10日 阿里天猫部门技术一面（42分钟） 面试问题 简单的自我介绍（1分30秒） 讲一下做的这个Java Web的项目（2分钟" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E9%98%BF%E9%87%8C%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" />
+<meta property="article:published_time" content="2019-04-01T19:20:36&#43;00:00"/>
+<meta property="article:modified_time" content="2019-04-01T19:20:36&#43;00:00"/>
+
+<meta itemprop="name" content="阿里春招面试总结">
+<meta itemprop="description" content="阿里巴巴春招面试总结 4月10日 阿里天猫部门技术一面（42分钟） 面试问题 简单的自我介绍（1分30秒） 讲一下做的这个Java Web的项目（2分钟">
+
+
+<meta itemprop="datePublished" content="2019-04-01T19:20:36&#43;00:00" />
+<meta itemprop="dateModified" content="2019-04-01T19:20:36&#43;00:00" />
+<meta itemprop="wordCount" content="3196">
+
+
+
+<meta itemprop="keywords" content="阿里巴巴,面试," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="阿里春招面试总结"/>
+<meta name="twitter:description" content="阿里巴巴春招面试总结 4月10日 阿里天猫部门技术一面（42分钟） 面试问题 简单的自我介绍（1分30秒） 讲一下做的这个Java Web的项目（2分钟"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Citrix&#39;s PlayGround</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">阿里春招面试总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%98%A5%E6%8B%9B/"> 春招 </a>
+            </div>
+        <span id="busuanzi_container_page_pv" class="more-meta"> <span id="busuanzi_value_page_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次阅读 </span>
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#阿里巴巴春招面试总结">阿里巴巴春招面试总结</a>
+<ul>
+<li><a href="#4月10日-阿里天猫部门技术一面-42分钟">4月10日 阿里天猫部门技术一面（42分钟）</a>
+<ul>
+<li><a href="#面试问题">面试问题</a></li>
+<li><a href="#提问环节">提问环节</a></li>
+<li><a href="#总结">总结：</a></li>
+</ul></li>
+<li><a href="#4月16日-阿里天猫部门技术二面-74分钟">4月16日 阿里天猫部门技术二面（74分钟）</a>
+<ul>
+<li><a href="#面试问题-1">面试问题</a></li>
+<li><a href="#提问环节-1">提问环节</a></li>
+<li><a href="#总结-1">总结</a></li>
+</ul></li>
+<li><a href="#4月18日-阿里天猫部门boss三面-19分钟">4月18日 阿里天猫部门Boss三面（19分钟）</a>
+<ul>
+<li><a href="#面试问题-2">面试问题</a></li>
+<li><a href="#提问环节-2">提问环节</a></li>
+<li><a href="#总结-2">总结：</a></li>
+</ul></li>
+<li><a href="#4月22日-阿里其他部门交叉四面-12分钟">4月22日 阿里其他部门交叉四面（12分钟）</a>
+<ul>
+<li><a href="#面试问题-3">面试问题</a></li>
+<li><a href="#提问环节-3">提问环节</a></li>
+<li><a href="#总结-3">总结：</a></li>
+</ul></li>
+<li><a href="#4月23日-阿里天猫部门hr五面-12分钟">4月23日 阿里天猫部门HR五面（12分钟）</a>
+<ul>
+<li><a href="#面试问题-4">面试问题</a></li>
+<li><a href="#提问环节-4">提问环节</a></li>
+<li><a href="#总结-4">总结：</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<h1 id="阿里巴巴春招面试总结">阿里巴巴春招面试总结</h1>
+
+<h2 id="4月10日-阿里天猫部门技术一面-42分钟">4月10日 阿里天猫部门技术一面（42分钟）</h2>
+
+<h3 id="面试问题">面试问题</h3>
+
+<ol>
+<li>简单的自我介绍（1分30秒）</li>
+<li>讲一下做的这个Java Web的项目（2分钟）</li>
+<li>解释一下超卖的场景（4分钟）</li>
+<li>Redis最终是以什么方式实现的，讲一下原理（1分钟）</li>
+<li>只用Java来做同步的话能达到Redis一样的效果吗（呆了很久）</li>
+<li>synchronized其实是一种悲观锁的机制，除此之外还有其他锁的方式吗（居然没有答上来显式锁Lock）</li>
+<li>这个项目最终有上线吗（没有企业资质）</li>
+<li>前后端交互用的是什么（RestFul，Json）</li>
+<li>Get和Post有什么差异（语义，数据库，安全，长度限制）</li>
+<li>有没有更加安全的交互方式（HTTPS）</li>
+<li>HTTPS与HTTP的差别（加分点）</li>
+<li>如果你的应用忽然无法上线了，你会从那几个方面去排查（加分点）</li>
+<li>怎么判断服务器卡死（dns解析，top命令查看资源，查看tcp网络状态）</li>
+<li>实际中有用过软件进行排查吗（并没有）</li>
+<li>如何理解JVM的内存模型（加分点）</li>
+<li>Java Web的应用是如何部署的（Linux + Nginx + Tomcat）</li>
+<li>Tomcat里面部署了两个War包，有两个类名称一样，会不会冲突（丢分点）</li>
+<li>解释一下双亲委派机制（加分点）</li>
+<li>回到刚才的问题，Tomcat如何解决加载冲突的问题（每个War包实现自己的类加载器）</li>
+<li>数据库的索引，为什么索引查询会快一点（不是很好）</li>
+<li>数据库的最左匹配原则（丢分点）</li>
+<li>很长的字符串，从中统计出重复的数据，并且排序（不是很完善，还答错了一点，丢分点）</li>
+</ol>
+
+<h3 id="提问环节">提问环节</h3>
+
+<ul>
+<li>部门详细的业务开发（天猫双十一会场的数据支持，天猫营销技术）</li>
+<li>对我的建议是什么（在实践上有所欠缺，算法方面要做更加深入的了解）</li>
+</ul>
+
+<h3 id="总结">总结：</h3>
+
+<ul>
+<li>缺点：一直呃呃呃的，听上去很紧张，说话不利索</li>
+<li>优点：对懂的知识点讲的有理有据，能说出优缺点背景和实际使用场景</li>
+</ul>
+
+<h2 id="4月16日-阿里天猫部门技术二面-74分钟">4月16日 阿里天猫部门技术二面（74分钟）</h2>
+
+<h3 id="面试问题-1">面试问题</h3>
+
+<p>天猫营销技术部门的老师
+1. 自我介绍一下，介绍一下最近的项目（自我介绍1分半，项目介绍3分钟，加分点）
+2. 设计一个读写频率差异比较大的系统，会如何去设计？（主从分离，读写分离的思想，回答的有理有据，加分点）
+3. 缓存和数据库的同步问题以及一致性问题？（确认了一下问题后换了个问题）
+4. 主从数据库之间的同步机制（讲了Redis的全同步和部分同步的机制，加分点）
+5. 数据库中写的频率很高怎么办？（横向扩展加服务器，纵向扩展分表）
+6. 单台服务器的写上面还有什么可以继续优化? （副本的合并上应该有什么机制-&gt;应该提到合并读操作，或者是copyonwrite的思想，失分点）
+7. 一致性哈希能不能解释一下？（有理有据，加分点）
+8. spark和hadoop有了解吗？（说明上一问回答的不错，但是这个不会）
+9. 你对检索这块有多少了解？设计一个商品检索的引擎？只做精准匹配（确认问题的时候对面也答不上，换了个问题）
+10. 什么是哈希？汉字字符串如何做hash（hashcode先匹配，再对字符本身匹配，有点懵逼）
+11. 为什么用hashcode去做索引而不是直接拿字符串做索引？hash的实现方式有哪几种？（面试官提醒不要从语言上去解释，而是从数据结构上去分析）
+12. hashmap的查询复杂度是多少？数据结构如何实现？（这个背熟了，加分点）
+13. 关键性数据库的sql语句？inner join 与outer join的区别，以及left join与right join（懵逼，不会，失分点）
+14. 亿万级别的数存在若干个文件中，查询出最小的N个数？
+15. 给一堆词（亿万），先统计出词频，再进行排序？（提醒数字和词不一样，其实是要先求出hashcode，再进一步处理）
+16. 要考虑内存，要考虑字符串所占空间太大，要考虑分离数据后合并
+17. jvm的内存分配以及GC机制？（条理清晰，内容丰富，加分点）
+18. 概率论问题：54张牌分成三堆，大小王都在某一堆的概率有多少？（没有答上来，丢人）
+19. 帽子问题：从矮到高排成一队，高的人可以看到矮的人的帽子颜色，帽子颜色只有白黑两种，每个人只能说黑或者白一种，问如何设计策略使得报对帽子的人数最多，最多是几个（假设一共有N个）？（说出来建模成二进制的思路，但是没有回答上来，丢人）</p>
+
+<h3 id="提问环节-1">提问环节</h3>
+
+<ul>
+<li>部门对于暑期实习生的培养方案是怎么样的（会干正式的事情并且是主要的事情）</li>
+<li>部门所做的工作是（天猫营销平台，日常的营销还是活动的营销，主要做高并发的应用）</li>
+<li>之后会用到比较新的语言比如Go语言吗？（中台是用C++搞定的，应用开发用Java，暂时不会用其他语言，但不排除可能性）</li>
+<li>有女票嘛？实习时间多久？什么时候毕业？能来杭州吗？（跪舔ing）</li>
+</ul>
+
+<h3 id="总结-1">总结</h3>
+
+<ul>
+<li>面试的问题基本是围绕一个大问题慢慢展开的，所以要把握好对问题的引导，不要说一些自己不擅长的技术名词</li>
+<li>对于问题的回答逻辑相较于面试腾讯的时候有所提升，但是还可以进一步改进</li>
+<li>遇到不会的问题不要马上回避，可以尝试一下说一下基本的思路，答案不是最重要的，敢于解决面对问题的勇气和思路是最重要的</li>
+<li>数学基础忘的也太多了吧，两道题都没有做出来，之后可以整理归类一下</li>
+<li>整个面试过程保持乐观积极的态度，不会就不会，可以适当傻笑一下缓解气氛（？？？）</li>
+</ul>
+
+<h2 id="4月18日-阿里天猫部门boss三面-19分钟">4月18日 阿里天猫部门Boss三面（19分钟）</h2>
+
+<h3 id="面试问题-2">面试问题</h3>
+
+<ol>
+<li>简单介绍一下自己？（1分半）</li>
+<li>挑一个最近的项目讲一下？（5分半，加分点）</li>
+<li>讲一下WebSocket，讲一连接过程？（面试管想问的是WebSocket底层是如何用tcp实现的，我回答的不在点上，失分点）</li>
+<li>有了解过多线程嘛？（面试官没多问）</li>
+<li>统计字符串中出现的次数，然后根据次数排序（失分点，在回答map结构的排序时出错了，最后桶排强行续命）</li>
+</ol>
+
+<h3 id="提问环节-2">提问环节</h3>
+
+<ul>
+<li>有幸进入阿里的话，会解除到什么样的业务呢？（实际开发的业务）</li>
+<li>阿里的面试流程是怎么样的呢？（接下里可能还有交叉面和HR面）</li>
+<li>对我有什么学习上的建议吗？（广度和深度都要考虑到）</li>
+</ul>
+
+<h3 id="总结-2">总结：</h3>
+
+<ul>
+<li>提问环节中，对面老师回答问题后最好有个回应，不要嗯嗯嗯就没了</li>
+<li>boss面一般不问技术细节了，主要是问开放式的问题，考个解决思路</li>
+<li>对于算法基础还要在暑假恶补一下</li>
+</ul>
+
+<h2 id="4月22日-阿里其他部门交叉四面-12分钟">4月22日 阿里其他部门交叉四面（12分钟）</h2>
+
+<h3 id="面试问题-3">面试问题</h3>
+
+<p>简单介绍下自己？（1分半，有点紧张）
+将一下最近做的项目？（6分半，有点紧张）</p>
+
+<h3 id="提问环节-3">提问环节</h3>
+
+<p>请问您是什么BU的？（傻，明明知道是交叉面）
+阿里巴巴对实习生的培养方案是怎么样的？（不同部门不同。。。）
+对于实习生和在校生有什么建议吗，或者你们看着学生的那些品质呢？（不是看掌握了什么，而是看未来能做什么）</p>
+
+<h3 id="总结-3">总结：</h3>
+
+<p>对于项目的清晰介绍以及对自己项目的难点分析解决思路很重要，就算项目很low，是那种做烂了的商城项目，是做做CRUD的开发，只要把思路，原理，背景，优缺点，方案对比说清楚，那就是可以的</p>
+
+<h2 id="4月23日-阿里天猫部门hr五面-12分钟">4月23日 阿里天猫部门HR五面（12分钟）</h2>
+
+<h3 id="面试问题-4">面试问题</h3>
+
+<ol>
+<li>确认了简历信息</li>
+<li>从本科到硕士期间的学科变化的原因？硕士期间的学科和发布的论文（之前有准备过，OK）</li>
+<li>两年的无人机学习的产出是什么？知识层面或者是paper？（知识层面，开发性题目，封闭性题目，性格改变）</li>
+<li>有没有专利什么的保护你们的创意？（大四下写了篇专利）</li>
+<li>三个同学按照贡献度的话如何排名？客观的评价一下（实践能力，创意，团队沟通上去分析）</li>
+<li>东南大学这边是考研还是保研？研究方向是怎么选的？（准备过，OKOK）</li>
+<li>介绍一下中国研究生数模竞赛（面试官说只看过美国建模大赛？？？瞧不起我？）</li>
+<li>开放问题里面有提到看了很多计算机类的书籍，能介绍下如何学习这些知识的嘛？（带着问题去看书，及时做检查反馈）</li>
+<li>学习的过程中有没有和专业的人PK过，或者是通院系的同学？（有啊！）</li>
+<li>老家是哪里的？（浙江人，No Problem）</li>
+<li>如果来实习的话，什么时候能过来？（6月呗）</li>
+</ol>
+
+<h3 id="提问环节-4">提问环节</h3>
+
+<ul>
+<li>结果什么时候能知道呢？（每周五下午）</li>
+<li>阿里实习的转正比例高吗？（按照社招的流程来了，希望实习生都拿到offer，转正概率非常高）</li>
+</ul>
+
+<h3 id="总结-4">总结：</h3>
+
+<ul>
+<li>HR面字字诛心，问了很多直击心灵的问题，但是只要回答的有逻辑，体现出自己的思考在里面，实话实说就好了，也不用刻意回避某些问题</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">CitrixQian</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-04-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4/">阿里巴巴</a>
+          <a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/%E6%98%A5%E6%8B%9B%E6%80%BB%E7%BB%93%E4%B9%8B%E8%85%BE%E8%AE%AF/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">腾讯春招面试总结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E6%AF%8F%E5%91%A8%E6%80%BB%E7%BB%936/">
+            <span class="next-text nav-default">每周总结6</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/JackThinking" class="iconfont icon-github" title="github"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  <div class="busuanzi-footer">
+    <span id="busuanzi_container_site_pv"> 本站总访问量 <span id="busuanzi_value_site_pv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 次 </span>
+      <span class="division">|</span>
+    <span id="busuanzi_container_site_uv"> 本站总访客数 <span id="busuanzi_value_site_uv"><img src="/img/spinner.svg" alt="spinner.svg"/></span> 人 </span>
+  </div>
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">CitrixQian</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
