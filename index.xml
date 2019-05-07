@@ -6,10 +6,19 @@
     <description>Recent content on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 May 2019 19:20:36 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2019 19:20:36 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>阿里春招面试总结</title>
+      <link>http://localhost:1313/post/%E9%98%BF%E9%87%8C%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 06 May 2019 19:20:36 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E9%98%BF%E9%87%8C%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</guid>
+      <description>阿里巴巴春招面试总结 4月10日 阿里天猫部门技术一面（42分钟） 面试问题 简单的自我介绍（1分30秒） 讲一下做的这个Java Web的项目（2分钟</description>
+    </item>
     
     <item>
       <title>腾讯春招面试总结</title>
