@@ -859,13 +859,13 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/spring-boot/</loc>
+    <loc>http://localhost:1313/tags/spring-boot/</loc>
     <lastmod>2018-05-13T10:02:56+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/spring-boot/</loc>
+    <loc>http://localhost:1313/categories/spring-boot/</loc>
     <lastmod>2018-05-13T10:02:56+00:00</lastmod>
     <priority>0</priority>
   </url>
