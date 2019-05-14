@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 06 May 2019 19:20:36 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 21:36:32 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>网易互娱春招面试总结</title>
+      <link>http://localhost:1313/post/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sun, 12 May 2019 21:36:32 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E6%98%A5%E6%8B%9B%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/</guid>
+      <description>网易互娱春招面试总结 3月22日 基础技术平台开发一面（42分钟） 面试问题 你对linux这块熟悉吗？（简单的指令） 本科或者研究生阶段有学过操作系</description>
+    </item>
     
     <item>
       <title>阿里春招面试总结</title>
@@ -63,15 +72,6 @@
       
       <guid>http://localhost:1313/post/leetcode%E9%80%92%E5%BD%92%E6%80%BB%E7%BB%93/</guid>
       <description>257. Binary Tree Paths 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 public class Solution { public List&amp;lt;String&amp;gt; binaryTreePaths(TreeNode root) { List&amp;lt;String&amp;gt; res = new ArrayList&amp;lt;&amp;gt;(); helper(root, res, &amp;#34;&amp;#34;); return res; } private void helper(TreeNode root, List&amp;lt;String&amp;gt; res, String string) { if (root == null) { return; } if (root.left == null &amp;amp;&amp;amp; root.right == null) { res.add(string +</description>
-    </item>
-    
-    <item>
-      <title>网易互娱春招总结</title>
-      <link>http://localhost:1313/post/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E6%98%A5%E6%8B%9B%E6%80%BB%E7%BB%93/</link>
-      <pubDate>Mon, 01 Apr 2019 19:20:36 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/%E7%BD%91%E6%98%93%E4%BA%92%E5%A8%B1%E6%98%A5%E6%8B%9B%E6%80%BB%E7%BB%93/</guid>
-      <description>网易互娱基础平台开发二面记录 之前约了4月1号下午3点的网易互娱视频面试，也是我的第一次视频面试，表现的有点紧张，在此记录回顾一下。 面试主要是</description>
     </item>
     
     <item>
