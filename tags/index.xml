@@ -84,96 +84,6 @@
     </item>
     
     <item>
-      <title>Array and Strings</title>
-      <link>http://localhost:1313/tags/array-and-strings/</link>
-      <pubDate>Mon, 26 Nov 2018 19:58:07 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/array-and-strings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>java</title>
-      <link>http://localhost:1313/tags/java/</link>
-      <pubDate>Mon, 26 Nov 2018 19:58:07 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sorting and Searching</title>
-      <link>http://localhost:1313/tags/sorting-and-searching/</link>
-      <pubDate>Mon, 26 Nov 2018 19:48:47 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/sorting-and-searching/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linked List</title>
-      <link>http://localhost:1313/tags/linked-list/</link>
-      <pubDate>Tue, 30 Oct 2018 20:36:42 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/linked-list/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dynamic Programming</title>
-      <link>http://localhost:1313/tags/dynamic-programming/</link>
-      <pubDate>Sun, 21 Oct 2018 10:15:34 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/dynamic-programming/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Two Sum</title>
-      <link>http://localhost:1313/tags/two-sum/</link>
-      <pubDate>Mon, 15 Oct 2018 11:16:09 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/two-sum/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Treenode</title>
-      <link>http://localhost:1313/tags/treenode/</link>
-      <pubDate>Sun, 14 Oct 2018 15:15:09 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/treenode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Divide and Conquer</title>
-      <link>http://localhost:1313/tags/divide-and-conquer/</link>
-      <pubDate>Sun, 09 Sep 2018 19:50:55 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/divide-and-conquer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sort</title>
-      <link>http://localhost:1313/tags/sort/</link>
-      <pubDate>Sat, 18 Aug 2018 19:10:33 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/sort/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Stack</title>
-      <link>http://localhost:1313/tags/stack/</link>
-      <pubDate>Thu, 16 Aug 2018 11:20:04 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/stack/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JVM</title>
       <link>http://localhost:1313/tags/jvm/</link>
       <pubDate>Wed, 15 Aug 2018 10:41:50 +0000</pubDate>
@@ -183,20 +93,11 @@
     </item>
     
     <item>
-      <title>DFS</title>
-      <link>http://localhost:1313/tags/dfs/</link>
-      <pubDate>Sat, 11 Aug 2018 17:28:46 +0000</pubDate>
+      <title>java</title>
+      <link>http://localhost:1313/tags/java/</link>
+      <pubDate>Wed, 15 Aug 2018 10:41:50 +0000</pubDate>
       
-      <guid>http://localhost:1313/tags/dfs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Greedy</title>
-      <link>http://localhost:1313/tags/greedy/</link>
-      <pubDate>Fri, 20 Jul 2018 20:38:14 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/greedy/</guid>
+      <guid>http://localhost:1313/tags/java/</guid>
       <description></description>
     </item>
     
@@ -206,15 +107,6 @@
       <pubDate>Wed, 30 May 2018 19:27:12 +0000</pubDate>
       
       <guid>http://localhost:1313/tags/it%E7%B1%BB/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spring boot</title>
-      <link>http://localhost:1313/tags/spring-boot/</link>
-      <pubDate>Sun, 13 May 2018 10:02:56 +0000</pubDate>
-      
-      <guid>http://localhost:1313/tags/spring-boot/</guid>
       <description></description>
     </item>
     

@@ -6,28 +6,10 @@
     <description>Recent content in Java on Even - A super concise theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 18 May 2018 20:20:02 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 May 2018 21:46:24 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Java学习笔记5</title>
-      <link>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</link>
-      <pubDate>Fri, 18 May 2018 20:20:02 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05/</guid>
-      <description>还是要补充基础知识啊 反射 泛型 简单泛型类 1 2 3 4 5 6 7 8 9 10 11 12 13 14 public class Pair&amp;lt;T&amp;gt; { private T first; private T second; public Pair() { first = null; second = null; } public Pair(T first, T second) { this.first = first; this.second = second; } public T getFirst() {</description>
-    </item>
-    
-    <item>
-      <title>Java学习笔记4</title>
-      <link>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</link>
-      <pubDate>Mon, 14 May 2018 20:29:39 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04/</guid>
-      <description>包 使用包名的主要作用是确保类名的唯一性，而且从编译器的角度来看，嵌套的包之间没有任何的关系 类的导入 1.一个类可以使用所属包中的所有类，以及其</description>
-    </item>
     
     <item>
       <title>Java编写习惯</title>
@@ -36,24 +18,6 @@
       
       <guid>http://localhost:1313/post/java%E7%BC%96%E5%86%99%E4%B9%A0%E6%83%AF/</guid>
       <description>写好单词 写好变量 大小写:变量小写，方法小写，类名大写 长度:单子个字字母的变量只能在3/5内解决 含义:少用temp,it,do等没有意义的词</description>
-    </item>
-    
-    <item>
-      <title>Java学习笔记2</title>
-      <link>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</link>
-      <pubDate>Wed, 25 Apr 2018 15:42:06 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02/</guid>
-      <description>这次将书中第三章的其余内容进行扫尾工作，主要是详细介绍数组为主。 数组 之前在做LeetCode的时候，就发现大量涉及到字符串和数组的操作，所</description>
-    </item>
-    
-    <item>
-      <title>Java学习笔记1</title>
-      <link>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Tue, 24 Apr 2018 14:48:13 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
-      <description>正好最近完成了蒋老师的DES课程小作业，也是第一次用Java语言配合Intellij IDEA完成开发，中间遇到了一些问题，当时就在网上找找原</description>
     </item>
     
   </channel>

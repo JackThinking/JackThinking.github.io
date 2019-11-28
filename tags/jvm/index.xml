@@ -101,14 +101,5 @@
       <description>之前看JVM的书有点吃力，最近在看《深入分析java web》感觉里面讲JVM的知识虽然简略，但是容易理解，所以准备将看书过程中的几个要点进行</description>
     </item>
     
-    <item>
-      <title>Java JVM学习笔记1</title>
-      <link>http://localhost:1313/post/java-jvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</link>
-      <pubDate>Thu, 05 Jul 2018 14:18:01 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java-jvm%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01/</guid>
-      <description>光看书找不到重点，针对题目来学习一下《深入了理解Java虚拟机》。 以下哪个不属于JVM堆内存中的区域？ Java堆分为：新生代（一般是一个Ed</description>
-    </item>
-    
   </channel>
 </rss>
